@@ -3,5 +3,5 @@ vim.cmd("autocmd FileType markdown setlocal spell")
 
 -- .conf files in ~/.config/hypr/ are hyprlang
 vim.cmd([[
-  autocmd BufNewFile,BufRead ~/.config/hypr/*.conf setfiletype hyprlang
+  autocmd BufNewFile,BufRead ~/Dotfiles/hypr/*.conf setfiletype hyprlang
 ]])

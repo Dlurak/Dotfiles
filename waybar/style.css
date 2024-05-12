@@ -1,0 +1,111 @@
+@define-color neutral #1A1B26;
+@define-color pink #BB9AF7;
+@define-color green #9ECE6A;
+@define-color secondary #16161E;
+@define-color blue #7aa2f7;
+@define-color cyan #7DCFFF;
+
+* {
+	border: none;
+	border-radius: 10;
+    font-family: "JetbrainsMono Nerd Font";
+	font-size: 15px;
+	min-height: 10px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+    color: transparent;
+	background: transparent;
+}
+
+#workspaces {
+	background: @neutral;
+	margin-top: 6px;
+	margin-left: 12px;
+	font-size: 4px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}
+
+#workspaces button {
+	color: @green;
+	transition: none;
+	background: transparent;
+	font-size: 16px;
+	border-radius: 2px;
+}
+
+#workspaces button.active {
+	color: @pink;
+	background: @secondary;
+}
+
+#workspaces button:hover {
+	color: @pink;
+	background: @secondary;
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+#pulseaudio {
+	color: @neutral;
+	background: @blue;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}
+
+#custom-playerctl {
+	color: @neutral;
+	background: @cyan;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}
+
+#clock {
+	color: @neutral;
+	background: @green;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}
+
+#battery {
+	color: @neutral;
+	background: @pink;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 12px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}

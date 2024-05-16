@@ -6,6 +6,7 @@
 #############
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias cbr='cargo build --release'
 
 ############
 ## Prompt ##
@@ -20,9 +21,12 @@ source /usr/share/nvm/init-nvm.sh 2>/dev/null
 ###############
 ## VARIABLES ##
 ###############
-export PATH="$PATH:/home/dlurak/.cargo/bin"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
+export PATH="$PATH:/home/dlurak/.cargo/bin"
+export PATH=$BUN_INSTALL/bin:$PATH
+export PATH="/home/dlurak/.local/bin:$PATH"
+export BUN_INSTALL="$HOME/.bun"
 
 neofetch 

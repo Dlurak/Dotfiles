@@ -1,20 +1,24 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+local opt = vim.opt
 -- optionally enable 24-bit colour
-vim.opt.termguicolors = true
+opt.termguicolors = true
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+opt.nu = true
+opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
 vim.expandtab = true
 
-vim.opt.wrap = false
+opt.wrap = false
 
-vim.opt.spelllang = "en"
+opt.spelllang = "en"
 
 -- have 4 lines padding when scrolling
-vim.opt.scrolloff = 4
+opt.scrolloff = 4
+
+-- Disable the ~ for empty lines
+vim.wo.fillchars='eob: '

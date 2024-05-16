@@ -13,9 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	require("dlurak.plugins.tokyonight"),
-	require("dlurak.plugins.nvim-tree"),
 	require("dlurak.plugins.telescope"),
-	require("dlurak.plugins.nvim-surround"),
 	require("dlurak.plugins.undotree"),
 	require("dlurak.plugins.luasnip"),
 	require("dlurak.plugins.treesitter"),
@@ -24,8 +22,11 @@ require("lazy").setup({
 	require("dlurak.plugins.trouble"),
 	require("dlurak.plugins.neotest"),
 	require("dlurak.plugins.indent-blankline"),
-	require("dlurak.plugins.todo-comments"),
 	require("dlurak.plugins.tmux"),
+	require("dlurak.plugins.mini-files"),
+
+	require("dlurak.plugins.nvim-surround"),
+	require("dlurak.plugins.todo-comments"),
 
 	{
 		"williamboman/mason.nvim",

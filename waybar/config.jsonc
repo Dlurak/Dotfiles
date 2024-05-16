@@ -29,7 +29,8 @@
     },
 
 	"custom/playerctl": {
-		"": "playerctl play-pause",
+		"on-click": "playerctl play-pause",
+		"interval": 2,
 		"exec": "playerctl metadata title",
 		"format": "  {}"
 	}

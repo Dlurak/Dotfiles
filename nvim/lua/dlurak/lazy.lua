@@ -16,6 +16,7 @@ require("lazy").setup({
 	require("dlurak.plugins.telescope"),
 	require("dlurak.plugins.undotree"),
 	require("dlurak.plugins.luasnip"),
+	require("dlurak.plugins.nerdy"),
 	require("dlurak.plugins.treesitter"),
 	require("dlurak.plugins.harpoon"),
 	require("dlurak.plugins.neoformat"),
@@ -23,6 +24,7 @@ require("lazy").setup({
 	require("dlurak.plugins.neotest"),
 	require("dlurak.plugins.indent-blankline"),
 	require("dlurak.plugins.tmux"),
+
 	require("dlurak.plugins.mini-files"),
 
 	require("dlurak.plugins.nvim-surround"),

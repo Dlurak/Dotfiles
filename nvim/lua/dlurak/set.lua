@@ -2,8 +2,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 local opt = vim.opt
--- optionally enable 24-bit colour
-opt.termguicolors = true
 
 opt.nu = true
 opt.relativenumber = true

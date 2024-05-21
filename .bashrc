@@ -4,9 +4,13 @@
 #############
 ## ALIASES ##
 #############
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
+# Cargo
 alias cbr='cargo build --release'
+alias cb='cargo build'
+alias cip='cargo install --path .'
 
 ############
 ## Prompt ##

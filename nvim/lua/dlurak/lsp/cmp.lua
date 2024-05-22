@@ -1,5 +1,5 @@
 local cmp = require "cmp"
-local luasnip = require "luasnip"
+require("dlurak.snippets.init").register_cmp_source()
 
 cmp.setup {
     mapping = {
@@ -15,13 +15,14 @@ cmp.setup {
         ["<C-n>"] = cmp.mapping.select_next_item()
     },
     sources = {
+        {name = "snp"},
         {name = "nvim_lsp"},
         {name = "path"},
         {name = "buffer", keyword_length = 5}
     },
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            vim.snippet.expand(args.body)
         end
     }
 }

@@ -4,8 +4,13 @@
 #############
 ## ALIASES ##
 #############
-# alias ls='ls --color=auto'
+alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
+# Vim related
+alias :q='exit'
+alias :q='exit'
+alias :vim='nvim' # I often have this typo
 
 # Cargo
 alias cbr='cargo build --release'
@@ -25,12 +30,10 @@ source /usr/share/nvm/init-nvm.sh 2>/dev/null
 ###############
 ## VARIABLES ##
 ###############
+export EDITOR="nvim"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
-export EDITOR="nvim"
-export PATH="$PATH:/home/dlurak/.cargo/bin"
-export PATH=$BUN_INSTALL/bin:$PATH
-export PATH="/home/dlurak/.local/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:/home/dlurak/.local/bin:/home/dlurak/.cargo/bin:$PATH
 
 neofetch 

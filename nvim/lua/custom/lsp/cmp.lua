@@ -1,5 +1,5 @@
 local cmp = require "cmp"
-require("dlurak.snippets.init").register_cmp_source()
+require("custom.snippets.init").register_cmp_source()
 
 cmp.setup {
     mapping = {

@@ -1,5 +1,5 @@
-local on_attach = require("dlurak.lsp.utils").on_attach
-local merge_tables = require("dlurak.lsp.utils").merge_tables
+local on_attach = require("custom.lsp.utils").on_attach
+local merge_tables = require("custom.utils.tables").merge_tables
 require("mason").setup()
 
 local custom_languages = {
@@ -27,7 +27,7 @@ for _, value in ipairs(default_languages) do
     }
 end
 
-require("dlurak.lsp.svelte")
-require("dlurak.lsp.tsserver")
+require("custom.lsp.svelte")
+require("custom.lsp.tsserver")
 
-require("dlurak.lsp.cmp")
+require("custom.lsp.cmp")

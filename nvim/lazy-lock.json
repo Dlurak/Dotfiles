@@ -12,6 +12,7 @@
   "mason.nvim": { "branch": "main", "commit": "49ff59aded1047a773670651cfa40e76e63c6377" },
   "mini-git": { "branch": "main", "commit": "746696dd5db769cf6c809995adaab7cbfcdf6492" },
   "mini.files": { "branch": "main", "commit": "17684f78d0499f11e54fc980838cfef3cf5c7c72" },
+  "neodev.nvim": { "branch": "main", "commit": "ce9a2e8eaba5649b553529c5498acb43a6c317cd" },
   "neoformat": { "branch": "master", "commit": "4372abb846f43ec121df40e620682c985ebc8286" },
   "neotest": { "branch": "master", "commit": "5caac5cc235d495a2382bc2980630ef36ac87032" },
   "neotest-rust": { "branch": "main", "commit": "0418811e1e3499b2501593f2e131d02f5e6823d4" },

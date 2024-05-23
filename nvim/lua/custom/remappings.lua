@@ -21,6 +21,6 @@ end, {
 	desc = "Snippets | Jump to next input"
 })
 
-require("dlurak.remappings.splits")
-require("dlurak.remappings.spelling")
-require("dlurak.remappings.vertical")
+require("custom.remappings.splits")
+require("custom.remappings.spelling")
+require("custom.remappings.vertical")

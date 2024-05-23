@@ -1,8 +1,8 @@
 return {
 	snippets_by_filetype = {
-		typescript = require("dlurak.snippets.collection.typescript").typescript,
-		typescript_react = require("dlurak.snippets.collection.typescript").typescript_react,
-		markdown = require("dlurak.snippets.collection.markdown"),
+		typescript = require("custom.snippets.collection.typescript").typescript,
+		typescript_react = require("custom.snippets.collection.typescript").typescript_react,
+		markdown = require("custom.snippets.collection.markdown"),
 		javascript = {
 			{ trigger = 'fun', body = 'function ${1:name}(${2:args}) {\n\t$0\n}' },
 			{ trigger = 'arrow', body = 'const ${1:name} = (${2:args}) => {\n\t$0\n};' },

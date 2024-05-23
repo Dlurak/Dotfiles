@@ -1,4 +1,4 @@
-local on_attach = require("dlurak.lsp.utils").on_attach
+local on_attach = require("custom.lsp.utils").on_attach
 
 local lspconfig = require("lspconfig")
 

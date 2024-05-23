@@ -1,11 +1,8 @@
-local snippets = require("dlurak.snippets.my_snippets")
+local snippets = require("custom.snippets.my_snippets")
 local global_snippets = snippets.global_snippets
 local snippets_by_filetype = snippets.snippets_by_filetype
 
 local module = {}
-
--- for lsp to not give too many warnings
-local vim = vim
 
 function module.get_buf_snips()
 	local ft = vim.bo.filetype
@@ -34,7 +31,7 @@ end
 
 function module.expand_under_cursor()
 	local trigger, body, line, col = get_snippet()
-	if not trigger or not line or not col then
+	if not trigger or not body or not line or not col then
 		return false
 	end
 	-- remove trigger

@@ -1,15 +1,12 @@
 local cmp = require "cmp"
 
-local get_buf_snips = require("dlurak.snippets.utils").get_buf_snips
-local expand_under_cursor = require("dlurak.snippets.utils").expand_under_cursor
+local get_buf_snips = require("custom.snippets.utils").get_buf_snips
+local expand_under_cursor = require("custom.snippets.utils").expand_under_cursor
 
 ------------------------------------------------------------------------------------------------------
 --                                            From Reddit                                           --
 -- See https://new.reddit.com/r/neovim/comments/1cxfhom/builtin_snippets_so_good_i_removed_luasnip/ --
 ------------------------------------------------------------------------------------------------------
-
--- for lsp to not give too many warnings
-local vim = vim
 
 return {
 	register_cmp_source = function ()

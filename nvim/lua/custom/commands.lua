@@ -1,4 +1,5 @@
 local write_quit = {"Wq", "WQ"}
+local toggle_inlay_hints = require("custom.utils.vim").toggle_inlay_hints
 
 for _, value in ipairs(write_quit) do
 	vim.api.nvim_create_user_command(value, 'wq', {})
@@ -30,3 +31,8 @@ vim.api.nvim_create_user_command("Silicon", function (opts)
 
 	vim.cmd("!" .. cat .. head .. tail .. silicon)
 end, { range = true })
+
+
+vim.api.nvim_create_user_command("ToggleInlay", toggle_inlay_hints, {
+	desc = "LSP | Toggle inlay hints"
+})

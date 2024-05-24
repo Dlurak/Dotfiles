@@ -3,7 +3,7 @@ vim.g.loaded_netrwPlugin = 1
 
 local opt = vim.opt
 
-opt.nu = true
+opt.number = true
 opt.relativenumber = true
 
 opt.tabstop = 4
@@ -18,5 +18,12 @@ opt.spelllang = "en"
 -- have 4 lines padding when scrolling
 opt.scrolloff = 4
 
--- Disable the ~ for empty lines
-vim.wo.fillchars='eob: '
+-- Hightlight the current line number
+opt.cursorlineopt = "number"
+
+-- Fold using treesitter
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false
+
+opt.fillchars.eob = " "

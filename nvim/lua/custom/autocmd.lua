@@ -1,3 +1,5 @@
+local autcmd = vim.api.nvim_create_autocmd
+
 -- Markdown
 vim.cmd("autocmd FileType markdown setlocal spell")
 
@@ -12,4 +14,17 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 		if root then vim.uv.chdir(root) end
 	end,
+})
+
+-- Set cursorlineopt only for active buffer
+autcmd("BufEnter", {
+	callback = function()
+		vim.opt.cursorline = true
+	end
+});
+
+autcmd("BufLeave", {
+	callback = function()
+		vim.opt.cursorline = false
+	end
 })

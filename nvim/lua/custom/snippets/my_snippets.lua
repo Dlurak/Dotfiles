@@ -3,6 +3,7 @@ return {
 		typescript = require("custom.snippets.collection.typescript").typescript,
 		typescript_react = require("custom.snippets.collection.typescript").typescript_react,
 		markdown = require("custom.snippets.collection.markdown"),
+		lua = require("custom.snippets.collection.lua"),
 		javascript = {
 			{ trigger = 'fun', body = 'function ${1:name}(${2:args}) {\n\t$0\n}' },
 			{ trigger = 'arrow', body = 'const ${1:name} = (${2:args}) => {\n\t$0\n};' },

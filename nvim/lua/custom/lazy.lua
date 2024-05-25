@@ -15,7 +15,6 @@ require("lazy").setup({
 	require("custom.plugins.tokyonight"),
 	require("custom.plugins.telescope"),
 	require("custom.plugins.undotree"),
-	require("custom.plugins.nerdy"),
 	require("custom.plugins.treesitter"),
 	require("custom.plugins.harpoon"),
 	require("custom.plugins.neoformat"),
@@ -23,6 +22,7 @@ require("lazy").setup({
 	require("custom.plugins.neotest"),
 	require("custom.plugins.indent-blankline"),
 	require("custom.plugins.tmux"),
+	require("custom.plugins.boole"),
 
 	require("custom.plugins.mini-files"),
 	require("custom.plugins.mini-git"),
@@ -41,7 +41,7 @@ require("lazy").setup({
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
 		"edgedb/edgedb-vim",
-		"elkowar/yuck.vim"
+		"elkowar/yuck.vim",
+		"apple/pkl-neovim",
 	},
-
 })

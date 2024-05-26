@@ -4,8 +4,6 @@ require("custom.snippets.init").register_cmp_source()
 cmp.setup {
     mapping = {
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.close(),
         ["<C-z>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,

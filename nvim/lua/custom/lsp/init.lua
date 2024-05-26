@@ -31,10 +31,10 @@ for _, value in ipairs(default_languages) do
     }
 end
 
-require("custom.lsp.svelte")
-require("custom.lsp.tsserver")
-require("custom.lsp.rust")
-require("custom.lsp.json")
-require("custom.lsp.eslint")
+require("custom.lsp.collection.svelte")
+require("custom.lsp.collection.tsserver")
+require("custom.lsp.collection.rust")
+require("custom.lsp.collection.json")
+require("custom.lsp.collection.eslint")
 
 require("custom.lsp.cmp")

@@ -5,14 +5,18 @@ require("mason").setup()
 local custom_languages = {
     "svelte",
     "tsserver",
+    "rust_analyzer",
+	"jsonls",
+	"eslint"
 }
 
 local default_languages = {
     "lua_ls",
     "emmet_ls",
     "tailwindcss",
-    "rust_analyzer",
     "bashls",
+	"ruff",
+	"marksman",
 }
 
 local all_langs = merge_tables(custom_languages, default_languages)
@@ -29,5 +33,8 @@ end
 
 require("custom.lsp.svelte")
 require("custom.lsp.tsserver")
+require("custom.lsp.rust")
+require("custom.lsp.json")
+require("custom.lsp.eslint")
 
 require("custom.lsp.cmp")

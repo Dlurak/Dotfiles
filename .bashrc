@@ -35,5 +35,6 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:/home/dlurak/.local/bin:/home/dlurak/.cargo/bin:$PATH
+. "$HOME/.cargo/env"
 
 neofetch 

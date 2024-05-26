@@ -15,8 +15,8 @@ cmp.setup {
         ["<C-n>"] = cmp.mapping.select_next_item()
     },
     sources = {
-        {name = "snp"},
         {name = "nvim_lsp"},
+        {name = "snp"},
         {name = "path"},
         {name = "buffer", keyword_length = 5}
     },

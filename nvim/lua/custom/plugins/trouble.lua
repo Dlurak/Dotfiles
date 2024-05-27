@@ -1,9 +1,14 @@
+local keymap = require("custom.utils.namespaces").keymap
+local namespace = require("custom.utils.namespaces").namespaces.trouble
+
+local km = keymap(namespace)
+
 return {
 		'folke/trouble.nvim',
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
-			{"<leader>ee", "<cmd>TroubleToggle document_diagnostics<cr>"},
-			{"<leader>eo", "<cmd>Trouble document_diagnostics<cr>"},
-			{"<leader>ec", "<cmd>TroubleClose<cr>"},
+			{km("e"), "<cmd>TroubleToggle document_diagnostics<cr>"},
+			{km("o"), "<cmd>Trouble document_diagnostics<cr>"},
+			{km("c"), "<cmd>TroubleClose<cr>"},
 		}
 	}

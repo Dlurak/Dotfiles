@@ -1,11 +1,16 @@
+local keymap = require("custom.utils.namespaces").keymap
+local namespace = require("custom.utils.namespaces").namespaces.neotest
+
+local km = keymap(namespace)
+
 return {
 		"nvim-neotest/neotest",
 		lazy = true,
 		keys = {
-			{"<leader>tt", function () require("neotest").run.run() end},
-			{"<leader>tf", function () require("neotest").run.run(vim.fn.expand("%")) end},
-			{"<leader>tw", function () require("neotest").output.open() end},
-			{"<leader>ts", function () require("neotest").summary.toggle() end},
+			{km("t"), function () require("neotest").run.run() end},
+			{km("f"), function () require("neotest").run.run(vim.fn.expand("%")) end},
+			{km("w"), function () require("neotest").output.open() end},
+			{km("s"), function () require("neotest").summary.toggle() end},
 		},
 		dependencies = {
 			"rouge8/neotest-rust",

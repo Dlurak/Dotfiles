@@ -4,11 +4,23 @@ local namespace = require("custom.utils.namespaces").namespaces.trouble
 local km = keymap(namespace)
 
 return {
-		'folke/trouble.nvim',
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		keys = {
-			{km("e"), "<cmd>TroubleToggle document_diagnostics<cr>"},
-			{km("o"), "<cmd>Trouble document_diagnostics<cr>"},
-			{km("c"), "<cmd>TroubleClose<cr>"},
-		}
-	}
+	"folke/trouble.nvim",
+	keys = {
+		{
+			km("e"),
+			"<cmd>Trouble diagnostics toggle<cr>",
+			desc = "Diagnostics (Trouble)",
+		},
+		{
+			km("f"),
+			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			desc = "Buffer Diagnostics (Trouble)",
+		},
+		{
+			km("s"),
+			"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+			desc = "LSP Definitions / references / ... (Trouble)",
+		},
+	},
+	opts = {},
+}

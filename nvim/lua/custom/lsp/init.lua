@@ -9,7 +9,6 @@ local servers = {
 			"tsserver",
 			"rust_analyzer",
 			"jsonls",
-			"eslint"
 		},
 		default_config = {
 			"lua_ls",
@@ -44,6 +43,5 @@ require("custom.lsp.collection.svelte")
 require("custom.lsp.collection.tsserver")
 require("custom.lsp.collection.rust")
 require("custom.lsp.collection.json")
-require("custom.lsp.collection.eslint")
 
 require("custom.lsp.cmp")

@@ -17,6 +17,13 @@ alias cbr='cargo build --release'
 alias cb='cargo build'
 alias cip='cargo install --path .'
 
+# Hyprland
+alias window-class='hyprctl clients -j | jq ".[].class" -r'
+
+# tmux
+alias rename-session='tmux rename-session'
+alias rename-window='tmux rename-window'
+
 ############
 ## Prompt ##
 ############
@@ -35,6 +42,5 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:/home/dlurak/.local/bin:/home/dlurak/.cargo/bin:$PATH
-. "$HOME/.cargo/env"
 
 neofetch 

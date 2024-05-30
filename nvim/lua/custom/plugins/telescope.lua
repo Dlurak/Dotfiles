@@ -5,7 +5,10 @@ local km = keymap(namespace)
 
 return {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
-		dependencies = { 'nvim-lua/plenary.nvim' },
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			'nvim-lua/plenary.nvim'
+		},
 		keys = {
 			{ '<C-p>', function () require 'telescope.builtin'.git_files() end },
 			{ km('s'), function () require 'telescope.builtin'.grep_string({ search = vim.fn.input("Grep > ") }) end },

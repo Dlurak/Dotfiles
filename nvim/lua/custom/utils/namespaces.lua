@@ -8,6 +8,7 @@ module.namespaces = {
 	trouble = global_leader .. "e",
 	telescope = global_leader .. "p",
 	spelling = global_leader .. "l",
+	tabs = global_leader .. "f"
 }
 
 --- Generates a function to create key mappings under a given namespace.

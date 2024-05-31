@@ -3,21 +3,24 @@ local cmp = require "cmp"
 local get_buf_snips = require("custom.snippets.utils").get_buf_snips
 local expand_under_cursor = require("custom.snippets.utils").expand_under_cursor
 
+local module = {}
+
 ------------------------------------------------------------------------------------------------------
 --                                            From Reddit                                           --
 -- See https://new.reddit.com/r/neovim/comments/1cxfhom/builtin_snippets_so_good_i_removed_luasnip/ --
 ------------------------------------------------------------------------------------------------------
 
-return {
-	register_cmp_source = function ()
+function module.register_cmp_source()
 		local cmp_source = {}
-		cmp_source.new = function()
+
+		function cmp_source.new()
 			local self = setmetatable({ cache = {} }, { __index = cmp_source })
 			return self
 		end
 
-		cmp_source.complete = function(self, _, callback)
+		function cmp_source.complete(self, _, callback)
 			local bufnr = vim.api.nvim_get_current_buf()
+
 			if not self.cache[bufnr] then
 				local completion_items = vim.tbl_map(function(s)
 					return {
@@ -40,5 +43,6 @@ return {
 		end
 
 		require('cmp').register_source('snp', cmp_source.new())
-	end
-}
+end
+
+return module

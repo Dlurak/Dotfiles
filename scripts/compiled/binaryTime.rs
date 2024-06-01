@@ -3,7 +3,7 @@ use std::env;
 fn to_binary(num: u8) -> String {
     let string = format!("{:08b}", num);
 
-    return string.replace("1", "●").replace("0", "○");
+    string.replace("1", "●").replace("0", "○")
 }
 
 fn main() {

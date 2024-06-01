@@ -1,4 +1,5 @@
 local cmp = require "cmp"
+local colors = require("custom.constants.colors")
 require("custom.snippets.init").register_cmp_source()
 
 local kind_icons = {
@@ -29,6 +30,26 @@ local kind_icons = {
 	TypeParameter = "󰅲",
 }
 
+local source_name = {
+	nvim_lsp = "[LSP]",
+	snp = "[Snippet]",
+	path = "[Path]",
+	buffer = "[Buffer]",
+}
+
+
+----------------------
+-- Highlight groups --
+----------------------
+vim.api.nvim_set_hl(0, 'CmpBorder', { bg = colors.base_bg, fg = colors.primary_accent })
+
+local window_style = cmp.config.window.bordered {
+	scrollbar = false,
+	side_padding = 1,
+	border = 'rounded',
+	winhighlight = 'Normal:guibg,FloatBorder:CmpBorder,CursorLine:Visual,Search:None',
+}
+
 cmp.setup {
 	mapping = {
 		["<C-Space>"] = cmp.mapping.complete(),
@@ -41,27 +62,15 @@ cmp.setup {
 		["<C-n>"] = cmp.mapping.select_next_item()
 	},
 	sources = {
-		{name = "nvim_lsp"},
+		{name = "nvim_lsp", max_item_count = 10},
 		{name = "snp"},
 		{name = "path"},
-		{name = "buffer", keyword_length = 5}
-	},
-	snippet = {
-		expand = function(args)
-			vim.snippet.expand(args.body)
-		end
+		{name = "buffer", keyword_length = 5, max_item_count = 10}
 	},
 	formatting = {
 		format = function (entry, vim_item)
-			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-			vim_item.kind = kind_icons[vim_item.kind]
-
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				snp = "[Snippet]",
-				path = "[Path]",
-				buffer = "[Buffer]",
-			})[entry.source.name]
+			vim_item.kind = (kind_icons[vim_item.kind] or vim_item.kind) .. " "
+			vim_item.menu = source_name[entry.source.name]
 
 			return vim_item
 		end,
@@ -69,15 +78,7 @@ cmp.setup {
 		expandable_indicator = true
 	},
 	window = {
-		completion = {
-			scrollbar = false,
-			border = nil,
-			side_padding = 2,
-		},
-		documentation = {
-			scrollbar = false,
-			border = nil,
-			side_padding = 2,
-		}
-	}
+		completion = window_style,
+		documentation = window_style,
+	},
 }

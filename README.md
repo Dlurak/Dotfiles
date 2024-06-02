@@ -61,6 +61,16 @@ This aren't all but at least some keybindings:
 
 There are way more, maybe I will document more when I am motivated enough
 
+## Included "Programs"
+
+Under `./scripts/compiled/` you can find some very simple "programs":
+
+| Program    | Language | Feature                                        |
+| ---------- | -------- | ---------------------------------------------- |
+| binarytime | Rust     | Convert numbers to their binary representation |
+| colors     | C        | See some basic colors in the terminal          |
+| timestamp  | Swift    | Get the current timestamp                      |
+
 ## Notes
 
 I don't document which software in which version is needed. But the NeoVim needs to be at least 0.10

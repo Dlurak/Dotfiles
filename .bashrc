@@ -47,4 +47,6 @@ export LANG="en_US.UTF-8"
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:/home/dlurak/.local/bin:/home/dlurak/.cargo/bin:$PATH
 
+export THEME=$(cat /home/dlurak/.config/THEME | tr -d '\n')
+
 neofetch 

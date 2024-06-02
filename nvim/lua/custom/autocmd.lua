@@ -1,3 +1,5 @@
+local apply_theme = require("custom.utils.vim").apply_theme
+
 local autcmd = vim.api.nvim_create_autocmd
 
 -- Markdown
@@ -20,3 +22,6 @@ autcmd("BufLeave", {
 		vim.opt.cursorline = false
 	end
 })
+
+local timer = vim.loop.new_timer()
+timer:start(5000, 5000, vim.schedule_wrap(apply_theme))

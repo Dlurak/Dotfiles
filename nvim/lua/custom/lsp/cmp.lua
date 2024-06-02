@@ -1,5 +1,4 @@
 local cmp = require "cmp"
-local colors = require("custom.constants.colors")
 require("custom.snippets.init").register_cmp_source()
 
 local kind_icons = {
@@ -41,7 +40,7 @@ local source_name = {
 ----------------------
 -- Highlight groups --
 ----------------------
-vim.api.nvim_set_hl(0, 'CmpBorder', { bg = colors.base_bg, fg = colors.primary_accent })
+-- vim.api.nvim_set_hl(0, 'CmpBorder', { bg = colors.base_bg, fg = colors.primary_accent })
 
 local window_style = cmp.config.window.bordered {
 	scrollbar = false,

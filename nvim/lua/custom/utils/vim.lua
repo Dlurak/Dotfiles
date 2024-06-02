@@ -12,4 +12,22 @@ function module.snippet_jump(direction, alt)
 	end
 end
 
+function module.apply_theme()
+	local theme_file = io.open('/home/dlurak/.config/THEME', 'r')
+
+	--- @type 'dark' | 'light'
+	local theme = "dark"
+	if theme_file then
+		theme = theme_file:read()
+		theme_file:close()
+	end
+
+	local flavour = 'mocha'
+	if theme == 'light' then
+		flavour = 'latte'
+	end
+
+	vim.cmd.colorscheme('catppuccin-' .. flavour)
+end
+
 return module

@@ -4,6 +4,9 @@
 #############
 ## ALIASES ##
 #############
+alias t='tmuxinator start $(tmuxinator completions start | fzf)'
+
+# Quality of life
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias bat='bat --theme=tokyonight_night'

@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	require("custom.plugins.tokyonight"),
+	require("custom.plugins.catppuccin"),
 	require("custom.plugins.telescope"),
 	require("custom.plugins.undotree"),
 	require("custom.plugins.treesitter"),

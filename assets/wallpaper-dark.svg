@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="3840"
+   height="2160"
+   viewBox="0 0 3840 2160"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="wallpaper-dark.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#1e1e2e"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.26555591"
+     inkscape:cx="1924.2652"
+     inkscape:cy="915.06155"
+     inkscape:window-width="1876"
+     inkscape:window-height="1036"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="3397.6443"
+       y="593.62337"
+       width="629.66949"
+       height="287.83769"
+       id="rect2" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 1919.9598,863.83039 c -19.2431,47.17899 -30.8494,78.03946 -52.2741,123.81597 13.1359,13.92404 29.2599,30.13934 55.4448,48.45324 -28.1514,-11.5843 -47.3543,-23.2144 -61.7047,-35.2831 -27.4195,57.2149 -70.3777,138.7149 -157.5543,295.3531 68.5176,-39.5566 121.6315,-63.9434 171.1311,-73.2488 -2.1258,-9.142 -3.3342,-19.0306 -3.2518,-29.3485 l 0.08,-2.1948 c 1.0872,-43.8978 23.9229,-77.6547 50.9736,-75.3628 27.0505,2.292 48.0771,39.7574 46.99,83.6551 -0.2056,8.26 -1.1364,16.2062 -2.7643,23.5762 48.9619,9.5778 101.5078,33.9022 169.0984,72.9236 -13.3275,-24.537 -25.2237,-46.6553 -36.5838,-67.7206 -17.8943,-13.8694 -36.5587,-31.92 -74.6309,-51.4613 26.1684,6.7999 44.9051,14.6447 59.5096,23.4136 -115.503,-215.04582 -124.856,-243.62113 -164.4648,-336.57092 z"
+       id="path2518"
+       style="fill:#94e2d5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.60151" />
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;white-space:pre;inline-size:240.333;fill:#94e2d5;fill-opacity:1"
+       x="1618.7104"
+       y="1450.0225"
+       id="text1"
+       transform="matrix(2.0550041,0,0,2.0550041,-1629.9602,-1568.9793)"><tspan
+         x="1618.7104"
+         y="1450.0225"
+         id="tspan2">アーチ リナックス</tspan></text>
+  </g>
+</svg>

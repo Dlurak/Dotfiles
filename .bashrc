@@ -10,6 +10,7 @@ alias t='tmuxinator start $(tmuxinator completions start | fzf)'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias bat='bat --theme=tokyonight_night'
+alias cx='chmod +x'
 
 # Vim related
 alias :q='exit'

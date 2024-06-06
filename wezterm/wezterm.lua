@@ -39,4 +39,8 @@ config.font = wezterm.font_with_fallback {
 
 config.font_size = 13.5
 
+config.keys = {
+	{key="N", mods="CTRL|SHIFT", action="DisableDefaultAssignment"},
+}
+
 return config

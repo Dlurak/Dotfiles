@@ -7,24 +7,27 @@ local servers = {
 		custom_config = {
 			"svelte",
 			"tsserver",
-			"rust_analyzer",
 			"jsonls",
 		},
 		default_config = {
 			"lua_ls",
-			"emmet_ls",
+			"emmet_language_server",
 			"tailwindcss",
 			"bashls",
 			"ruff",
 			"marksman",
+			"v_analyzer",
+			"dockerls",
 		}
 	},
 	others = {
 		custom_config = {
-			"rust_analyzer"
+			-- This is only to make it easier to read, others.custom_config isn't used anywhere
+			"rust_analyzer",
+			"hyprls",
 		},
 		default_config = {
-			"sourcekit"
+			"sourcekit",
 		}
 	}
 }
@@ -43,5 +46,6 @@ require("custom.lsp.collection.svelte")
 require("custom.lsp.collection.tsserver")
 require("custom.lsp.collection.rust")
 require("custom.lsp.collection.json")
+require("custom.lsp.collection.hypr")
 
 require("custom.lsp.cmp")

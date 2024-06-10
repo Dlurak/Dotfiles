@@ -25,12 +25,12 @@ require("lazy").setup({
 	require("custom.plugins.boole"),
 
 	require("custom.plugins.mini-files"),
-	require("custom.plugins.mini-git"),
 
 	require("custom.plugins.nvim-surround"),
 	require("custom.plugins.todo-comments"),
 
 	require("custom.plugins.neodev"),
+	require("custom.plugins.gitsigns"),
 
 	{
 		"williamboman/mason.nvim",

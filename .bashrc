@@ -29,6 +29,8 @@ alias window-class='hyprctl clients -j | jq ".[].class" -r'
 alias rename-session='tmux rename-session'
 alias rename-window='tmux rename-window'
 
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
 ############
 ## Prompt ##
 ############

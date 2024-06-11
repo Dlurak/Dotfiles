@@ -25,6 +25,7 @@ local servers = {
 			-- This is only to make it easier to read, others.custom_config isn't used anywhere
 			"rust_analyzer",
 			"hyprls",
+			"commit-lsp",
 		},
 		default_config = {
 			"sourcekit",
@@ -47,5 +48,6 @@ require("custom.lsp.collection.tsserver")
 require("custom.lsp.collection.rust")
 require("custom.lsp.collection.json")
 require("custom.lsp.collection.hypr")
+require("custom.lsp.collection.commit")
 
 require("custom.lsp.cmp")

@@ -13,7 +13,7 @@ vim.expandtab = true
 
 opt.wrap = false
 
-opt.spelllang = "en"
+opt.spelllang = "de,en"
 
 -- have 4 lines padding when scrolling
 opt.scrolloff = 4

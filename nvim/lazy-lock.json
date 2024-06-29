@@ -9,7 +9,6 @@
   "harpoon": { "branch": "master", "commit": "ccae1b9bec717ae284906b0bf83d720e59d12b91" },
   "indent-blankline.nvim": { "branch": "master", "commit": "d98f537c3492e87b6dc6c2e3f66ac517528f406f" },
   "lazy.nvim": { "branch": "main", "commit": "cd6a8293430a7fadf6a093dfdfbdb1ddbaf8ae7d" },
-  "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "37a336b653f8594df75c827ed589f1c91d91ff6c" },
   "mason.nvim": { "branch": "main", "commit": "0950b15060067f752fde13a779a994f59516ce3d" },
   "mini.files": { "branch": "main", "commit": "05c861ff4066a9d20233ec776e9ec894ab9f19fe" },
@@ -32,5 +31,6 @@
   "todo-comments.nvim": { "branch": "main", "commit": "51e10f838e84b4756c16311d0b1ef0972c6482d2" },
   "trouble.nvim": { "branch": "main", "commit": "58a3acfc6d8d819324dab4c87068596319032e64" },
   "undotree": { "branch": "master", "commit": "56c684a805fe948936cda0d1b19505b84ad7e065" },
+  "vim-wakatime": { "branch": "master", "commit": "3cb40867cb5a3120f9bef76eff88edc7f1dc1a23" },
   "yuck.vim": { "branch": "master", "commit": "9b5e0370f70cc30383e1dabd6c215475915fe5c3" }
 }

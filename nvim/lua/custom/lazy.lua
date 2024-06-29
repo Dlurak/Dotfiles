@@ -32,6 +32,8 @@ require("lazy").setup({
 	require("custom.plugins.neodev"),
 	require("custom.plugins.gitsigns"),
 
+	{ 'wakatime/vim-wakatime', lazy = false },
+
 	{
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",

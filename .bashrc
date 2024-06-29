@@ -15,7 +15,6 @@ alias cx='chmod +x'
 # Vim related
 alias :q='exit'
 alias :q='exit'
-alias :vim='nvim' # I often have this typo
 
 # Cargo
 alias cbr='cargo build --release'
@@ -27,7 +26,7 @@ alias window-class='hyprctl clients -j | jq ".[].class" -r'
 
 # tmux
 alias rename-session='tmux rename-session'
-alias rename-window='tmux rename-window'
+alias rename-windmw='tmux rename-window'
 
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
@@ -51,5 +50,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:/home/dlurak/.local/bin:/home/dlurak/.cargo/bin:$PATH
 
 export THEME=$(cat /home/dlurak/.config/THEME | tr -d '\n')
+
+set -o vi
 
 neofetch 

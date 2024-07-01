@@ -29,6 +29,7 @@ local servers = {
 		},
 		default_config = {
 			"sourcekit",
+			"hls"
 		}
 	}
 }
@@ -38,9 +39,7 @@ require("mason-lspconfig").setup {
 }
 
 for _, value in ipairs(merge_tables(servers.mason.default_config, servers.others.default_config)) do
-	require("lspconfig")[value].setup {
-		on_attach = on_attach
-	}
+	require("lspconfig")[value].setup { on_attach = on_attach }
 end
 
 require("custom.lsp.collection.svelte")

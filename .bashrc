@@ -47,7 +47,7 @@ export EDITOR="nvim"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:/home/dlurak/.local/bin:/home/dlurak/.cargo/bin:$PATH
+export PATH=$BUN_INSTALL/bin:/home/dlurak/.local/bin:/home/dlurak/.cargo/bin:/home/dlurak/.ghcup/bin:$PATH
 
 export THEME=$(cat /home/dlurak/.config/THEME | tr -d '\n')
 

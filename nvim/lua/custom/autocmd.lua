@@ -10,14 +10,14 @@ vim.cmd([[
   autocmd BufNewFile,BufRead ~/Dotfiles/hypr/*.conf setfiletype hyprlang
 ]])
 
--- Set cursorlineopt only for active buffer
-autcmd("BufEnter", {
+-- Set cursorlineopt only for active window
+autcmd("WinEnter", {
 	callback = function()
 		vim.opt.cursorline = true
 	end
 });
 
-autcmd("BufLeave", {
+autcmd("WinLeave", {
 	callback = function()
 		vim.opt.cursorline = false
 	end

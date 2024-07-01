@@ -7,11 +7,7 @@
 
 int main() {
     for (short i = 0; i <= 15; i++) {
-        if (i < 10) {
-			printf(FG_COLOR "Color  %d" RESET_COLOR "   " BG_COLOR "  Color  %d  " RESET_COLOR "\n", i, i, i, i);
-        } else {
-			printf(FG_COLOR "Color %d" RESET_COLOR "   " BG_COLOR "  Color %d  " RESET_COLOR "\n", i, i, i, i);
-        }
+        printf(FG_COLOR "Color %2d" RESET_COLOR "   " BG_COLOR "  Color %2d  " RESET_COLOR "\n", i, i, i, i);
     }
 
     return 0;

@@ -1,37 +1,87 @@
 {
-	"layer": "top",
-	"modules-left": ["hyprland/workspaces"],
-	"modules-center": ["custom/playerctl"],
-	"modules-right": ["pulseaudio", "clock", "battery"],
-	
-	"pulseaudio": {
-		"tooltip": false,
-		"scroll-step": 1,
-		"format": "{icon} {volume}%",
-		"format-muted": "{icon} {volume}%",
-		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	"position": "top",
+	"margin-top" : 5,
+	"margin-left": 10,
+	"margin-right": 10,
+	"height" : 35,
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"hyprland/window"
+	],
+	"modules-right": [
+		"battery",
+		"pulseaudio",
+		"network",
+		"cpu",
+		"clock"
+	],
+	"hyprland/window": {
+		"format": "{}",
+		"max-length": 35,
+		"rewrite": {
+			"": "Hyprland"
+		},
+		"separate-outputs": true
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
 		"format-icons": {
-			"default": ["", ""]
+			"active": " "
+		},
+		"sort-by-number": true,
+		"persistent-workspaces": {
+			"*": 4, // 5 workspaces by default on every monitor
+			"HDMI-A-1": 3 // but only three on HDMI-A-1
 		}
 	},
-
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-
-	"custom/playerctl": {
-		"on-click": "playerctl play-pause",
-		"interval": 2,
-		"exec": "playerctl metadata title",
-		"format": "  {}"
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+	"cpu": {
+		"format": "  {usage}%",
+		"tooltip": false
+	},
+	"memory": {
+		"format": "{}%  "
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon}  {capacity}%",
+		"format-full": "{icon}  {capacity}%",
+		"format-charging": "  {capacity}%",
+		"format-plugged": "  {capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-icons": ["", "", "", "", ""]
+	},
+	"network": {
+		"format-wifi": "  {signalStrength}%",
+		"format-ethernet": "{cidr} ",
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"format-linked": "{ifname} (No IP)",
+		"format-disconnected": " ⚠ ",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"pulseaudio": {
+		"format": "{icon}  {volume}%",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": "󰝟 {format_source}",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""]
+		},
+		"on-click": "pavucontrol"
 	}
 }

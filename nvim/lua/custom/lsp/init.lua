@@ -8,6 +8,7 @@ local servers = {
 			"svelte",
 			"tsserver",
 			"jsonls",
+			"gopls",
 		},
 		default_config = {
 			"lua_ls",
@@ -48,5 +49,6 @@ require("custom.lsp.collection.rust")
 require("custom.lsp.collection.json")
 require("custom.lsp.collection.hypr")
 require("custom.lsp.collection.commit")
+require("custom.lsp.collection.go")
 
 require("custom.lsp.cmp")

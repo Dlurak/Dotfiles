@@ -1,111 +1,137 @@
-@define-color neutral #1A1B26;
-@define-color pink #BB9AF7;
-@define-color green #9ECE6A;
-@define-color secondary #16161E;
-@define-color blue #7aa2f7;
-@define-color cyan #7DCFFF;
+@import "mocha.css";
 
 * {
-	border: none;
-	border-radius: 10;
-    font-family: "JetbrainsMono Nerd Font";
-	font-size: 15px;
-	min-height: 10px;
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 18px;
 }
 
 window#waybar {
-	background: transparent;
+  background-color: @base;
+  border-radius: 13px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
-window#waybar.hidden {
-	opacity: 0.2;
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
 }
 
-#window {
-	margin-top: 6px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
-    color: transparent;
-	background: transparent;
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px #ffffff;
 }
 
-#workspaces {
-	background: @neutral;
-	margin-top: 6px;
-	margin-left: 12px;
-	font-size: 4px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+  background-color: @surface2;
 }
 
 #workspaces button {
-	color: @green;
-	transition: none;
-	background: transparent;
-	font-size: 16px;
-	border-radius: 2px;
-}
-
-#workspaces button.active {
-	color: @pink;
-	background: @secondary;
+  padding: 0 5px;
+  background-color: transparent;
+  color: #ffffff;
 }
 
 #workspaces button:hover {
-	color: @pink;
-	background: @secondary;
-	transition: none;
-	box-shadow: inherit;
-	text-shadow: inherit;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+  background-color: @lavender;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #64727d;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio {
+  padding: 0 10px;
 }
 
 #pulseaudio {
-	color: @neutral;
-	background: @blue;
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
+  color: @maroon;
 }
 
-#custom-playerctl {
-	color: @neutral;
-	background: @cyan;
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
+#network {
+  color: @yellow;
 }
 
-#clock {
-	color: @neutral;
-	background: @green;
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
+#temperature {
+  color: @sky;
 }
 
 #battery {
-	color: @neutral;
-	background: @pink;
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 12px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
+  color: @green;
+}
+
+#clock {
+  color: @flamingo;
+}
+
+#window {
+  color: @text;
+}
+
+.modules-right,
+.modules-left,
+.modules-center {
+  background-color: @base;
+  border-radius: 15px;
+}
+.modules-right {
+  padding: 0 10px;
+}
+
+.modules-left {
+  padding: 0 20px;
+}
+
+.modules-center {
+  padding: 0 10px;
+}
+#battery.charging,
+#battery.plugged {
+  color: @sapphire;
+}
+
+@keyframes blink {
+  to {
+    color: #000000;
+  }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#pulseaudio.muted {
+  color: @text;
 }

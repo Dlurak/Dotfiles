@@ -17,6 +17,6 @@ return {
 			{ km('k'), function () require 'telescope.builtin'.keymaps() end },
 			{ km('c'), function () require 'telescope.builtin'.git_commits() end },
 			{ km('g'), function () require 'telescope.builtin'.git_status() end },
-			{ km('l'), function () require 'telescope.builtin'.grep_string({  }) end },
+			{ km('l'), function () require 'telescope.builtin'.live_grep({  }) end },
 		}
 	}

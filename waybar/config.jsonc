@@ -13,8 +13,6 @@
 	"modules-right": [
 		"battery",
 		"pulseaudio",
-		"network",
-		"cpu",
 		"clock"
 	],
 	"hyprland/window": {
@@ -41,13 +39,6 @@
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"format-alt": "{:%Y-%m-%d}"
 	},
-	"cpu": {
-		"format": "  {usage}%",
-		"tooltip": false
-	},
-	"memory": {
-		"format": "{}%  "
-	},
 	"battery": {
 		"states": {
 			"warning": 30,
@@ -55,23 +46,14 @@
 		},
 		"format": "{icon}  {capacity}%",
 		"format-full": "{icon}  {capacity}%",
-		"format-charging": "  {capacity}%",
+		"format-charging": "󱐋  {capacity}%",
 		"format-plugged": "  {capacity}%",
 		"format-alt": "{time} {icon}",
 		"format-icons": ["", "", "", "", ""]
 	},
-	"network": {
-		"format-wifi": "  {signalStrength}%",
-		"format-ethernet": "{cidr} ",
-		"tooltip-format": "{ifname} via {gwaddr}",
-		"format-linked": "{ifname} (No IP)",
-		"format-disconnected": " ⚠ ",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}"
-	},
 	"pulseaudio": {
 		"format": "{icon}  {volume}%",
 		"format-bluetooth": "{volume}% {icon} {format_source}",
-		"format-bluetooth-muted": " {icon} {format_source}",
 		"format-muted": "󰝟 {format_source}",
 		"format-icons": {
 			"headphone": "",

@@ -1,5 +1,6 @@
 local write_quit = {"Wq", "WQ"}
 local toggle_inlay_hints = require("custom.utils.vim").toggle_inlay_hints
+local scratch            = require("custom.userFuncs.scratch")
 
 for _, value in ipairs(write_quit) do
 	vim.api.nvim_create_user_command(value, 'wq', {})
@@ -52,3 +53,10 @@ vim.api.nvim_create_user_command('CopyCodeBlock', function(opts)
   vim.fn.setreg('+', result)
   vim.notify 'Text copied to clipboard'
 end, { range = true })
+
+
+vim.api.nvim_create_user_command('Scratch', function()
+	scratch.scratch()
+end, {
+	desc = "Open a new scratchpad"
+})

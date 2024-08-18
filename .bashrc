@@ -30,6 +30,8 @@ alias rename-windmw='tmux rename-window'
 
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
+alias please="gum input --password --placeholder Password | sudo -nS"
+
 ############
 ## Prompt ##
 ############

@@ -1,0 +1,16 @@
+name: Rust
+
+# Not supported
+# pre_window: command
+# startup_window: Neovim
+# startup_pane: Neovim
+
+windows:
+  - name:  Neovim
+    panes:
+      - nvim
+  - name: Cargo
+    layout: even-horizontal
+    panes:
+      - cargo build
+      - cargo clippy

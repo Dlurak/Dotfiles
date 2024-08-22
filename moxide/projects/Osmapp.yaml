@@ -1,0 +1,10 @@
+name: OsmApp
+
+root_dir: ~/GitHub/osmapp/
+windows:
+  - name: Neovim
+    panes:
+      - nvim
+  - name: Server
+    panes:
+      - yarn run dev

@@ -1,0 +1,4 @@
+name: Dotfiles
+
+root_dir: ~/Dotfiles/
+template: Nvim

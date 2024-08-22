@@ -1,0 +1,4 @@
+- name: "Muxbar"
+  path: "~/SoftwareDevelopment/ricing/muxbar/"
+- name: "Downloads"
+  path: "~/Downloads/"

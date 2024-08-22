@@ -1,0 +1,11 @@
+name: Nvim
+
+# Not supported
+# pre_window: command
+# startup_window: Neovim
+# startup_pane: Neovim
+
+windows:
+  - name:  Neovim
+    panes:
+      - nvim

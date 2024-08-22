@@ -4,7 +4,8 @@
 #############
 ## ALIASES ##
 #############
-alias t='tmuxinator start $(tmuxinator completions start | fzf)'
+alias cd='z'
+
 
 # Quality of life
 alias ls='ls --color=auto'
@@ -13,7 +14,6 @@ alias bat='bat --theme=tokyonight_night'
 alias cx='chmod +x'
 
 # Vim related
-alias :q='exit'
 alias :q='exit'
 
 # Cargo
@@ -41,6 +41,7 @@ PS1='\e[35m[\t] \e[32m\u@\h\e[39m:\e[36m\w\n\e[39m$ '
 ## Sourcing ##
 ##############
 source /usr/share/nvm/init-nvm.sh 2>/dev/null
+eval "$(zoxide init bash)"
 
 ###############
 ## VARIABLES ##

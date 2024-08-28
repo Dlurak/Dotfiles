@@ -34,6 +34,7 @@ local source_name = {
 	snp = "[Snippet]",
 	path = "[Path]",
 	buffer = "[Buffer]",
+	latex_symbols = "[LaTeX]",
 }
 
 
@@ -81,3 +82,13 @@ cmp.setup {
 		documentation = window_style,
 	},
 }
+
+cmp.setup.filetype('tex', {
+  sources = cmp.config.sources({
+    {name = "nvim_lsp", max_item_count = 10},
+    {name = "snp"},
+    {name = "path"},
+    {name = "buffer", keyword_length = 5, max_item_count = 10},
+    {name = "latex_symbols", option = { strategy = 2 }, max_item_count = 10},
+  })
+})

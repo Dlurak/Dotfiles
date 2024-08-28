@@ -1,0 +1,4 @@
+name: Muxbar
+
+root_dir: ~/SoftwareDevelopment/ricing/muxbar/
+template: Rust

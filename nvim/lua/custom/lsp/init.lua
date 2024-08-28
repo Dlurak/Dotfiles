@@ -1,6 +1,14 @@
 local on_attach = require("custom.lsp.utils").on_attach
 local merge_tables = require("custom.utils.tables").merge_tables
-require("mason").setup()
+require("mason").setup({
+	ui = {
+		icons = {
+			package_pending = " ",
+			package_installed = " ",
+			package_uninstalled = " ",
+		},
+	},
+})
 
 local servers = {
 	mason = {

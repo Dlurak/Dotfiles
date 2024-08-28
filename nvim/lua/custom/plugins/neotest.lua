@@ -13,7 +13,6 @@ return {
 			{km("s"), function () require("neotest").summary.toggle() end},
 		},
 		dependencies = {
-			"rouge8/neotest-rust",
 			"marilari88/neotest-vitest",
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
@@ -23,7 +22,6 @@ return {
 		config = function()
 			require("neotest").setup({
 				adapters = {
-					require("neotest-rust"),
 					require("neotest-vitest"),
 				},
 			})

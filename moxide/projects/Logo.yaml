@@ -1,0 +1,10 @@
+name: Logo
+
+root_dir: ~/SoftwareDevelopment/web/logo/
+windows:
+  - name: Neovim
+    panes:
+      - nvim
+  - name: Server
+    panes:
+      - go run .

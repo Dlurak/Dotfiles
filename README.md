@@ -7,13 +7,16 @@ My dotfiles include configuration for these programs:
 - nvim
 - tmux
 - wezterm
+- waybar
+- moxide
+- zsh
 
 ## Abandoned configs
 
 Configs for these programs are also included even though I don't use them (anymore):
 
-- waybar
 - kitty
+- bash
 
 ## Screenshots
 
@@ -24,11 +27,12 @@ It is possible to quickly switch between a dark mode (Catppuccin-Mocha) and a li
 The lock screen has a minimal gradient and shows the time in binary.
 
 ![Neovim lsp](./assets/screenshots/cmp.png)
-NeoVim has an awesome LSP configuration. Optimized on Rust and Typescript.  
-The completion menu is really pretty
+NeoVim has an awesome LSP configuration. The completion menu is really pretty.
 
 ![Status bar](./assets/screenshots/muxbar.png)
-The status bar in tmux uses muxbar, it's very efficient, colorful and useful
+The tmux status bar uses muxbar. As a session manager moxide is used.
+
+![Overview](./assets/screenshots/overview.png)
 
 ## Keybindings
 

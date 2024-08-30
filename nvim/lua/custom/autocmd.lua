@@ -25,3 +25,9 @@ autcmd("WinLeave", {
 
 local timer = vim.loop.new_timer()
 timer:start(5000, 5000, vim.schedule_wrap(apply_theme))
+
+
+vim.api.nvim_create_user_command('StopThemeSwitch', function ()
+	timer:stop()
+end, {})
+

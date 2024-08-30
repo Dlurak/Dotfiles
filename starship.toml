@@ -1,0 +1,65 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+format = """
+[╭───⟶ $time ⟵────────────⟶](bold green)\
+$cmd_duration\
+$git_branch$git_state$git_metrics\
+$package$golang$haskell$kotlin$nodejs$bun$rust
+[│](bold green) $sudo$directory
+$character"""
+
+[character]
+success_symbol = '[╰─⟶](bold green) '
+error_symbol = '[╰─⟶](bold green) '
+vimcmd_symbol = '[╰─<](bold green) '
+
+[cmd_duration]
+show_milliseconds = true
+format = " [ $duration]($style)"
+style = 'bold yellow'
+
+[git_branch]
+truncation_length = 16
+truncation_symbol = ''
+ignore_branches = ['master', 'main']
+format=' on [$symbol$branch(:$remote_branch)]($style)'
+
+[git_metrics]
+added_style = 'bold blue'
+format = ' [+$added]($added_style)/[-$deleted]($deleted_style)'
+only_nonzero_diffs = false
+disabled = false
+
+[golang]
+symbol = ' '
+format = ' [$symbol($version )]($style)'
+
+[haskell]
+style = '93 bold'
+format = ' [$symbol($version )]($style)'
+
+[nodejs]
+detect_files = ['package.json', '.node-version', '!bunfig.toml', '!bun.lockb']
+format = ' [$symbol($version )]($style)'
+
+[package]
+symbol = '📦 '
+format = ' [$symbol$version](purple bold)'
+
+[rust]
+symbol = '󱘗 '
+style = '208 bold'
+format = ' [$symbol($version )]($style)'
+
+[sudo]
+format = '[]($style) '
+style = '111'
+disabled = false
+
+[time]
+disabled = false
+format = "[$time]($style)"

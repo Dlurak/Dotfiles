@@ -9,7 +9,6 @@ compinit
 #############
 alias cd='z'
 
-
 # Quality of life
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -30,6 +29,8 @@ alias window-class='hyprctl clients -j | jq ".[].class" -r'
 # tmux
 alias rename-session='tmux rename-session'
 alias rename-windmw='tmux rename-window'
+
+alias mox='/home/dlurak/Dotfiles/scripts/shell/moxide.sh'
 
 ##############
 ## Sourcing ##

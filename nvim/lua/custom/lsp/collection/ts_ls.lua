@@ -2,7 +2,7 @@ local on_attach = require("custom.lsp.utils").on_attach
 
 local lspconfig = require("lspconfig")
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
 	init_options = {
 		preferences = {
 			includeInlayParameterNameHints = "all",

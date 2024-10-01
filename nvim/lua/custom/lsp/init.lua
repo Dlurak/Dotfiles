@@ -14,7 +14,7 @@ local servers = {
 	mason = {
 		custom_config = {
 			"svelte",
-			"tsserver",
+			"ts_ls",
 			"jsonls",
 			"gopls",
 		},
@@ -27,6 +27,7 @@ local servers = {
 			"marksman",
 			"v_analyzer",
 			"dockerls",
+			"clangd",
 		}
 	},
 	others = {
@@ -52,7 +53,7 @@ for _, value in ipairs(merge_tables(servers.mason.default_config, servers.others
 end
 
 require("custom.lsp.collection.svelte")
-require("custom.lsp.collection.tsserver")
+require("custom.lsp.collection.ts_ls")
 require("custom.lsp.collection.rust")
 require("custom.lsp.collection.json")
 require("custom.lsp.collection.hypr")

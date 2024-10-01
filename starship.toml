@@ -4,13 +4,22 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
+# format = """
+# [╭───⟶ $time ⟵────────────⟶](bold green)\
+# $cmd_duration\
+# $git_branch$git_state$git_metrics\
+# $package$golang$haskell$kotlin$nodejs$bun$rust
+# [│](bold green) $sudo$directory
+# $character"""
+
 format = """
-[╭───⟶ $time ⟵────────────⟶](bold green)\
+[╭───⟶ $time ⟵──────⟶](bold green)\
+$sudo $directory\
 $cmd_duration\
 $git_branch$git_state$git_metrics\
 $package$golang$haskell$kotlin$nodejs$bun$rust
-[│](bold green) $sudo$directory
 $character"""
+# [│](bold green) $sudo$directory
 
 [character]
 success_symbol = '[╰─⟶](bold green) '
@@ -45,6 +54,7 @@ format = ' [$symbol($version )]($style)'
 [nodejs]
 detect_files = ['package.json', '.node-version', '!bunfig.toml', '!bun.lockb']
 format = ' [$symbol($version )]($style)'
+version_format = '${major}'
 
 [package]
 symbol = '📦 '

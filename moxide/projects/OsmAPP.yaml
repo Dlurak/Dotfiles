@@ -1,4 +1,4 @@
-name: OsmApp
+name: OsmAPP
 
 root_dir: ~/GitHub/osmapp/
 windows:
@@ -7,4 +7,4 @@ windows:
       - nvim
   - name: Server
     panes:
-      - yarn run dev
+      - nvm use 20 && yarn run dev

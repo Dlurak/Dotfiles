@@ -26,4 +26,4 @@ opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
 
-opt.fillchars.eob = " "
+vim.opt.fillchars:append({ eob = " " })

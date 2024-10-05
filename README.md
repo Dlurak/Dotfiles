@@ -7,7 +7,7 @@ My dotfiles include configuration for these programs:
 - nvim
 - tmux
 - wezterm
-- waybar
+- ags
 - moxide
 - zsh
 

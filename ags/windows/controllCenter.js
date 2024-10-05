@@ -17,27 +17,28 @@ const close = () => App.closeWindow("controll-center");
 
 function getChildren(focused) {
   return focused.bind("value").as((focused) => {
-    if (focused === "notifications") {
-      return [NotificationCenter()];
+    switch (focused) {
+      case "notifications":
+        return [NotificationCenter()];
+      case "audio":
+        return [Mixer()];
+      default:
+        return [
+          Widget.Box({
+            spacing: 6,
+            hexpand: true,
+            children: [ConnectivityBox(), QuickButtons()],
+          }),
+          Widget.Box({
+            spacing: 6,
+            hexpand: true,
+            children: [PowerSaving(), DoNotDisturb()],
+          }),
+          SliderSection(),
+          MusicSection(),
+          PowerSection(),
+        ];
     }
-    if (focused === "audio") {
-      return [Mixer()];
-    }
-    return [
-      Widget.Box({
-        spacing: 6,
-        hexpand: true,
-        children: [ConnectivityBox(), QuickButtons()],
-      }),
-      Widget.Box({
-        spacing: 6,
-        hexpand: true,
-        children: [PowerSaving(), DoNotDisturb()],
-      }),
-      SliderSection(),
-      MusicSection(),
-      PowerSection(),
-    ];
   });
 }
 

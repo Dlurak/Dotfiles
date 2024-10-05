@@ -38,9 +38,35 @@ function Player(player) {
         Widget.Box({
           vertical: true,
           children: [
-            Widget.Label({
-              hpack: "start",
-              label: player.bind("track_title").as(shortenString),
+            Widget.Box({
+              hexpand: true,
+              children: [
+                Widget.Label({
+                  hpack: "start",
+                  label: player.bind("track_title").as(shortenString),
+                }),
+                Widget.Box({ hexpand: true }),
+                Widget.Button({
+                  hpack: "end",
+                  onClicked: () => player.loop(),
+                  visible: player
+                    .bind("loop-status")
+                    .as((status) => status !== null),
+                  child: Widget.Label({
+                    label: player.bind("loop-status").as((status) => {
+                      switch (status) {
+                        case "None":
+                          return "󰑗";
+                        case "Track":
+                          return "󰑘";
+                        case "Playlist":
+                          return "󰑖";
+                      }
+                      return "";
+                    }),
+                  }),
+                }),
+              ],
             }),
             Widget.Label({
               hpack: "start",

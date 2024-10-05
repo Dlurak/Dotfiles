@@ -82,8 +82,8 @@ window.controll-center {
 }
 
 .img {
-  min-width: 75px;
-  min-height: 75px;
+  min-width: 100px;
+  min-height: 100px;
   background-size: cover;
   background-position: center;
   border-radius: 6px;

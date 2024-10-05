@@ -1,4 +1,4 @@
-import { NotificationIcon } from '../utils.js';
+import { NotificationIcon } from "../utils.js";
 
 const notifications = await Service.import("notifications");
 
@@ -86,6 +86,7 @@ export function NotificationPopups() {
     name: "notifications",
     class_name: "notification-popups",
     anchor: ["top", "right"],
+    visible: notifications.bind("popups").as((n) => n.length > 0),
     child: Widget.Box({
       css: "min-width: 2px; min-height: 2px;",
       class_name: "notifications",

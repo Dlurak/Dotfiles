@@ -80,19 +80,19 @@ export function BatteryLabel() {
   const icon = battery
     .bind("percent")
     .as((p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`);
-  const color = battery.bind("percent").as((p) => {
+  const state = battery.bind("percent").as((p) => {
     if (p <= 20) {
-      return "red";
+      return "error";
     }
     if (p <= 50) {
-      return "yellow";
+      return "warning";
     }
-    return "green";
+    return "success";
   });
 
   return Widget.Box({
     spacing,
-    class_name: color.as((c) => `battery-${c}`),
+    class_name: state,
     visible: battery.bind("available"),
     children: [
       Widget.Icon({ icon }),

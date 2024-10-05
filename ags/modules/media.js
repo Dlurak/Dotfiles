@@ -7,7 +7,7 @@ const NEXT_ICON = "media-skip-forward-symbolic";
 
 const mpris = await Service.import("mpris");
 
-export function Media({ onSecondaryClick }) {
+export function Media() {
   const label = Utils.watch("", mpris, "player-changed", () => {
     if (mpris.players[0]) {
       const { track_artists, track_title } = mpris.players[0];
@@ -29,9 +29,14 @@ export function Media({ onSecondaryClick }) {
         }),
         Widget.Button({
           class_name: "media",
-          on_primary_click: () => mpris.getPlayer("")?.playPause(),
+          on_primary_click: () => {
+            const windowIsOpned =
+              App.getWindow("media-window")?.visible ?? false;
+            if (windowIsOpned) App.closeWindow("media-window");
+            else mpris.getPlayer("")?.playPause();
+          },
           on_secondary_click: () => {
-            if (onSecondaryClick) onSecondaryClick();
+            App.toggleWindow("media-window");
           },
           child: Widget.Label({ label }),
         }),

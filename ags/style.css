@@ -1,3 +1,9 @@
+window {
+  background-color: @theme_bg_color;
+  color: @theme_fg_color;
+  border-radius: 8px;
+}
+
 slider {
   all: unset;
 }
@@ -17,15 +23,19 @@ label {
   font-weight: bold;
 }
 
+.success {
+  color: @success_color;
+}
+.warning {
+  color: @warning_color;
+}
+.error {
+  color: @error_color;
+}
+
 /*********/
 /** Bar **/
 /*********/
-
-window.bar {
-  background-color: @theme_bg_color;
-  color: @theme_fg_color;
-  border-radius: 8px;
-}
 
 levelbar block,
 highlight {
@@ -77,6 +87,17 @@ window.controll-center {
   background-size: cover;
   background-position: center;
   border-radius: 6px;
+}
+
+.recording.active {
+  color: @error_color;
+}
+
+.semi-button-icon {
+  border-radius: 100px;
+  min-width: 40px;
+  min-height: 40px;
+  margin-left: -5px;
 }
 
 /*******************/

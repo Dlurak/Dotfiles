@@ -33,7 +33,7 @@ export function Bar({ onIconClick = () => {}, monitor = 0 }) {
       }),
       center_widget: Widget.Box({
         spacing,
-        children: [Media({ onSecondaryClick: () => gotoWorkspace(9) })],
+        children: [Media()],
       }),
       end_widget: Widget.Box({
         spacing,

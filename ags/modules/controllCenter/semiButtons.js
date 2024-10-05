@@ -1,7 +1,7 @@
 const powerProfiles = await Service.import("powerprofiles");
 const notifications = await Service.import("notifications");
 
-const semiButton = (callback, label, icon, secondaryLabel) =>
+const semiButton = (callback, label, icon, secondaryLabel, css) =>
   Widget.Button({
     className: "cc-group",
     hexpand: true,
@@ -11,8 +11,9 @@ const semiButton = (callback, label, icon, secondaryLabel) =>
       margin: 8,
       children: [
         Widget.Label({
-          label: icon,
-          margin: 6,
+          className: "semi-button-icon",
+          css,
+          label: `${icon} `,
         }),
         Widget.Box({
           vertical: true,
@@ -47,6 +48,18 @@ export const PowerSaving = () =>
     "Power Saving",
     "",
     powerProfiles.bind("active_profile"),
+    powerProfiles.bind("active_profile").as((profile) => {
+      if (profile === "power-saver") {
+        return `
+		  background: @warning_color;
+		  color: black;
+		  `;
+      }
+      return `
+		  background: transparent;
+		  color: inherit;
+		  `;
+    }),
   );
 
 export const DoNotDisturb = () =>
@@ -59,4 +72,7 @@ export const DoNotDisturb = () =>
     notifications
       .bind("dnd")
       .as((dnd) => (dnd ? "Do Not Disturb" : "Please Disturb")),
+    notifications
+      .bind("dnd")
+      .as((dnd) => (dnd ? "background: #b4befe;" : "background: transparent;")),
   );

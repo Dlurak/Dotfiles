@@ -3,6 +3,7 @@ import {
   ControllCenter,
   Bar,
   NotificationPopups,
+  MediaWindow,
 } from "./windows/index.js";
 
 App.config({
@@ -12,6 +13,7 @@ App.config({
     NotificationPopups(),
     ControllCenter(),
     PowerMenu(),
+    MediaWindow(),
   ],
 });
 

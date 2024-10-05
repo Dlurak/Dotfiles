@@ -1,11 +1,25 @@
 const spacing = 8;
 
-const QuickButton = ({ label, command }) =>
+const isRecording = Variable(false);
+
+const QuickButton = ({
+  label,
+  command,
+  callback = () => {},
+  errorCallback = () => {},
+  isRecordingButton = false,
+}) =>
   Widget.Button({
     child: Widget.Label(label),
-    className: "cc-group cc-quick-button",
+    className: isRecording.bind("value").as((records) => {
+      const base = "cc-group cc-quick-button";
+      if (!isRecordingButton) return base;
+
+      return `${base} recording${records ? " active" : ""}`;
+    }),
     onPrimaryClick: () => {
-      Utils.execAsync(command).catch(print);
+      callback();
+      Utils.execAsync(command).catch(errorCallback);
       App.closeWindow("controll-center");
     },
   });
@@ -24,7 +38,12 @@ export const QuickButtons = () =>
             command: ["bash", "-c", 'grim -g "$(slurp)" - | wl-copy'],
           }),
           QuickButton({
+            isRecordingButton: true,
             label: "",
+            callback: () => (isRecording.value = !isRecording.value),
+            errorCallback: () => {
+              isRecording.value = false;
+            },
             command: [
               "bash",
               "-c",

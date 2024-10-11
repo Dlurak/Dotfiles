@@ -35,7 +35,6 @@ alias mox='/home/dlurak/Dotfiles/scripts/shell/moxide.sh'
 ##############
 ## Sourcing ##
 ##############
-source /usr/share/nvm/init-nvm.sh 2>/dev/null
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
@@ -43,11 +42,6 @@ eval "$(fzf --zsh)"
 ###############
 ## VARIABLES ##
 ###############
-export EDITOR="nvim"
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:/home/dlurak/.local/bin:/home/dlurak/.cargo/bin:/home/dlurak/.ghcup/bin:$PATH
 export THEME=$(cat /home/dlurak/.config/THEME | tr -d '\n')
 
 ##############
@@ -72,4 +66,4 @@ setopt hist_find_no_dups
 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-retch
+fastfetch

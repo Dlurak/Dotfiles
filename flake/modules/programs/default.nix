@@ -6,5 +6,7 @@
     ./utils.nix
     ./cliMinimal.nix
     ./dev.nix
+    ./zshShell.nix
+    ./cliRandom.nix
   ];
 }

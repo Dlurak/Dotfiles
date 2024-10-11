@@ -26,7 +26,7 @@ export function Bar({ onIconClick = () => {}, monitor = 0 }) {
           Widget.Button({
             className: "system-button",
             onPrimaryClick: onIconClick,
-            child: Widget.Label("󰣇"),
+            child: Widget.Label(" "),
           }),
           Workspaces(),
         ],

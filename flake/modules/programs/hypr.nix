@@ -10,6 +10,7 @@
 
   config = lib.mkIf config.program.hypr.enable {
     environment.systemPackages = with pkgs; [
+      glib
       wl-clipboard
       grim
       slurp
@@ -21,5 +22,6 @@
       google-cursor
     ];
     programs.hyprland.enable = true;
+    services.gvfs.enable = true;
   };
 }

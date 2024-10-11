@@ -16,8 +16,6 @@ My dotfiles include configuration for these programs:
 
 Configs for these programs are also included even though I don't use them (anymore):
 
-- wezterm
-- waybar
 - bash
 
 ## Screenshots
@@ -46,7 +44,7 @@ This aren't all but at least some keybindings:
 
 | Keybinding         | Action          |
 | ------------------ | --------------- |
-| `Super` + `Return` | Wezterm         |
+| `Super` + `Return` | Kitty           |
 | `Super` + `w`      | Firefox         |
 | `Super` + `n`      | Thunar          |
 | `Super` + `d`      | wofi (launcher) |

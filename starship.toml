@@ -17,7 +17,7 @@ format = """
 $sudo $directory\
 $cmd_duration\
 $git_branch$git_state$git_metrics\
-$package$golang$haskell$kotlin$nodejs$bun$rust
+$package
 $character"""
 # [│](bold green) $sudo$directory
 

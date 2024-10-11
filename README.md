@@ -2,11 +2,12 @@
 
 My dotfiles include configuration for these programs:
 
+- nix
 - hyprland
   - hyprlock
 - nvim
 - tmux
-- wezterm
+- kitty
 - ags
 - moxide
 - zsh
@@ -15,7 +16,8 @@ My dotfiles include configuration for these programs:
 
 Configs for these programs are also included even though I don't use them (anymore):
 
-- kitty
+- wezterm
+- waybar
 - bash
 
 ## Screenshots

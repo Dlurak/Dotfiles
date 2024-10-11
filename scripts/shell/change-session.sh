@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 session=$(tmux ls -F '#S' | fzf \
 	--layout reverse \

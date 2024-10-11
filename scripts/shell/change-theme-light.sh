@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export THEME="light"
 echo "light" > ~/.config/THEME

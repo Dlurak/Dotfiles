@@ -37,8 +37,6 @@ require("lazy").setup({
 	{ 'wakatime/vim-wakatime', lazy = false },
 
 	{
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 
 		"hrsh7th/nvim-cmp",

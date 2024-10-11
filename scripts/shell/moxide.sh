@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 project_emoji="🚀"
 template_emoji="🛠️"

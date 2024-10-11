@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 current_mode=$(cat ~/.config/THEME | tr -d '\n')
 
 case "$current_mode" in

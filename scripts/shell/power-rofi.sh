@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 lock_str=" Lock"
 shutdown_str="󰐥 Shutdown"

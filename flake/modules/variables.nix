@@ -1,0 +1,5 @@
+{
+  environment.variables = {
+    EDITOR = "nvim";
+  };
+}

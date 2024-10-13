@@ -10,12 +10,13 @@
 
   config = lib.mkIf config.program.desktop.enable {
     environment.systemPackages = with pkgs; [
-      kitty
-      firefox
-      networkmanagerapplet
       discord
-      signal-desktop
       element-desktop
+      firefox
+	  galculator
+      kitty
+      networkmanagerapplet
+      signal-desktop
 	  spotify
     ];
   };

@@ -19,7 +19,6 @@
       hyprlock
       hyprpaper
       hypridle
-      google-cursor
     ];
     programs.hyprland.enable = true;
     services.gvfs.enable = true;

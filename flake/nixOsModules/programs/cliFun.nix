@@ -10,16 +10,18 @@
 
   config = lib.mkIf config.program.funCli.enable {
     environment.systemPackages = with pkgs; [
-      neofetch
-      fastfetch
       asciiquarium
-	  clolcat
+      cava
       cbonsai
-      pipes-rs
+      clolcat
       cmatrix
-	  element
-	  figlet
-	  toilet
+	  cowsay
+      fastfetch
+      figlet
+      neofetch
+      nitch
+      pipes-rs
+      toilet
     ];
   };
 }

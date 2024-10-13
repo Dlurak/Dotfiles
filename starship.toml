@@ -13,18 +13,24 @@ add_newline = true
 # $character"""
 
 format = """
-[╭───⟶ $time ⟵──────⟶](bold green)\
-$sudo $directory\
-$cmd_duration\
-$git_branch$git_state$git_metrics\
-$package
-$character"""
+$time $directory
+$character
+"""
+
+# format = """
+# $time $directory
+# [╭───⟶ $time ⟵──────⟶](bold green)\
+# $sudo $directory\
+# $cmd_duration\
+# $git_branch$git_state$git_metrics\
+# $package
+# $character"""
 # [│](bold green) $sudo$directory
 
 [character]
-success_symbol = '[╰─⟶](bold green) '
-error_symbol = '[╰─⟶](bold green) '
-vimcmd_symbol = '[╰─<](bold green) '
+success_symbol = '[\$](green) '
+error_symbol = '[\$](red) '
+vimcmd_symbol = '[\$](white) '
 
 [cmd_duration]
 show_milliseconds = true
@@ -43,27 +49,9 @@ format = ' [+$added]($added_style)/[-$deleted]($deleted_style)'
 only_nonzero_diffs = false
 disabled = false
 
-[golang]
-symbol = ' '
-format = ' [$symbol($version )]($style)'
-
-[haskell]
-style = '93 bold'
-format = ' [$symbol($version )]($style)'
-
-[nodejs]
-detect_files = ['package.json', '.node-version', '!bunfig.toml', '!bun.lockb']
-format = ' [$symbol($version )]($style)'
-version_format = '${major}'
-
 [package]
 symbol = '📦 '
 format = ' [$symbol$version](purple bold)'
-
-[rust]
-symbol = '󱘗 '
-style = '208 bold'
-format = ' [$symbol($version )]($style)'
 
 [sudo]
 format = '[]($style) '

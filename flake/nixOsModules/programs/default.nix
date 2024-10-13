@@ -1,6 +1,7 @@
 {
   imports = [
     ./hypr.nix
+    ./uwu.nix
     ./cliFun.nix
     ./desktop.nix
     ./utils.nix

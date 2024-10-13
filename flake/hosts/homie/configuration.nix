@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -19,14 +23,15 @@
   locale.enable = true;
 
   program = {
-    hypr.enable = true;
-    funCli.enable = true;
-    desktop.enable = true;
-    utils.enable = true;
     cliMinimal.enable = true;
-    dev.enable = true;
-    zsh.enable = true;
     cliRandom.enable = true;
+    desktop.enable = true;
+    dev.enable = true;
+    funCli.enable = true;
+    hypr.enable = true;
+    utils.enable = true;
+    uwu.enable = true;
+    zsh.enable = true;
   };
 
   nixModule.enable = true;
@@ -35,5 +40,14 @@
     enable = true;
     tcp = [];
     udp = [];
+  };
+
+  home-manager = {
+    users.dlurak = {...}: {
+      imports = [
+        ./home.nix
+        inputs.self.outputs.homeManagerModules.default
+      ];
+    };
   };
 }

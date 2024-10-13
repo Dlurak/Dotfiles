@@ -56,4 +56,4 @@ export THEME=$(cat /home/dlurak/.config/THEME | tr -d '\n')
 
 set -o vi
 
-neofetch 
+nitch

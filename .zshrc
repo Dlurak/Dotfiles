@@ -9,6 +9,8 @@ compinit
 #############
 alias cd='z'
 
+alias rebuild='sudo nixos-rebuild switch --flake ~/Dotfiles/flake#homie'
+
 # Quality of life
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -66,4 +68,8 @@ setopt hist_find_no_dups
 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-fastfetch
+if [[ -n "$TMUX" && (-f "flake.nix" || -f "shell.nix") ]]; then
+	echo "A nix-shell is available" | figlet | cowsay -f stegosaurus -n | clolcat
+else
+	nitch
+fi

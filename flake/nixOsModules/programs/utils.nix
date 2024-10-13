@@ -11,9 +11,10 @@
   config = lib.mkIf config.program.utils.enable {
     environment.systemPackages = with pkgs; [
       brightnessctl
-      upower
-      pavucontrol
+      nh
       pamixer
+      pavucontrol
+      upower
     ];
     services.power-profiles-daemon.enable = true;
     services.upower.enable = true;

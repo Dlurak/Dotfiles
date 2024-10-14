@@ -1,6 +1,0 @@
-name: Update
-
-windows:
-  - name: Pacman
-    panes:
-      - sudo pacman -Syu

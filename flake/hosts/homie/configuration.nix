@@ -49,5 +49,6 @@
         inputs.self.outputs.homeManagerModules.default
       ];
     };
+    backupFileExtension = "backup";
   };
 }

@@ -13,6 +13,7 @@
       alejandra
       gcc
       gh
+	  silicon
     ];
   };
 }

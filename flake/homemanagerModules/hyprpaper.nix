@@ -16,7 +16,8 @@
       services.hyprpaper = {
         enable = true;
         settings = {
-          splash = false;
+          splash = true;
+          splash_offset = 0;
           preload = ["${hyprpaper.path}"];
           wallpaper = [",${hyprpaper.path}"];
         };

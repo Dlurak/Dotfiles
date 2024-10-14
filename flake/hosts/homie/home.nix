@@ -7,6 +7,10 @@
     enable = true;
     path = ../../../assets/wallpaper.png;
   };
+  homeManagerModules.hyprlock = {
+    enable = true;
+    background = ../../../assets/lockscreen.png;
+  };
 
   homeManagerModules.moxide = {
     enable = true;

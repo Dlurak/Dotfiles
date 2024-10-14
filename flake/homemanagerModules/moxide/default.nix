@@ -9,7 +9,6 @@
     lib = lib;
     pkgs = pkgs;
   };
-  yaml = pkgs.formats.yaml {};
 in {
   options = {
     homeManagerModules.moxide.enable = lib.mkEnableOption "Enable moxide (config)";

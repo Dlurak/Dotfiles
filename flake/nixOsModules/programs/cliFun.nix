@@ -21,6 +21,7 @@
       neofetch
       nitch
       pipes-rs
+	  sl
       toilet
     ];
   };

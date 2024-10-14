@@ -3,6 +3,10 @@
   homeManagerModules.gtk.enable = true;
   homeManagerModules.homeManager.enable = true;
   homeManagerModules.tmux.enable = true;
+  homeManagerModules.hyprpaper = {
+    enable = true;
+    path = ../../../assets/wallpaper.png;
+  };
 
   homeManagerModules.moxide = {
     enable = true;
@@ -26,6 +30,10 @@
       {
         name = "Informatik";
         path = "~/Schule/E-1/Informatik/";
+      }
+      {
+        name = "GitHub";
+        path = "~/GitHub/";
       }
     ];
     templates = {

@@ -1,6 +1,6 @@
 {
   environment.variables = {
     EDITOR = "nvim";
-    FLAKE = "~/Dotfiles/flake";
+    FLAKE = "/home/dlurak/Dotfiles/flake";
   };
 }

@@ -15,6 +15,9 @@
       neovim
       ripgrep
       tmux
+      (import ../derivations/moxide.nix {
+        pkgs = pkgs;
+      })
     ];
   };
 }

@@ -2,7 +2,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  color = transparency: "rgba(243, 244, 238, ${transparency})";
+in {
   options = {
     homeManagerModules.hyprlock.enable = lib.mkEnableOption "Enable hyprlock config";
     homeManagerModules.hyprlock.background = lib.mkOption {
@@ -24,9 +26,9 @@
               dots_size = 0.4;
               dots_spacing = 0.15;
               dots_center = true;
-              outer_color = "rgba(243, 244, 238, 0.0)";
-              inner_color = "rgba(243, 244, 238, 0.1)";
-              font_color = "rgba(243, 244, 238, 0.8)";
+              outer_color = color "0.0";
+              inner_color = color "0.1";
+              font_color = color "0.8";
               fade_on_empty = false;
               placeholder_text = "Enter Password";
               hide_input = false;
@@ -38,7 +40,7 @@
           label = [
             {
               text = "cmd[update:1000] echo \"<span>$(date '+%A, %d %B')</span>\"";
-              color = "rgba(250, 250, 250, 0.8)";
+              color = color "1";
               font_size = 16;
               font_family = "Arimo Nerd Font Propo, Bold";
               position = "0, -100";
@@ -47,7 +49,7 @@
             }
             {
               text = "cmd[update:1000] echo \"<span>$(date '+%H:%M')</span>\"";
-              color = "rgba(250, 250, 250, 0.8)";
+              color = color "1";
               font_size = 75;
               font_family = "Arimo Nerd Font Propo, Bold";
               position = "0, -120";
@@ -56,7 +58,7 @@
             }
             {
               text = "cmd[update:60000] echo \"<span>󰁹 $(cat /sys/class/power_supply/BAT0/capacity)%</span>\"";
-              color = "rgba(250, 250, 250, 0.8)";
+              color = color "1";
               font_size = 11;
               font_family = "Arimo Nerd Font Propo, Bold";
               position = "-10, 10";

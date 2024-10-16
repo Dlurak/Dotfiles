@@ -13,11 +13,11 @@
       discord
       element-desktop
       firefox
-	  galculator
+      galculator
       kitty
       networkmanagerapplet
       signal-desktop
-	  spotify
+      spotify
     ];
   };
 }

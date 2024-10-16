@@ -17,6 +17,7 @@
       ags
       rofi
       hyprlock
+      hyprpicker
       hyprpaper
       hypridle
     ];

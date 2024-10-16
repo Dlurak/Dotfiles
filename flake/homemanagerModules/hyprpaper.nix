@@ -6,7 +6,6 @@
   options = {
     homeManagerModules.hyprpaper.enable = lib.mkEnableOption "Enable hyprpaper config";
     homeManagerModules.hyprpaper.path = lib.mkOption {
-      default = ../../assets/wallpaper.png;
       type = lib.types.path;
       description = "The path to the wallpaper";
     };

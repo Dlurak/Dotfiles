@@ -2,15 +2,20 @@
 
 My dotfiles include configuration for these programs:
 
-- nix
+- NixOS
 - hyprland
   - hyprlock
+  - hyprpaper
 - nvim
 - tmux
 - kitty
 - ags
 - moxide
 - zsh
+
+This currently undergoes a rewrite to nix home manager.
+
+As a ToDo to myself: restore the hypridle config via home manager
 
 ## Abandoned configs
 

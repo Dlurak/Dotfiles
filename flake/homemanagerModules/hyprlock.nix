@@ -8,7 +8,6 @@ in {
   options = {
     homeManagerModules.hyprlock.enable = lib.mkEnableOption "Enable hyprlock config";
     homeManagerModules.hyprlock.background = lib.mkOption {
-      default = ../../assets/lockscreen.png;
       type = lib.types.path;
       description = "The path to the wallpaper";
     };

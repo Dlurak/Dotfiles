@@ -1,13 +1,14 @@
 {
   imports = [
-    ./hypr.nix
-    ./uwu.nix
     ./cliFun.nix
-    ./desktop.nix
-    ./utils.nix
     ./cliMinimal.nix
-    ./dev.nix
-    ./zshShell.nix
     ./cliRandom.nix
+    ./desktop.nix
+    ./dev.nix
+    ./hypr.nix
+	./lsp.nix
+    ./utils.nix
+    ./uwu.nix
+    ./zshShell.nix
   ];
 }

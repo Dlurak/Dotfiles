@@ -29,6 +29,7 @@
     dev.enable = true;
     funCli.enable = true;
     hypr.enable = true;
+    lsp.enable = true;
     utils.enable = true;
     uwu.enable = true;
     zsh.enable = true;

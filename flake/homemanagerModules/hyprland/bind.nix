@@ -11,7 +11,7 @@ in {
     "${secondMod}, right, changegroupactive, f"
 
     "${mainMod}, Return, exec, ${pkgs.kitty}/bin/kitty"
-    "${mainMod}, D, exec, ${pkgs.rofi}/bin/rofi -show drun"
+    "${mainMod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
     "${mainMod}, W, exec, ${pkgs.firefox}/bin/firefox"
 
     "${mainMod}, U, exec, ${pkgs.hyprlock}/bin/hyprlock"
@@ -20,7 +20,7 @@ in {
 
     # screenshot
     "${mainMod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
-    "${mainMod}, S, exec, grim - | wl-copy"
+    "${mainMod}, S, exec, ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy"
 
     "${mainMod} SHIFT, Space, togglefloating"
     "${mainMod}, Space, centerwindow"
@@ -81,9 +81,9 @@ in {
 
     "${mainMod}, Tab, workspace, previous"
 
-    "${mainMod}, Y, exec, ags --toggle-window \"controll-center\""
-    "${mainMod} SHIFT, Y, exec, ags --toggle-window \"bar-0\""
-    "${mainMod}, F9, exec, rofi -show window"
+    "${mainMod}, Y, exec, ${pkgs.ags}/bin/ags --toggle-window \"controll-center\""
+    "${mainMod} SHIFT, Y, exec, ${pkgs.ags}/bin/ags --toggle-window \"bar-0\""
+    "${mainMod}, F9, exec, ${pkgs.rofi-wayland}/bin/rofi -show window"
   ];
   binde = [
     "${secondMod}, h, resizeactive, -5 0"
@@ -100,13 +100,14 @@ in {
     "${mainMod}, mouse:273, resizewindow"
   ];
   bindel = [
-    ", XF86AudioLowerVolume, exec, pamixer -d 2"
-    ", XF86AudioRaiseVolume, exec, pamixer -i 2"
-    ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
-    ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+    ", XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer -d 2"
+    ", XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer -i 2"
+    ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
+    ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%-"
   ];
   bindl = [
-    ", XF86AudioMute, exec, pamixer -t"
+    ", XF86AudioMute, exec, ${pkgs.pamixer}/bin/pamixer -t"
+    "${mainMod}, M, exec, ${pkgs.playerctl}/bin/playerctl --player=spotify play-pause"
   ];
   windowrulev2 = rules.windowrulev2;
   windowrule = rules.windowrule;

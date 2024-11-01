@@ -78,7 +78,7 @@ in {
           input = {
             kb_layout = "de";
             kb_options = "caps:escape";
-            kb_variant = "";
+            #kb_variant = "colemark";
             kb_model = "";
             kb_rules = "";
             follow_mouse = 1;

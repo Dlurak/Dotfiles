@@ -4,7 +4,6 @@ local servers = {
 	custom_config = {
 		-- This is only to make it easier to read, others.custom_config isn't used anywhere
 		"rust_analyzer",
-		"hyprls",
 		"svelte",
 		"ts_ls",
 		"jsonls",
@@ -22,7 +21,8 @@ local servers = {
 		"clangd",
 		"sourcekit",
 		"hls",
-		"nil_ls"
+		"nixd",
+		"denols"
 	}
 }
 
@@ -34,7 +34,6 @@ require("custom.lsp.collection.svelte")
 require("custom.lsp.collection.ts_ls")
 require("custom.lsp.collection.rust")
 require("custom.lsp.collection.json")
-require("custom.lsp.collection.hypr")
 require("custom.lsp.collection.go")
 
 require("custom.lsp.cmp")

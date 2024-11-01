@@ -29,12 +29,13 @@ return {
 			[';'] = gen_spec.treesitter({ a = '@comment.outer', i = '@comment.outer' }),
 
 			g = function()
-				local from = { line = 1, col = 1 }
-				local to = {
-					line = vim.fn.line('$'),
-					col = math.max(vim.fn.getline('$'):len(), 1)
+				return {
+					from = { line = 1, col = 1 },
+					to = {
+						line = vim.fn.line('$'),
+						col = math.max(vim.fn.getline('$'):len(), 1)
+					}
 				}
-				return { from = from, to = to }
 			end
 		}
 

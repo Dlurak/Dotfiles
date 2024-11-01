@@ -18,6 +18,10 @@
       (import ../derivations/moxide.nix {
         pkgs = pkgs;
       })
+      (import ../derivations/muxbar.nix {
+        pkgs = pkgs;
+      })
+	  jq
     ];
   };
 }

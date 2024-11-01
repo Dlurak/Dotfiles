@@ -11,7 +11,6 @@
   config = lib.mkIf config.program.dev.enable {
     environment.systemPackages = with pkgs; [
       alejandra
-      gcc
       gh
 	  silicon
     ];

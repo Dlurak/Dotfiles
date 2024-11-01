@@ -31,10 +31,10 @@ local kind_icons = {
 
 local source_name = {
 	nvim_lsp = "[LSP]",
-	snp = "[Snippet]",
+	snp = "[Snip]",
 	path = "[Path]",
-	buffer = "[Buffer]",
-	latex_symbols = "[LaTeX]",
+	buffer = "[Buf]",
+	latex_symbols = "[LTX]",
 }
 
 

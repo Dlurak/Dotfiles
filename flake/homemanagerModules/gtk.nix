@@ -19,6 +19,12 @@
         package = pkgs.catppuccin-gtk;
         name = "catppuccin-frappe-blue-standard";
       };
+      iconTheme = {
+        # package = pkgs.fluent-icon-theme;
+        # name = "Fluent-dark";
+        name = "WhiteSur-dark";
+        package = pkgs.whitesur-icon-theme;
+      };
       gtk3.extraConfig = {
         gtk-application-prefer-dark-theme = true;
       };

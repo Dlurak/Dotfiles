@@ -15,8 +15,16 @@
       pamixer
       pavucontrol
       upower
+      kanata
     ];
     services.power-profiles-daemon.enable = true;
     services.upower.enable = true;
+    services.kanata = {
+      enable = true;
+
+      keyboards.keyb = {
+        configFile = ../../noneNix/kanata.kbd;
+      };
+    };
   };
 }

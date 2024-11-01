@@ -15,7 +15,7 @@
       grim
       slurp
       ags
-      rofi
+      rofi-wayland
       hyprlock
       hyprpicker
       hyprpaper

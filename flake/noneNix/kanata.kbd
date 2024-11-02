@@ -3,11 +3,12 @@
 )
 
 (defsrc
-  a s d f j k l Semicolon
+  a s d f j k l Semicolon o
 )
 (defvar
-  tap-time 150
-  hold-time 200
+  tap-time 300
+  hold-time 150
+  cln S-Period    ;; :
 )
 
 (defalias
@@ -19,8 +20,9 @@
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $hold-time l ralt)
   ; (tap-hold $tap-time $hold-time ; rmet)
+  o (tap-hold $tap-time $hold-time o $cln)
 )
 
 (deflayer base
-  @a @s @d @f @j @k @l @;
+  @a @s @d @f @j @k @l @; @o
 )

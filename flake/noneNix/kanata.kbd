@@ -3,12 +3,26 @@
 )
 
 (defsrc
-  a s d f j k l Semicolon o
+  grv           1  2  3  4  5      6  7  8  9  0         Minus       Equal       
+  tab           q  w  e  r  t      z  u  i  o  p         BracketLeft BracketRight
+  caps          a  s  d  f  g      h  j  k  l  Semicolon Quote       Backslash
+  IntlBackslash y  x  c  v  b      n  m  ,  .  Slash
 )
+
 (defvar
   tap-time 300
-  hold-time 150
+  hold-time 200
+
   cln S-Period    ;; :
+
+  lb S-8          ;; (
+  rb S-9          ;; )
+
+  lc RA-7         ;; {
+  rc RA-0         ;; }
+
+  lr RA-8         ;; [
+  rr RA-9         ;; ]
 )
 
 (defalias
@@ -19,10 +33,24 @@
   j (tap-hold $tap-time $hold-time j rctl)
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $hold-time l ralt)
-  ; (tap-hold $tap-time $hold-time ; rmet)
+  scl (tap-hold $tap-time $hold-time ; rmet)
   o (tap-hold $tap-time $hold-time o $cln)
+
+  esc (tap-hold 0 $hold-time esc (layer-while-held symbols))
+  qt (tap-hold 0 $hold-time Quote (layer-while-held symbols))
 )
 
-(deflayer base
-  @a @s @d @f @j @k @l @; @o
+;; First defined layer is the starting layer
+(deflayer primary
+  grv           1    2    3    4    5          6    7    8    9    0    -           =
+  tab           q    w    e    r    t          z    u    i   @o    p    BracketLeft BracketRight
+  @esc         @a   @s   @d   @f    g          h   @j   @k   @l  @scl   @qt         Backslash
+  IntlBackslash y    x    c    v    b          n    m    ,    . Slash
+)
+
+(deflayer symbols
+  XX XX  XX  XX  XX XX        XX  XX  XX  XX XX XX XX
+  XX XX $lc $rc $lr XX        XX $rr $lb $rb XX XX XX
+  XX  1   2   3   4  5         6   7   8   9  0 XX XX
+  XX XX  XX  XX  XX XX        XX  XX  XX  XX XX
 )

@@ -32,6 +32,7 @@
     lsp.enable = true;
     utils.enable = true;
     uwu.enable = true;
+    school.enable = true;
     zsh.enable = true;
   };
 

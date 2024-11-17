@@ -5,7 +5,8 @@
   homeManagerModules.tmux.enable = true;
   homeManagerModules.hyprpaper = {
     enable = true;
-    path = ../../assets/wallpaper.png;
+    # path = ../../assets/wallpaper.png;
+    path = ../../assets/38c3-wallpaper.png;
   };
   homeManagerModules.hyprlock = {
     enable = true;

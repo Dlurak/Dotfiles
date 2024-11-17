@@ -21,6 +21,9 @@
       proggyfonts
       nerdfonts
       jetbrains-mono
+      (import ./derivations/pilowlava.nix {
+        pkgs = pkgs;
+      })
     ];
   };
 }

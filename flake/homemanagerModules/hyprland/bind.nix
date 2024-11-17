@@ -13,6 +13,7 @@ in {
     "${mainMod}, Return, exec, ${pkgs.kitty}/bin/kitty"
     "${mainMod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
     "${mainMod}, W, exec, ${pkgs.firefox}/bin/firefox"
+    "${mainMod} SHIFT, W, exec, ${pkgs.chromium}/bin/chromium"
 
     "${mainMod}, U, exec, ${pkgs.hyprlock}/bin/hyprlock"
     "${mainMod} SHIFT, U, exec, ${pkgs.ags}/bin/ags --toggle-window-power"

@@ -12,6 +12,8 @@
     environment.systemPackages = with pkgs; [
       brightnessctl
       nh
+	  unzip
+	  tokei
       pamixer
       pavucontrol
       upower

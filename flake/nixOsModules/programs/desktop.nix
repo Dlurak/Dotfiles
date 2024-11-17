@@ -12,9 +12,11 @@
     environment.systemPackages = with pkgs; [
       discord
 	  eog
+	  inkscape
 	  shotwell
       element-desktop
       firefox
+	  chromium
       galculator
       kitty
       networkmanagerapplet

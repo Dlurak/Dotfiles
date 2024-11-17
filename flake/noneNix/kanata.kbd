@@ -23,6 +23,9 @@
 
   lr RA-8         ;; [
   rr RA-9         ;; ]
+
+  / S-7
+  \ RA--
 )
 
 (defalias
@@ -36,8 +39,11 @@
   scl (tap-hold $tap-time $hold-time ; rmet)
   o (tap-hold $tap-time $hold-time o $cln)
 
-  esc (tap-hold 0 $hold-time esc (layer-while-held symbols))
-  qt (tap-hold 0 $hold-time Quote (layer-while-held symbols))
+  esc (tap-hold 0 $hold-time esc (layer-switch symbols))
+  qt (tap-hold 0 $hold-time Quote (layer-switch symbols))
+
+  esc-secondary (layer-switch primary)
+  qt-secondary (layer-switch primary)
 )
 
 ;; First defined layer is the starting layer
@@ -49,8 +55,8 @@
 )
 
 (deflayer symbols
-  XX XX  XX  XX  XX XX        XX  XX  XX  XX XX XX XX
-  XX XX $lc $rc $lr XX        XX $rr $lb $rb XX XX XX
-  XX  1   2   3   4  5         6   7   8   9  0 XX XX
-  XX XX  XX  XX  XX XX        XX  XX  XX  XX XX
+  XX              XX  XX  XX  XX XX        XX  XX  XX  XX XX XX            XX
+  XX              XX $lc $rc $lr XX        XX $rr $lb $rb XX XX            XX
+  @esc-secondary   1   2   3   4  5         6   7   8   9  0 @qt-secondary XX
+  XX              XX  XX  XX  XX XX        $/  $\  XX  XX XX
 )

@@ -13,8 +13,8 @@ in {
   config = with config.homeManagerModules;
     lib.mkIf hyprland.enable {
       wayland.windowManager.hyprland = let
-        accent = colors.teal;
-        inactive = colors.base;
+		accent = "rgb(FF5053)";
+        inactive = "rgb(6A5FDB)";
         shadow = colors.crust;
         bind = import ./bind.nix {pkgs = pkgs;};
         rules = import ./rules.nix;

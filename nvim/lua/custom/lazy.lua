@@ -12,7 +12,19 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	require("custom.plugins.catppuccin"),
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require('kanagawa').setup({
+				transparent = true,
+				dimInactive = false,
+				terminalColors = true,
+				theme = "wave",
+			})
+
+			vim.cmd("colorscheme kanagawa")
+		end
+	},
 	require("custom.plugins.telescope"),
 	require("custom.plugins.undotree"),
 	require("custom.plugins.treesitter"),

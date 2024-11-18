@@ -10,7 +10,7 @@
   };
   homeManagerModules.hyprlock = {
     enable = true;
-    background = ../../assets/lockscreen.png;
+    background = ../../assets/38c3-lockscreen.png;
   };
   homeManagerModules.hyprland.enable = true;
   homeManagerModules.hypridle.enable = true;

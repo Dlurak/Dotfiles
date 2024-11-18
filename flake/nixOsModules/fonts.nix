@@ -24,6 +24,9 @@
       (import ./derivations/pilowlava.nix {
         pkgs = pkgs;
       })
+      (import ./derivations/spaceGrotesk.nix {
+        pkgs = pkgs;
+      })
     ];
   };
 }

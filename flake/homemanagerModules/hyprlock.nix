@@ -4,6 +4,7 @@
   ...
 }: let
   color = transparency: "rgba(243, 244, 238, ${transparency})";
+  coralRed = "rgba(255, 80, 83, 1)";
 in {
   options = {
     homeManagerModules.hyprlock.enable = lib.mkEnableOption "Enable hyprlock config";
@@ -20,46 +21,52 @@ in {
           background = [{path = "${hyprlock.background}";}];
           input-field = [
             {
-              size = "180, 30";
-              outline_thickness = 2;
-              dots_size = 0.4;
-              dots_spacing = 0.15;
+              font_color = coralRed;
+              outer_color = "rgba(106, 95, 219, 0.0)";
+              inner_color = "rgba(106, 95, 219, 0.0)";
+              fail_color = "rgba(106, 95, 219, 1.0)";
+              check_color = "rgba(106, 95, 219, 1.0)";
+
               dots_center = true;
-              outer_color = color "0.0";
-              inner_color = color "0.1";
-              font_color = color "0.8";
+              dots_size = 0.35;
+              dots_spacing = 0.15;
               fade_on_empty = false;
-              placeholder_text = "Enter Password";
               hide_input = false;
-              position = "0, 390";
-              halign = "center";
-              valign = "bottom";
+              rounding = 0;
+
+              font_family = "Space Grotesk, Bold";
+              placeholder_text = "ILLEGAL";
+
+              size = "236, 50";
+              position = "413, -193";
+              halign = "left";
+              valign = "top";
             }
           ];
           label = [
             {
               text = "cmd[update:1000] echo \"<span>$(date '+%A, %d %B')</span>\"";
-              color = color "1";
+              color = coralRed;
               font_size = 16;
-              font_family = "Arimo Nerd Font Propo, Bold";
-              position = "0, -100";
-              halign = "center";
+              font_family = "Space Grotesk, Bold";
+              position = "428, -483";
+              halign = "left";
               valign = "top";
             }
             {
               text = "cmd[update:1000] echo \"<span>$(date '+%H:%M')</span>\"";
-              color = color "1";
-              font_size = 75;
-              font_family = "Arimo Nerd Font Propo, Bold";
-              position = "0, -120";
-              halign = "center";
+              color = coralRed;
+              font_size = 110;
+              font_family = "Pilowlava";
+              position = "320, -295";
+              halign = "left";
               valign = "top";
             }
             {
               text = "cmd[update:60000] echo \"<span>󰁹 $(cat /sys/class/power_supply/BAT0/capacity)%</span>\"";
-              color = color "1";
+              color = coralRed;
               font_size = 11;
-              font_family = "Arimo Nerd Font Propo, Bold";
+              font_family = "Space Grotesk, Bold";
               position = "-10, 10";
               halign = "right";
               valign = "bottom";

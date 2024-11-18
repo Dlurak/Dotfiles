@@ -13,16 +13,33 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
-		"rebelot/kanagawa.nvim",
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			require('kanagawa').setup({
-				transparent = true,
-				dimInactive = false,
-				terminalColors = true,
-				theme = "wave",
+			require("cyberdream").setup({
+			-- 	transparent = false,
+				italic_comments = true,
+				hide_fillchars = true,
+				borderless_telescope = true,
+				terminal_colors = true,
+				theme = {
+					saturation = 1,
+					colors = {
+						-- Hacky: Needs to be slightly off to work
+						bg =  "#0F000B",
+						red = "#FF5053",
+						purple = "#B2AAFF",
+						green = "#00D486"
+					},
+				},
+				extensions = {
+					telescope = true,
+					mini = true,
+				},
 			})
 
-			vim.cmd("colorscheme kanagawa")
+			vim.cmd("colorscheme cyberdream")
 		end
 	},
 	require("custom.plugins.telescope"),
@@ -55,7 +72,6 @@ require("lazy").setup({
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"kdheepak/cmp-latex-symbols",
-		"hrsh7th/cmp-buffer",
 
 		"edgedb/edgedb-vim",
 		"elkowar/yuck.vim",

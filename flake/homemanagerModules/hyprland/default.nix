@@ -14,7 +14,7 @@ in {
     lib.mkIf hyprland.enable {
       wayland.windowManager.hyprland = let
 		accent = "rgb(FF5053)";
-        inactive = "rgb(6A5FDB)";
+        inactive = "rgb(29114c)";
         shadow = colors.crust;
         bind = import ./bind.nix {pkgs = pkgs;};
         rules = import ./rules.nix;

@@ -1,12 +1,34 @@
+/***************/
+/** Variables **/
+/***************/
+
+@define-color primary    #FF5053;
+@define-color highlight  #FEF2FF;
+@define-color background #0F000A;
+
+@define-color accent1 #B2AAFF;
+@define-color accent2 #6A5FDB;
+@define-color accent3 #261A66;
+@define-color accent4 #29114C;
+@define-color accent5 #190B2F;
+
+/**************/
+/** Styling  **/
+/**************/
+
+* {
+  font-family: "Space Grotesk";
+  letter-spacing: 2px;
+}
+
 window {
-  /*background-color: @theme_bg_color;*/
-  background-color: #0F000A;
-  color: @theme_fg_color;
+  background-color: @background;
+  color: @highlight;
   border-radius: 8px;
 }
 
 slider {
-  all: unset;
+	all: unset;
 }
 
 button {
@@ -16,22 +38,15 @@ button {
   background-color: transparent;
 }
 
-button:active {
-  background-color: @theme_selected_bg_color;
-}
-
 label {
   font-weight: bold;
 }
 
-.success {
-  color: @success_color;
+.green {
+  color: @accent1;
 }
-.warning {
-  color: @warning_color;
-}
-.error {
-  color: @error_color;
+.red {
+  color: @primary;
 }
 
 /*********/
@@ -44,7 +59,7 @@ highlight {
 }
 
 .system-button {
-  color: @theme_selected_bg_color;
+  color: @accent1;
   min-width: 24px;
 }
 
@@ -53,7 +68,9 @@ highlight {
 /*********************/
 
 window.controll-center {
-  border: 1px solid @theme_selected_bg_color;
+  background-color: @background;
+  color: @highlight;
+  border: 1px solid @accent1;
   border-radius: 16px;
 }
 
@@ -62,7 +79,7 @@ window.controll-center {
 }
 
 .cc-group {
-  border: 1px solid @theme_selected_fg_color;
+  border: 1px solid @accent2;
   border-radius: 8px;
 }
 
@@ -89,7 +106,7 @@ window.controll-center {
 }
 
 .recording.active {
-  color: @error_color;
+  color: @primary;
 }
 
 .semi-button-icon {
@@ -117,7 +134,7 @@ window.notification-popups box.notifications {
   font-size: 58px;
   /* to center the icon */
   margin: 5px;
-  color: @theme_fg_color;
+  color: @hightlight;
 }
 
 .icon box {
@@ -131,25 +148,25 @@ window.notification-popups box.notifications {
   border-radius: 11px;
   padding: 1em;
   margin: 0.5em;
-  border: 1px solid @wm_borders_edge;
-  background-color: @theme_bg_color;
+  border: 1px solid @accent2;
+  background-color: @accent4;
 }
 
 window.controll-center .notification {
-  border: 1px solid @theme_selected_fg_color;
+  border: 1px solid @accent2;
 }
 
 .notification.critical {
-  border: 1px solid lightcoral;
+  border: 1px solid @primary;
 }
 
 .title {
-  color: @theme_fg_color;
+  color: @primary;
   font-size: 1.4em;
 }
 
 .body {
-  color: @theme_unfocused_fg_color;
+  color: @hightlight;
 }
 
 .actions .action-button {
@@ -174,21 +191,21 @@ window.controll-center .notification {
 }
 
 .power-button-wrapper {
-  border: 1px solid @theme_unfocused_fg_color;
-  background-color: @theme_bg_color;
+  border: 1px solid @accent2;
+  background-color: @background;
   border-radius: 16px;
 }
 
 .power-button {
-  background-color: @theme_bg_color;
-  border: 1px solid @theme_unfocused_fg_color;
+  background-color: @accent5;
+  border: 1px solid @accent2;
   border-radius: 4px;
   min-width: 150px;
   min-height: 150px;
 }
 .power-button:hover,
 .power-button:focus {
-  background-color: @theme_selected_bg_color;
+  background-color: @accent3;
 }
 
 .power-icon {

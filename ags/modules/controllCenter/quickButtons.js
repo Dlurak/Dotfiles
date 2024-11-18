@@ -59,7 +59,8 @@ export const QuickButtons = () =>
             label: "󰔎",
             command: [
               "bash",
-              "/home/dlurak/Dotfiles/scripts/shell/change-theme.sh",
+              "-c",
+              "hyprpicker | wl-copy",
             ],
           }),
           QuickButton({

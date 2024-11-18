@@ -82,12 +82,9 @@ export function BatteryLabel() {
     .as((p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`);
   const state = battery.bind("percent").as((p) => {
     if (p <= 20) {
-      return "error";
+      return "red";
     }
-    if (p <= 50) {
-      return "warning";
-    }
-    return "success";
+    return "green";
   });
 
   return Widget.Box({

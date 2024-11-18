@@ -3,7 +3,6 @@
   lib,
   ...
 }: let
-  color = transparency: "rgba(243, 244, 238, ${transparency})";
   coralRed = "rgba(255, 80, 83, 1)";
 in {
   options = {

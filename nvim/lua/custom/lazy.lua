@@ -26,8 +26,7 @@ require("lazy").setup({
 				theme = {
 					saturation = 1,
 					colors = {
-						-- Hacky: Needs to be slightly off to work
-						bg =  "#0F000B",
+						bg =  "#0F000A",
 						red = "#FF5053",
 						purple = "#B2AAFF",
 						green = "#00D486"

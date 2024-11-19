@@ -22,6 +22,7 @@
       networkmanagerapplet
       signal-desktop
       spotify
+	  pika-backup
     ];
   };
 }

@@ -42,11 +42,12 @@ in {
             active_opacity = 1.0;
             inactive_opacity = 1.0;
 
-            drop_shadow = true;
-            shadow_range = 100;
-            shadow_render_power = 1;
-            shadow_scale = 0.9;
-            "col.shadow" = shadow;
+            shadow = {
+              range = 100;
+              render_power = 1;
+              scale = 0.9;
+              color = shadow;
+            };
           };
           animations = {
             enabled = true;

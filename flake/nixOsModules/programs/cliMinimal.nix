@@ -23,5 +23,6 @@
       })
 	  jq
     ];
+	programs.nano.enable = false;
   };
 }

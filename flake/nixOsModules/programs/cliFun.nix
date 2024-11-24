@@ -11,9 +11,9 @@
   config = lib.mkIf config.program.funCli.enable {
     environment.systemPackages = with pkgs; [
       asciiquarium
-      cava
       cbonsai
       clolcat
+      lolcat
       cmatrix
 	  cowsay
       fastfetch

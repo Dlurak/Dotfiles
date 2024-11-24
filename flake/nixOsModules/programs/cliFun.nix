@@ -14,6 +14,7 @@
       cava
       cbonsai
       clolcat
+      lolcat
       cmatrix
 	  cowsay
       fastfetch

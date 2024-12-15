@@ -11,6 +11,7 @@
   config = lib.mkIf config.program.desktop.enable {
     environment.systemPackages = with pkgs; [
       discord
+	  zulip
 	  eog
 	  inkscape
 	  shotwell
@@ -23,6 +24,8 @@
       signal-desktop
       spotify
 	  pika-backup
+	  resources
+	  nautilus
     ];
   };
 }

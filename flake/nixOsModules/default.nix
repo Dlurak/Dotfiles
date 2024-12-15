@@ -7,5 +7,6 @@
     ./locale.nix
     ./nix.nix
     ./variables.nix
+	./network.nix
   ];
 }

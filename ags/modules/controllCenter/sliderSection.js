@@ -1,3 +1,4 @@
+// @ts-nocheck
 import brightness from "../../services/brightness.js";
 
 const audio = await Service.import("audio");
@@ -77,9 +78,63 @@ const brightnessSlider = () =>
     ],
   });
 
+const minSunset = 3_000
+const maxSunset = 6_500
+
+const sunsetValuePercentage = Variable(0)
+
+const sunsetSlider = () =>
+  Widget.Box({
+    children: [
+      Widget.Box({
+        spacing: 6,
+        marginRight: 9,
+        marginLeft: 9,
+        children: [
+          Widget.Label({
+            marginRight: 9,
+            marginLeft: 9,
+            label: "󰃞",
+          }),
+          Widget.Label({
+            label: sunsetValuePercentage
+			  .bind()
+              .as((v) => `${Math.round(v)}%`),
+          }),
+        ],
+      }),
+      Widget.Slider({
+        hexpand: true,
+        draw_value: false,
+        on_change: ({ value }) => {
+            Utils.execAsync(`hyprsunset -t ${Math.round((minSunset + (maxSunset - minSunset) / 100 * (100 - value)))}`);
+			sunsetValuePercentage.value = value
+
+			Utils.exec([
+				"bash",
+				"-c",
+				"ps -eo pid,etime,cmd | grep 'hyprsunset' | grep -v 'grep' | grep -v '00:0'"
+			])
+				.split("\n")
+				.filter(l => l)
+				.map(n => n.trim().split(/\s+/)[0])
+				.forEach((pid) => {
+					Utils.exec(`kill ${pid}`)
+				})
+
+            Utils.execAsync(`hyprsunset -t ${Math.round((minSunset + (maxSunset - minSunset) / 100 * (100 - value)))}`);
+			return
+        },
+        value: sunsetValuePercentage,
+	    min: 0,
+	    max: 100,
+      }),
+    ],
+  });
+
 export const SliderSection = () =>
   Widget.Box({
     className: "cc-group",
     vertical: true,
-    children: [volumeSlider(), brightnessSlider()],
+    children: [volumeSlider(), brightnessSlider(), sunsetSlider()],
   });

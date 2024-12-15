@@ -1,5 +1,5 @@
-const date = Variable("", {
-  poll: [1000, 'date "+%H:%M:%S"'],
+const uptime = Variable("", {
+  poll: [10_000, `awk '{printf "%02d:%02d", $1/3600, ($1%3600)/60}' /proc/uptime`],
 });
 
 export const PowerSection = () =>
@@ -11,7 +11,7 @@ export const PowerSection = () =>
       children: [
         Widget.Label({ label: Utils.exec("whoami") }),
         Widget.Box({ hexpand: true }),
-        Widget.Label({ label: date.bind() }),
+        Widget.Label({ label: uptime.bind() }),
         Widget.Button({
           onPrimaryClick: () => {
             App.toggleWindow("power");

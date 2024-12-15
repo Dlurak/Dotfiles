@@ -19,7 +19,7 @@
       mplus-outline-fonts.githubRelease
       dina-font
       proggyfonts
-      nerdfonts
+      nerd-fonts.jetbrains-mono
       jetbrains-mono
       (import ./derivations/pilowlava.nix {
         pkgs = pkgs;

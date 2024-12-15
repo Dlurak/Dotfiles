@@ -18,6 +18,7 @@
       theme = {
         package = pkgs.catppuccin-gtk;
         name = "catppuccin-frappe-blue-standard";
+        # name = "catppuccin-latte-blue-standard";
       };
       iconTheme = {
         # package = pkgs.fluent-icon-theme;

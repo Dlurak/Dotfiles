@@ -56,7 +56,15 @@ end, { range = true })
 
 
 vim.api.nvim_create_user_command('Scratch', function()
-	scratch.scratch()
-end, {
-	desc = "Open a new scratchpad"
-})
+		scratch.scratch()
+	end,
+	{
+		desc = "Open a new scratchpad"
+	}
+)
+
+vim.api.nvim_create_user_command('Ft', function()
+		require('telescope.builtin').filetypes()
+	end,
+	{}
+)

@@ -109,6 +109,10 @@ window.controll-center {
   color: @primary;
 }
 
+.semi-button {
+	min-width: 175px;
+}
+
 .semi-button-icon {
   border-radius: 100px;
   min-width: 40px;

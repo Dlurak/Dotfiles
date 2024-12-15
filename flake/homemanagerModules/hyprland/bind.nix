@@ -14,6 +14,7 @@ in {
     "${mainMod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
     "${mainMod}, W, exec, ${pkgs.firefox}/bin/firefox"
     "${mainMod} SHIFT, W, exec, ${pkgs.chromium}/bin/chromium"
+    "${mainMod}, N, exec, ${pkgs.nautilus}/bin/nautilus"
 
     "${mainMod}, U, exec, ${pkgs.hyprlock}/bin/hyprlock"
     "${mainMod} SHIFT, U, exec, ${pkgs.ags}/bin/ags --toggle-window-power"

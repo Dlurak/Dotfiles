@@ -27,6 +27,16 @@
       }
     ];
     templates = {
+	  baseDev.windows = [
+        {
+          name = " Neovim";
+          panes = ["nix develop --command nvim"];
+        }
+        {
+          name = " Nix-Shell";
+          panes = ["nix develop"];
+        }
+	  ];
       nvim.windows = [
         {
           name = " Neovim";
@@ -69,16 +79,7 @@
       };
       Dotfiles = {
         root_dir = "~/Dotfiles/";
-        windows = [
-          {
-            name = " Neovim";
-            panes = ["nix-shell --command nvim"];
-          }
-          {
-            name = " Nix-Shell";
-            panes = ["nix-shell"];
-          }
-        ];
+        template = "nvim";
       };
       OSMApp = {
         root_dir = "~/SoftwareDevelopment/web/osmapp/";
@@ -96,6 +97,14 @@
             panes = ["nix develop"];
           }
         ];
+      };
+      aoc = {
+        root_dir = "~/SoftwareDevelopment/AdventOfCode/";
+        template = "baseDev";
+      };
+      workshop = {
+        root_dir = "~/talks/";
+        template = "baseDev";
       };
     };
   }

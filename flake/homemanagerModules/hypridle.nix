@@ -33,7 +33,7 @@ in {
           }
           {
             timeout = suspendTimeout;
-            on-timeout = "systemctl suspend-then-hibernate";
+            on-timeout = "systemctl suspend";
           }
         ];
       };

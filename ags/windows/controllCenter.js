@@ -26,12 +26,10 @@ function getChildren(focused) {
         return [
           Widget.Box({
             spacing: 6,
-            hexpand: true,
             children: [ConnectivityBox(), QuickButtons()],
           }),
           Widget.Box({
             spacing: 6,
-            hexpand: true,
             children: [PowerSaving(), DoNotDisturb()],
           }),
           SliderSection(),

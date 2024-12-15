@@ -20,6 +20,7 @@
       hyprpicker
       hyprpaper
       hypridle
+      hyprsunset
     ];
     programs.hyprland.enable = true;
     services.gvfs.enable = true;

@@ -14,6 +14,7 @@ alias bat='bat --theme=tokyonight_night'
 alias cx='chmod +x'
 
 # Vim related
+alias n='nvim'
 alias :q='exit'
 
 # Cargo

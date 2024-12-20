@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   homeManagerModules.git.enable = true;
   homeManagerModules.gtk.enable = true;
   homeManagerModules.homeManager.enable = true;
@@ -15,25 +15,15 @@
   homeManagerModules.hyprland.enable = true;
   homeManagerModules.hypridle.enable = true;
   homeManagerModules.moxide = import ./moxide.nix;
+  homeManagerModules.rofi.enable = true;
+  homeManagerModules.zsh.enable = true;
+  homeManagerModules.starship.enable = true;
 
   # TODO: Move to a standalone module
-  programs.rofi = {
+  programs.direnv = {
     enable = true;
-    package = pkgs.rofi-wayland;
-    cycle = true;
-    terminal = "${pkgs.kitty}/bin/kitty";
-    theme = ../../noneNix/rofi-frappe.rasi;
-    extraConfig = {
-      modi = "run,drun,window";
-      show-icons = true;
-      drun-display-format = "{icon} {name}";
-      location = 0;
-      disable-history = false;
-      hide-scrollbar = true;
-      display-drun = "   Apps ";
-      display-run = "   Run ";
-      display-window = " 󰕰  Window";
-      sidebar-mode = true;
-    };
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 }

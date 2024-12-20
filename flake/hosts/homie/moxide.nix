@@ -52,12 +52,12 @@
       rust.windows = [
         {
           name = " Neovim";
-          panes = ["nix develop --command nvim"];
+          panes = ["nvim"];
         }
         {
           name = "Cargo";
           layout = "even-horizontal";
-          panes = ["nix develop" "nix develop"];
+          panes = ["cargo run" "bacon"];
         }
       ];
       svelte.windows = [

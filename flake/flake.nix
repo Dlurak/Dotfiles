@@ -9,11 +9,7 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: {
+  outputs = {nixpkgs, ...} @ inputs: {
     nixosConfigurations.homie = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [

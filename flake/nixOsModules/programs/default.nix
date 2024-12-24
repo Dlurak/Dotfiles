@@ -1,4 +1,4 @@
-{
+{...}: {
   imports = [
     ./cliFun.nix
     ./cliMinimal.nix
@@ -7,7 +7,7 @@
     ./dev.nix
     ./school.nix
     ./hypr.nix
-	./lsp.nix
+    ./lsp.nix
     ./utils.nix
     ./uwu.nix
     ./zshShell.nix

@@ -99,6 +99,8 @@
 
         # messages
         set -g message-style 'fg=#{@accent} bg=colour0 bold'
+
+		set -s escape-time 0
       '';
     };
   };

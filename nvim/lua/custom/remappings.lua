@@ -8,6 +8,7 @@ local  keymap_set = vim.keymap.set
 keymap("n", "<leader>m", "`", {noremap = true, silent = true })
 keymap("n", "<TAB>", "<C-^>", {noremap = true, silent = true, desc = "Alternate bufers" })
 
+keymap_set("t", "<esc><esc>", "<c-\\><c-n>")
 keymap_set("n", "<leader>lh", vim_utils.toggle_inlay_hints , {
 	desc = "LSP | Toggle Inlay Hints", silent = true
 })

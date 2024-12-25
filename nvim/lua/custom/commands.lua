@@ -1,6 +1,8 @@
-local write_quit = {"Wq", "WQ"}
 local toggle_inlay_hints = require("custom.utils.vim").toggle_inlay_hints
 local scratch            = require("custom.userFuncs.scratch")
+local floaterm           = require("custom.userFuncs.floaterm")
+
+local write_quit = {"Wq", "WQ"}
 
 for _, value in ipairs(write_quit) do
 	vim.api.nvim_create_user_command(value, 'wq', {})
@@ -55,15 +57,23 @@ vim.api.nvim_create_user_command('CopyCodeBlock', function(opts)
 end, { range = true })
 
 
-vim.api.nvim_create_user_command('Scratch', function()
+vim.api.nvim_create_user_command(
+	'Scratch',
+	function()
 		scratch.scratch()
 	end,
-	{
-		desc = "Open a new scratchpad"
-	}
+	{ desc = "Open a new scratchpad" }
 )
 
-vim.api.nvim_create_user_command('Ft', function()
+vim.api.nvim_create_user_command(
+	'Floaterm',
+	floaterm.floaterm,
+	{ desc = "Toggle a floating terminal" }
+)
+
+vim.api.nvim_create_user_command(
+	'Ft',
+	function()
 		require('telescope.builtin').filetypes()
 	end,
 	{}

@@ -20,12 +20,53 @@ in {
         rules = import ./rules.nix;
       in {
         enable = true;
+        plugins = [
+          pkgs.hyprlandPlugins.hyprgrass
+        ];
         settings = {
+          plugin = {
+            touch_gestures = {
+              sensitivity = 5.0;
+              workspace_swipe_fingers = 3;
+              workspace_swipe_edge = "lr";
+              long_press_delay = 400;
+              resize_on_border_long_press = true;
+              edge_margin = 75;
+              emulate_touchpad_swipe = false;
+
+              hyprgrass-bind = [
+                ", edge:r:l, workspace, +1"
+                ", edge:l:r, workspace, -1"
+                ", edge:d:u, exec, kill -34 $(pgrep wvkbd-mobintl) || ${pkgs.wvkbd}/bin/wvkbd-mobintl -L 300"
+
+                ", edge:l:u, exec, ${pkgs.pamixer}/bin/pamixer -i 4"
+                ", edge:l:d, exec, ${pkgs.pamixer}/bin/pamixer -d 4"
+
+                ", edge:r:u, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
+                ", edge:r:d, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%-"
+
+                ", tap:4, exec, pkill nwg-drawer || ${pkgs.nwg-drawer}/bin/nwg-drawer"
+                ", swipe:4:d, killactive"
+
+                ", tap:5, togglefloating"
+
+                ", swipe:3:ld, exec, kitty"
+              ];
+
+              # longpress can trigger mouse binds:
+              hyprgrass-bindm = [
+                ", longpress:2, movewindow"
+                ", longpress:3, resizewindow"
+              ];
+            };
+          };
+
           monitor = ["eDP-1,1920x1080,0x0,1"];
           exec-once = [
             "${pkgs.hyprpaper}/bin/hyprpaper"
             "${pkgs.hypridle}/bin/hypridle"
             "${pkgs.ags}/bin/ags"
+            "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -L 300"
           ];
           general = {
             gaps_in = 5;
@@ -33,7 +74,7 @@ in {
             border_size = 2;
             "col.active_border" = accent;
             "col.inactive_border" = inactive;
-            resize_on_border = false;
+            resize_on_border = true;
             allow_tearing = false;
             layout = "dwindle";
           };
@@ -89,7 +130,7 @@ in {
           gestures = {
             workspace_swipe = true;
             workspace_swipe_fingers = 3;
-            workspace_swipe_distance = 150;
+            workspace_swipe_distance = 100;
           };
 
           bind = bind.bind;

@@ -20,8 +20,6 @@
         rename-session = "${pkgs.tmux}/bin/tmux rename-session";
         rename-window = "${pkgs.tmux}/bin/tmux rename-window";
         ":q" = "exit";
-        # TODO: Write a shell script using nix
-        mox = "/home/dlurak/Dotfiles/scripts/shell/moxide.sh";
       };
       completionInit = "compinit && autoload -Uz compinit";
       initExtra = ''

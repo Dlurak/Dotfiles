@@ -11,6 +11,8 @@
   config = lib.mkIf config.program.cliRandom.enable {
     environment.systemPackages = with pkgs; [
       fzf
+	  bat
+	  tokei
 	  yazi
     ];
   };

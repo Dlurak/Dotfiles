@@ -15,14 +15,11 @@
       neovim
       ripgrep
       tmux
-      (import ../derivations/moxide.nix {
-        pkgs = pkgs;
-      })
-      (import ../derivations/muxbar.nix {
-        pkgs = pkgs;
-      })
-	  jq
+      (import ../derivations/moxide.nix {inherit pkgs;})
+      (import ../derivations/mox.nix {inherit pkgs;})
+      (import ../derivations/muxbar.nix {inherit pkgs;})
+      jq
     ];
-	programs.nano.enable = false;
+    programs.nano.enable = false;
   };
 }

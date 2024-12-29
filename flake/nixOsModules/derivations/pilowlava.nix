@@ -1,5 +1,4 @@
 # 38c3 specific
-# TODO: Create a ccc.38c3 flag to enable/disable 38c3 related things
 {pkgs, ...}:
 pkgs.stdenv.mkDerivation {
   pname = "pilowlava";

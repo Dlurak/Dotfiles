@@ -22,6 +22,7 @@
       krita
 
       typora
+	  josm
 
       firefox
       chromium

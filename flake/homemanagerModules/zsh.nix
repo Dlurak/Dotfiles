@@ -32,8 +32,11 @@
         ## SETTINGS ##
         ##############
         bindkey -v
-        bindkey '^n' history-search-forward
-        bindkey '^p' history-search-backward
+        bindkey -M viins '^n' history-search-forward
+        bindkey -M viins '^p' history-search-backward
+
+		bindkey -M viins '^e' edit-command-line
+		autoload edit-command-line; zle -N edit-command-line
 
         HISTSIZE=5000
         HISTFILE=~/.zsh_history

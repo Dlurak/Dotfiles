@@ -19,6 +19,7 @@
       upower
       kanata
 	  ngrok
+	  wf-recorder
     ];
     services.upower.enable = true;
     services.kanata = {

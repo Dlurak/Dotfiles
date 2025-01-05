@@ -1,34 +1,5 @@
-/***************/
-/** Variables **/
-/***************/
-
-@define-color primary    #FF5053;
-@define-color highlight  #FEF2FF;
-@define-color background #0F000A;
-
-@define-color accent1 #B2AAFF;
-@define-color accent2 #6A5FDB;
-@define-color accent3 #261A66;
-@define-color accent4 #29114C;
-@define-color accent5 #190B2F;
-
-/**************/
-/** Styling  **/
-/**************/
-
-* {
-  font-family: "Space Grotesk";
-  letter-spacing: 2px;
-}
-
-window {
-  background-color: @background;
-  color: @highlight;
-  border-radius: 8px;
-}
-
 slider {
-	all: unset;
+  all: unset;
 }
 
 button {
@@ -42,16 +13,15 @@ label {
   font-weight: bold;
 }
 
-.green {
-  color: @accent1;
-}
-.red {
-  color: @primary;
-}
-
 /*********/
 /** Bar **/
 /*********/
+
+window.bar {
+  background-color: @theme_bg_color;
+  color: @theme_fg_color;
+  border-radius: 8px;
+}
 
 levelbar block,
 highlight {
@@ -59,7 +29,7 @@ highlight {
 }
 
 .system-button {
-  color: @accent1;
+  color: @theme_selected_bg_color;
   min-width: 24px;
 }
 
@@ -68,9 +38,9 @@ highlight {
 /*********************/
 
 window.controll-center {
-  background-color: @background;
-  color: @highlight;
-  border: 1px solid @accent1;
+  background-color: @theme_bg_color;
+  color: @theme_fg_color;
+  border: 1px solid @theme_selected_bg_color;
   border-radius: 16px;
 }
 
@@ -79,7 +49,7 @@ window.controll-center {
 }
 
 .cc-group {
-  border: 1px solid @accent2;
+  border: 1px solid @theme_selected_fg_color;
   border-radius: 8px;
 }
 
@@ -98,26 +68,11 @@ window.controll-center {
 }
 
 .img {
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 75px;
+  min-height: 75px;
   background-size: cover;
   background-position: center;
   border-radius: 6px;
-}
-
-.recording.active {
-  color: @primary;
-}
-
-.semi-button {
-	min-width: 175px;
-}
-
-.semi-button-icon {
-  border-radius: 100px;
-  min-width: 40px;
-  min-height: 40px;
-  margin-left: -5px;
 }
 
 /*******************/
@@ -138,7 +93,7 @@ window.notification-popups box.notifications {
   font-size: 58px;
   /* to center the icon */
   margin: 5px;
-  color: @hightlight;
+  color: @theme_fg_color;
 }
 
 .icon box {
@@ -152,25 +107,25 @@ window.notification-popups box.notifications {
   border-radius: 11px;
   padding: 1em;
   margin: 0.5em;
-  border: 1px solid @accent2;
-  background-color: @accent4;
+  border: 1px solid @wm_borders_edge;
+  background-color: @theme_bg_color;
 }
 
 window.controll-center .notification {
-  border: 1px solid @accent2;
+  border: 1px solid @theme_selected_fg_color;
 }
 
 .notification.critical {
-  border: 1px solid @primary;
+  border: 1px solid lightcoral;
 }
 
 .title {
-  color: @primary;
+  color: @theme_fg_color;
   font-size: 1.4em;
 }
 
 .body {
-  color: @hightlight;
+  color: @theme_unfocused_fg_color;
 }
 
 .actions .action-button {
@@ -195,21 +150,21 @@ window.controll-center .notification {
 }
 
 .power-button-wrapper {
-  border: 1px solid @accent2;
-  background-color: @background;
+  border: 1px solid @theme_unfocused_fg_color;
+  background-color: @theme_bg_color;
   border-radius: 16px;
 }
 
 .power-button {
-  background-color: @accent5;
-  border: 1px solid @accent2;
+  background-color: @theme_bg_color;
+  border: 1px solid @theme_unfocused_fg_color;
   border-radius: 4px;
   min-width: 150px;
   min-height: 150px;
 }
 .power-button:hover,
 .power-button:focus {
-  background-color: @accent3;
+  background-color: @theme_selected_bg_color;
 }
 
 .power-icon {

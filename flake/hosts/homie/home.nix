@@ -5,12 +5,11 @@
   homeManagerModules.tmux.enable = true;
   homeManagerModules.hyprpaper = {
     enable = true;
-    # path = ../../assets/wallpaper.png;
-    path = ../../assets/38c3-wallpaper.png;
+    path = ../../assets/wallpaper.png;
   };
   homeManagerModules.hyprlock = {
     enable = true;
-    background = ../../assets/38c3-lockscreen.png;
+    background = ../../assets/lockscreen.png;
   };
   homeManagerModules.hyprland.enable = true;
   homeManagerModules.hypridle.enable = true;
@@ -28,4 +27,25 @@
   };
 
   services.mpris-proxy.enable = true;
+
+  home.file.".config/ghostty/config".text = ''
+    window-decoration = false
+    confirm-close-surface = false
+
+    ###########
+    ## Fonts ##
+    ###########
+
+    font-size = 14
+    font-family = "JetBrains Mono SemiBold"
+    font-family-bold = "JetBrains Mono ExtraBold"
+    font-family-italic = "JetBrains Mono Italic"
+    font-family-bold-italic = "JetBrains Mono ExtraBold Italic"
+
+    #############
+    ## Theming ##
+    #############
+
+    theme = catppuccin-frappe
+  '';
 }

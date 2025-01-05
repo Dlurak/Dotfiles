@@ -28,6 +28,7 @@
       chromium
 
       kitty
+	  ghostty
       networkmanagerapplet
 
       spotify

@@ -23,8 +23,8 @@ in
     	--pointer "👉"
     )
 
-    emoji="$\{value:0:1}"
-    name="$\{value:2}"
+    emoji="$(echo "$value" | cut -c1-4)"
+    name="$(echo "$value" | cut -c6-)"
 
     case "$emoji" in
     	$project_emoji)

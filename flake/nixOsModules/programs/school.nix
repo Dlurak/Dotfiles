@@ -9,11 +9,9 @@
   };
 
   config = lib.mkIf config.program.school.enable {
-    environment.systemPackages = [
-      pkgs.gsettings-desktop-schemas
-      (import ../derivations/filius.nix {
-        pkgs = pkgs;
-      })
+    environment.systemPackages = with pkgs; [
+      pandoc
+      texlive.combined.scheme-medium
     ];
   };
 }

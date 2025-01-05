@@ -1,41 +1,62 @@
-//const powerProfiles = await Service.import("powerprofiles");
+const powerProfiles = await Service.import("powerprofiles");
 const notifications = await Service.import("notifications");
 
-const semiButton = (callback, icon, secondaryLabel, css) =>
+const semiButton = (callback, label, icon, secondaryLabel) =>
   Widget.Button({
-    className: "cc-group semi-button",
+    className: "cc-group",
+    hexpand: true,
     onClicked: callback,
     child: Widget.Box({
       spacing: 12,
       margin: 8,
       children: [
         Widget.Label({
-          className: "semi-button-icon",
-          css,
-          label: `${icon} `,
+          label: icon,
+          margin: 6,
         }),
-		Widget.Label({
-		  hpack: "start",
-		  className: "secondary",
-		  label: secondaryLabel,
-		}),
+        Widget.Box({
+          vertical: true,
+          children: [
+            Widget.Label({ label, hpack: "start" }),
+            Widget.Label({
+              hpack: "start",
+              className: "secondary",
+              label: secondaryLabel,
+            }),
+          ],
+        }),
       ],
     }),
   });
 
+export const PowerSaving = () =>
+  semiButton(
+    () => {
+      switch (powerProfiles.active_profile) {
+        case "power-saver":
+          powerProfiles.active_profile = "balanced";
+          break;
+        case "balanced":
+          powerProfiles.active_profile = "performance";
+          break;
+        case "performance":
+          powerProfiles.active_profile = "power-saver";
+          break;
+      }
+    },
+    "Power Saving",
+    "",
+    powerProfiles.bind("active_profile"),
+  );
 
 export const DoNotDisturb = () =>
   semiButton(
     () => {
       notifications.dnd = !notifications.dnd;
     },
+    "Do not Disturb",
     "",
     notifications
       .bind("dnd")
       .as((dnd) => (dnd ? "Do Not Disturb" : "Please Disturb")),
-    notifications
-      .bind("dnd")
-      .as((dnd) => (dnd ? "background: #b4befe;" : "background: transparent;")),
   );
-
-export const PowerSaving = DoNotDisturb

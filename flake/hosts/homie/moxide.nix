@@ -30,11 +30,11 @@
 	  baseDev.windows = [
         {
           name = " Neovim";
-          panes = ["nix develop --command nvim"];
+          panes = ["nvim"];
         }
         {
           name = " Nix-Shell";
-          panes = ["nix develop"];
+          panes = ["git status"];
         }
 	  ];
       nvim.windows = [
@@ -43,7 +43,7 @@
           panes = ["nvim"];
         }
       ];
-      nix.windows = [
+      nixShell.windows = [
         {
           name = " Nix-Shell";
           panes = ["nix develop"];
@@ -63,12 +63,12 @@
       svelte.windows = [
         {
           name = " Neovim";
-          panes = ["nix develop --command nvim"];
+          panes = ["nvim"];
         }
         {
           name = "Server";
           layout = "even-horizontal";
-          panes = ["nix develop --command pnpm run dev" "nix develop --command pnpm run test"];
+          panes = ["pnpm run dev" "pnpm run test"];
         }
       ];
     };
@@ -81,20 +81,16 @@
         root_dir = "~/Dotfiles/";
         template = "nvim";
       };
-      OSMApp = {
+      OsmApp = {
         root_dir = "~/SoftwareDevelopment/web/osmapp/";
         windows = [
           {
             name = " Neovim";
-            panes = ["nix develop --command nvim"];
+            panes = ["nvim"];
           }
           {
             name = "Server";
-            panes = ["nix develop --command yarn dev"];
-          }
-          {
-            name = " Nix-Shell";
-            panes = ["nix develop"];
+            panes = ["yarn dev" "echo OsmApp"];
           }
         ];
       };
@@ -102,7 +98,7 @@
         root_dir = "~/SoftwareDevelopment/AdventOfCode/";
         template = "baseDev";
       };
-      workshop = {
+      talks = {
         root_dir = "~/talks/";
         template = "baseDev";
       };

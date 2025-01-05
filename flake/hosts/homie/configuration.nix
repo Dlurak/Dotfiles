@@ -49,6 +49,8 @@
 
   services.power-profiles-daemon.enable = true;
 
+  virtualisation.waydroid.enable = true;
+
   home-manager = {
     users.dlurak = {...}: {
       imports = [

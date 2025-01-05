@@ -8,7 +8,7 @@ pkgs.rustPlatform.buildRustPackage rec {
     owner = "dlurak";
     repo = "moxide";
     rev = "v${version}";
-    sha256 = "09awvsdw27380d3481pxw4hjqpjy36ad45c750dcxfzal4qir0ax";
+    hash = "sha256-XYEcMaHqu84aKIcV0pQZXl4sIeH9BkRGA2gcwZveXCU=";
   };
 
   meta = {

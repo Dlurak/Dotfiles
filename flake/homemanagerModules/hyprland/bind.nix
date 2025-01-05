@@ -11,6 +11,7 @@ in {
     "${secondMod}, right, changegroupactive, f"
 
     "${mainMod}, Return, exec, ${pkgs.kitty}/bin/kitty"
+    "${mainMod} SHIFT, Return, exec, ${pkgs.ghostty}/bin/ghostty"
     "${mainMod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
     "${mainMod}, W, exec, ${pkgs.firefox}/bin/firefox"
     "${mainMod} SHIFT, W, exec, ${pkgs.chromium}/bin/chromium"

@@ -24,6 +24,9 @@
       userName = config.homeManagerModules.git.userName;
       userEmail = config.homeManagerModules.git.email;
 
+	  aliases = {
+		  amend = "commit --amend --no-edit";
+	  };
       extraConfig = {
         credential = {
           "https://github.com" = {

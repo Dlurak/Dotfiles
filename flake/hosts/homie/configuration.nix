@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   ...
 }: {
@@ -35,6 +36,32 @@
 
   nixModule.enable = true;
 
+  xdg.terminal-exec = {
+    enable = true;
+    package = pkgs.kitty;
+    settings = {default = ["kitty.desktop"];};
+  };
+
+  mime.enable = true;
+  mime.list = [
+    {
+      mimeTypes = ["image/svg+xml"];
+      handler = pkgs.inkscape;
+    }
+    {
+      mimeTypes = ["image/png" "image/jpeg" "image/gif" "image/bmp" "image/webp" "image/x-xpixmap" "image/x-tiff" "image/x-photoshop"];
+      handler = pkgs.eog;
+    }
+    {
+      mimeTypes = ["application/pdf"];
+      handler = pkgs.zathura;
+    }
+    {
+      mimeTypes = ["text/html"];
+      handler = pkgs.firefox;
+    }
+  ];
+
   firewall = {
     enable = true;
     tcp = [];
@@ -46,7 +73,6 @@
     powerOnBoot = true;
   };
   services.blueman.enable = true;
-
   services.power-profiles-daemon.enable = true;
 
   virtualisation.waydroid.enable = true;
@@ -55,7 +81,7 @@
     users.dlurak = {...}: {
       imports = [
         ./home.nix
-        inputs.self.outputs.homeManagerModules.default
+        ../../homemanagerModules/default.nix
       ];
     };
     backupFileExtension = "backup";

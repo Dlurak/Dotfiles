@@ -6,6 +6,7 @@
     ./fonts.nix
     ./locale.nix
     ./nix.nix
+	./xdg.nix
     ./variables.nix
     ./network.nix
   ];

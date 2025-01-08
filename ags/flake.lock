@@ -3,16 +3,14 @@
     "ags": {
       "inputs": {
         "astal": "astal",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1736090999,
-        "narHash": "sha256-B5CJuHqfJrzPa7tObK0H9669/EClSHpa/P7B9EuvElU=",
+        "lastModified": 1735485506,
+        "narHash": "sha256-7CWr3Q83KnGiLUn0oaboafLMOXQ0X9/fjFRVY1xopbM=",
         "owner": "aylur",
         "repo": "ags",
-        "rev": "5527c3c07d92c11e04e7fd99d58429493dba7e3c",
+        "rev": "251d39413543264361898b02035775aa3e46fe52",
         "type": "github"
       },
       "original": {
@@ -42,33 +40,29 @@
         "type": "github"
       }
     },
-    "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
+    "nixpkgs": {
       "locked": {
-        "lastModified": 1735745492,
-        "narHash": "sha256-Vs2IkQx4uDv2YehZ1sCw9K+kuMrBa3opnkGJJhMPNPo=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "9a9fef316ad191b3086edda465e850af282de4e0",
+        "lastModified": 1734649271,
+        "narHash": "sha256-4EVBRhOjMDuGtMaofAIqzJbg4Ql7Ai0PSeuVZTHjyKQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d70bd19e0a38ad4790d3913bf08fcbfc9eeca507",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
-    "nixpkgs": {
+    "nixpkgs_2": {
       "locked": {
-        "lastModified": 1735471104,
-        "narHash": "sha256-0q9NGQySwDQc7RhAV2ukfnu7Gxa5/ybJ2ANT8DQrQrs=",
+        "lastModified": 1735834308,
+        "narHash": "sha256-dklw3AXr3OGO4/XT1Tu3Xz9n/we8GctZZ75ZWVqAVhk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "88195a94f390381c6afcdaa933c2f6ff93959cb4",
+        "rev": "6df24922a1400241dae323af55f30e4318a6ca65",
         "type": "github"
       },
       "original": {
@@ -81,8 +75,7 @@
     "root": {
       "inputs": {
         "ags": "ags",
-        "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

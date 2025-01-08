@@ -1,0 +1,225 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
+
+$teal: #81c8be;
+$sky: #99d1db;
+$surface2: #232634;
+
+slider {
+  all: unset;
+  min-height: 10px;
+}
+
+button {
+  min-width: 12px;
+  padding: 3px;
+  background-color: transparent;
+}
+
+window.bar {
+  background: $bg-color;
+  color: $fg-color;
+  border-radius: 8px;
+  font-weight: bold;
+
+  .bar-system-button {
+    color: $sky;
+    min-width: 32px;
+    min-height: 34px;
+  }
+
+  .bar-workspaces button {
+    font-weight: bold;
+    min-height: 24px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 3px;
+  }
+
+  .media-title {
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+window.controll-center {
+  background: $bg-color;
+  color: $fg-color;
+  border-radius: 16px;
+  min-width: 350px;
+  border: 1px solid $teal;
+
+  .subwindow-title-line {
+    min-width: 350px;
+    font-weight: bold;
+
+    button {
+      font-size: 16px;
+    }
+    .subwindow-title {
+      font-size: 14px;
+    }
+  }
+
+  .equal-wrapper > * {
+    min-width: 175px;
+  }
+
+  .controll-center-wrapper {
+    margin: 8px;
+  }
+
+  .bordered {
+    border: 2px solid $surface2;
+    border-radius: 8px;
+  }
+
+  .power-line * {
+    margin: 4px;
+  }
+
+  button {
+    .title {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .value {
+      font-size: 13px;
+    }
+  }
+
+  .big-button > box {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+
+    .big-icon {
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 100px;
+      min-width: 32px;
+      margin-left: -8px;
+    }
+  }
+
+  .slider {
+    margin-left: 8px;
+    margin-right: 8px;
+
+    .big-icon {
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 100px;
+      min-width: 32px;
+      margin-left: -8px;
+    }
+  }
+
+  .media-player {
+    margin: 6px;
+
+    .title {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .media-player-cover {
+      min-width: 120px;
+      min-height: 120px;
+      border-radius: 8px;
+      margin: 4px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .actions > button > icon {
+      margin: 4px;
+      font-size: 18px;
+    }
+
+    scale {
+      padding: 0;
+      margin: 0.4rem 0;
+
+      trough {
+        min-height: 8px;
+      }
+
+      highlight {
+        background-color: $fg-color;
+      }
+
+      slider {
+        all: unset;
+      }
+    }
+
+    .media-player-meta {
+      margin: 4px;
+    }
+  }
+}
+
+window.notifications-popup {
+  .notification {
+    background: $bg-color;
+    color: $fg-color;
+    border-radius: 8px;
+    border: 1px solid $teal;
+
+    > box {
+      min-width: 300px;
+      margin: 4px 8px;
+
+      .header {
+        padding: 4px;
+        .app-icon {
+            margin: 0 6px;
+        }
+
+        .app-name {
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .time {
+            margin: 0 8px;
+        }
+
+        button {
+            padding: 4px;
+            min-width: 0;
+            min-height: 0;
+        }
+      }
+
+      .content {
+       .summary {
+            font-size: 1.2em;
+            color: $fg-color;
+        }
+
+        .body {
+            color: rgba(198, 208, 245, 0.8);
+        }
+
+        .image {
+            border-radius: 9px;
+            min-width: 100px;
+            min-height: 100px;
+            background-size: cover;
+            background-position: center;
+        }
+      }
+
+      .actions {
+        margin: 6px;
+        margin-top: 0;
+      }
+    }
+  }
+}

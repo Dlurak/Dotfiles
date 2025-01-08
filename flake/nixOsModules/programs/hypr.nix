@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   options = {
@@ -15,14 +16,13 @@
       wl-clipboard
       grim
       slurp
-      ags
       rofi-wayland
       hyprlock
       hyprpicker
       hyprpaper
       hypridle
-      hyprsunset
 
+	  (import ../derivations/dlushell.nix { inherit pkgs; inherit inputs; })
       (pkgs.writeShellScriptBin "rotate" ''
         if [ -z "$1" ]; then
             echo "Usage: rotate-screen {up|left|down|right}"

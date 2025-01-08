@@ -18,7 +18,6 @@ in {
     "${mainMod}, N, exec, ${pkgs.nautilus}/bin/nautilus"
 
     "${mainMod}, U, exec, ${pkgs.hyprlock}/bin/hyprlock"
-    "${mainMod} SHIFT, U, exec, ${pkgs.ags}/bin/ags --toggle-window-power"
     "${mainMod} SHIFT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
 
     # screenshot
@@ -84,8 +83,6 @@ in {
 
     "${mainMod}, Tab, workspace, previous"
 
-    "${mainMod}, Y, exec, ${pkgs.ags}/bin/ags --toggle-window \"controll-center\""
-    "${mainMod} SHIFT, Y, exec, ${pkgs.ags}/bin/ags --toggle-window \"bar-0\""
     "${mainMod}, F9, exec, ${pkgs.rofi-wayland}/bin/rofi -show window"
   ];
   binde = [

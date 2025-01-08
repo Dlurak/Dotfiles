@@ -26,7 +26,9 @@ const Controlls = ({ setCurrentView }: { setCurrentView: (view: View) => void })
 			<DoNotDisturb />
 		</box>
 		<Sliders />
+		{/*
 		<Media />
+			*/}
 		<PowerLine />
 	</>
 )

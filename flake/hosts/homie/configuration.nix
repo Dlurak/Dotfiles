@@ -51,6 +51,39 @@
 
   virtualisation.waydroid.enable = true;
 
+  mime = {
+    enable = true;
+    apps = with pkgs; {
+      "application/pdf" = firefox;
+      "image/svg+xml" = inkscape;
+
+      "image/bmp" = eog;
+      "image/gif" = eog;
+      "image/jpeg" = eog;
+      "image/jpg" = eog;
+      "image/jxl" = eog;
+      "image/pjpeg" = eog;
+      "image/png" = eog;
+      "image/tiff" = eog;
+      "image/webp" = eog;
+      "image/x-bmp" = eog;
+      "image/x-gray" = eog;
+      "image/x-icb" = eog;
+      "image/x-ico" = eog;
+      "image/x-png" = eog;
+      "image/x-portable-anymap" = eog;
+      "image/x-portable-bitmap" = eog;
+      "image/x-portable-graymap" = eog;
+      "image/x-portable-pixmap" = eog;
+      "image/x-xbitmap" = eog;
+      "image/x-xpixmap" = eog;
+      "image/x-pcx" = eog;
+      "image/svg+xml-compressed" = eog;
+      "image/vnd.wap.wbmp" = eog;
+      "image/x-icns" = eog;
+    };
+  };
+
   home-manager = {
     users.dlurak = {...}: {
       imports = [

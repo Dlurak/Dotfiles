@@ -8,5 +8,6 @@
     ./nix.nix
     ./variables.nix
     ./network.nix
+	./xdg.nix
   ];
 }

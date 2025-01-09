@@ -68,9 +68,7 @@ const MediaPlayer = ({ player }: { player: Mpris.Player }) => {
 				<box vertical>
 					<box spacing={2}>
 						<label truncate hexpand halign={Gtk.Align.START} className="title" label={title} />
-						{playerIcon && (
-							<icon icon={playerIcon} />
-						)}
+						<icon icon={playerIcon} />
 					</box>
 					<label halign={Gtk.Align.START} valign={Gtk.Align.START} vexpand wrap label={artist} />
 				</box>

@@ -65,8 +65,8 @@ in {
           exec-once = [
             "${pkgs.hyprpaper}/bin/hyprpaper"
             "${pkgs.hypridle}/bin/hypridle"
+            "${pkgs.ags}/bin/ags"
             "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -L 300"
-            "dlushell"
           ];
           general = {
             gaps_in = 5;

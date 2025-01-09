@@ -37,8 +37,6 @@
       pika-backup
       resources
       nautilus
-	  
-	  zathura
     ];
   };
 }

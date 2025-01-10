@@ -22,6 +22,7 @@
       hyprpaper
       hypridle
       hyprsunset
+	  wlinhibit
 
       (pkgs.writeShellScriptBin "rotate" ''
         if [ -z "$1" ]; then

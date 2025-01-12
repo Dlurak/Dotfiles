@@ -9,6 +9,7 @@
 
   bootloader.enable = true;
   fontsModule.enable = true;
+  powerOff.enable = true;
 
   users.users.dlurak = {
     isNormalUser = true;
@@ -50,6 +51,8 @@
   services.power-profiles-daemon.enable = true;
 
   virtualisation.waydroid.enable = true;
+
+  services.fprintd.enable = true;
 
   mime = {
     enable = true;

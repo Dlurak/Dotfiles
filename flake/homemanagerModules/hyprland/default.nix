@@ -50,7 +50,7 @@ in {
 
                 ", tap:5, togglefloating"
 
-                ", swipe:3:ld, exec, kitty"
+                ", swipe:3:ld, exec, ${pkgs.firefox}/bin/firefox"
               ];
 
               # longpress can trigger mouse binds:

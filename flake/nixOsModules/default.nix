@@ -9,5 +9,6 @@
     ./variables.nix
     ./network.nix
 	./xdg.nix
+	./powerOff.nix
   ];
 }

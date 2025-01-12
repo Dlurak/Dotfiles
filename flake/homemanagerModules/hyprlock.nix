@@ -18,6 +18,17 @@ in {
         enable = true;
         settings = {
           background = [{path = "${hyprlock.background}";}];
+          auth = {
+            pam = {
+              enabled = true;
+              module = "swaylock";
+            };
+            fingerprint = {
+              enabled = true;
+              ready_message = "(Scan fingerprint to unlock)";
+              present_message = "Scanning fingerprint";
+            };
+          };
           input-field = [
             {
               size = "180, 30";
@@ -41,7 +52,7 @@ in {
               text = "cmd[update:1000] echo \"<span>$(date '+%A, %d %B')</span>\"";
               color = color "1";
               font_size = 16;
-              font_family = "Arimo Nerd Font Propo, Bold";
+              font_family = "Space Grotesk, Bold";
               position = "0, -100";
               halign = "center";
               valign = "top";
@@ -50,7 +61,7 @@ in {
               text = "cmd[update:1000] echo \"<span>$(date '+%H:%M')</span>\"";
               color = color "1";
               font_size = 75;
-              font_family = "Arimo Nerd Font Propo, Bold";
+              font_family = "Space Grotesk, Bold";
               position = "0, -120";
               halign = "center";
               valign = "top";
@@ -59,7 +70,7 @@ in {
               text = "cmd[update:60000] echo \"<span>󰁹 $(cat /sys/class/power_supply/BAT0/capacity)%</span>\"";
               color = color "1";
               font_size = 11;
-              font_family = "Arimo Nerd Font Propo, Bold";
+              font_family = "Space Grotesk, Bold";
               position = "-10, 10";
               halign = "right";
               valign = "bottom";

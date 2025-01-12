@@ -12,16 +12,18 @@
     environment.systemPackages = with pkgs; [
       brightnessctl
       nh
-	  unzip
-	  tokei
+      unzip
+      tokei
       pamixer
       pavucontrol
       upower
       kanata
-	  ngrok
-	  wf-recorder
+      ngrok
+      wf-recorder
+
+      (writers.writeRustBin "colors" {} (builtins.readFile ../customScripts/colors.rs))
+      (writers.writeRustBin "timestamp" {} (builtins.readFile ../customScripts/timestamp.rs))
     ];
-    services.upower.enable = true;
     services.kanata = {
       enable = true;
 

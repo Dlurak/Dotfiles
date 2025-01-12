@@ -10,20 +10,21 @@ in {
     "${secondMod}, left, changegroupactive, b"
     "${secondMod}, right, changegroupactive, f"
 
-    "${mainMod}, Return, exec, ${pkgs.kitty}/bin/kitty"
-    "${mainMod} SHIFT, Return, exec, ${pkgs.ghostty}/bin/ghostty"
+    "${mainMod}, Return, exec, ${pkgs.ghostty}/bin/ghostty"
+    "${mainMod} SHIFT, Return, exec, ${pkgs.kitty}/bin/kitty"
     "${mainMod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
     "${mainMod}, W, exec, ${pkgs.firefox}/bin/firefox"
     "${mainMod} SHIFT, W, exec, ${pkgs.chromium}/bin/chromium"
     "${mainMod}, N, exec, ${pkgs.nautilus}/bin/nautilus"
+    "${mainMod} SHIFT, N, exec, ${pkgs.xfce.thunar}/bin/thunar"
 
     "${mainMod}, U, exec, ${pkgs.hyprlock}/bin/hyprlock"
-    "${mainMod} SHIFT, U, exec, ${pkgs.ags}/bin/ags --toggle-window-power"
+    "${mainMod} SHIFT, U, exec, ${pkgs.ags}/bin/ags --toggle-window power"
     "${mainMod} SHIFT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
 
     # screenshot
-    "${mainMod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
-    "${mainMod}, S, exec, ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy"
+    "${mainMod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy"
+    "${mainMod}, S, exec, ${pkgs.grim}/bin/grim ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy"
 
     "${mainMod} SHIFT, Space, togglefloating"
     "${mainMod}, Space, centerwindow"

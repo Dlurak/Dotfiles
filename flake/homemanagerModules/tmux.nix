@@ -19,88 +19,104 @@
       plugins = [
         pkgs.tmuxPlugins.vim-tmux-navigator
       ];
-      extraConfig = ''
-        set-option -g allow-rename off
+      extraConfig = let
+        mox = import ../nixOsModules/derivations/mox.nix {inherit pkgs;};
+        muxbar = import ../nixOsModules/derivations/muxbar.nix {inherit pkgs;};
+        change-session = pkgs.writeShellScriptBin "change-session" ''
+          session=$(${pkgs.tmux}/bin/tmux ls -F '#S' | ${pkgs.fzf}/bin/fzf \
+          	--layout reverse \
+          	--border rounded \
+          	--border-label "Tmux Sessions" \
+          	--no-scrollbar \
+          	--prompt "✨ " \
+          	--pointer "👉"
+          )
 
-        #################
-        ## KEYBINDINGS ##
-        #################
+          if [ -n "$session" ]; then
+          	${pkgs.tmux}/bin/tmux switch-client -t "$session"
+          fi
+        '';
+      in ''
+              set-option -g allow-rename off
 
-        bind-key ö display-popup -B -E -w 40% -h 12 "~/Dotfiles/scripts/shell/moxide.sh"
-        bind-key ä display-popup -B -E -w 40% -h 12 "~/Dotfiles/scripts/shell/change-session.sh"
+              #################
+              ## KEYBINDINGS ##
+              #################
 
-        # Splits
-        unbind s
-        bind s split-window -h -c "#{pane_current_path}"
+              bind-key ö display-popup -B -E -w 40% -h 12 "${mox}/bin/mox"
+              bind-key ä display-popup -B -E -w 40% -h 12 "${change-session}/bin/change-session"
 
-        unbind v
-        bind v split-window -v -c "#{pane_current_path}"
+              # Splits
+              unbind s
+              bind s split-window -h -c "#{pane_current_path}"
 
-        unbind r
-        bind-key r source-file ~/.config/tmux/tmux.conf\; display-message "Config reloaded"
+              unbind v
+              bind v split-window -v -c "#{pane_current_path}"
 
-        # Windows
-        unbind t
-        bind-key t new-window -c "#{pane_current_path}"
+              unbind r
+              bind-key r source-file ~/.config/tmux/tmux.conf\; display-message "Config reloaded"
 
-        unbind w
-        bind-key w confirm-before -y -p "kill window #W? (y/n)" kill-window
+              # Windows
+              unbind t
+              bind-key t new-window -c "#{pane_current_path}"
 
-        unbind tab
-        bind-key tab last-window
+              unbind w
+              bind-key w confirm-before -y -p "kill window #W? (y/n)" kill-window
 
-        unbind c
-        bind-key c send-keys -R \; clear-history \; send-keys enter
+              unbind tab
+              bind-key tab last-window
 
-        unbind J
-        bind-key J swap-pane -D
-        unbind K
-        bind-key K swap-pane -U
+              unbind c
+              bind-key c send-keys -R \; clear-history \; send-keys enter
 
-        ###################
-        ## DESIGN TWEAKS ##
-        ###################
+              unbind J
+              bind-key J swap-pane -D
+              unbind K
+              bind-key K swap-pane -U
 
-        set -ga terminal-overrides ",xterm-256color:Tc"
+              ###################
+              ## DESIGN TWEAKS ##
+              ###################
 
-        set -g @accent "colour14"
-        # don't do anything when a 'bell' rings
-        set -g visual-activity off
-        set -g visual-bell off
-        set -g visual-silence off
-        setw -g monitor-activity off
-        set -g bell-action none
+              set -ga terminal-overrides ",xterm-256color:Tc"
 
-        # clock mode
-        setw -g clock-mode-colour colour7
+              set -g @accent "colour14"
+              # don't do anything when a 'bell' rings
+              set -g visual-activity off
+              set -g visual-bell off
+              set -g visual-silence off
+              setw -g monitor-activity off
+              set -g bell-action none
 
-        # copy mode
-        setw -g mode-style 'fg=colour7 bg=colour18 bold'
+              # clock mode
+              setw -g clock-mode-colour colour7
 
-        # pane borders
-        set -g pane-border-style 'fg=colour4'
-        set -g pane-active-border-style 'fg=#{@accent}'
-        set-option -g status-position top
-        set -g status-left ""
-        set -g status-justify left
-        set -g status-style 'fg=#{@accent}'
-        # github.com/dlurak/muxbar
-        set -g status-interval 1
-        set -g status-right '#(muxbar)'
-        set -g status-right-length 150
+              # copy mode
+              setw -g mode-style 'fg=colour7 bg=colour18 bold'
 
-        setw -g window-status-current-style 'fg=colour15 bg=#{@accent} bold'
-        setw -g window-status-current-format '#[fg=#{@accent} bg=colour0]#[fg=colour0 bg=#{@accent}]#{?window_zoomed_flag,  ,} #I #W #F #[fg=#{@accent} bg=colour0]'
+              # pane borders
+              set -g pane-border-style 'fg=colour4'
+              set -g pane-active-border-style 'fg=#{@accent}'
+              set-option -g status-position top
+              set -g status-left ""
+              set -g status-justify left
+              set -g status-style 'fg=#{@accent}'
+              set -g status-interval 1
+              set -g status-right '#(${muxbar}/bin/muxbar)'
+              set -g status-right-length 150
 
-        setw -g window-status-style 'fg=#{@accent} dim'
-        setw -g window-status-format ' #I #W #[fg=colour4]#F '
+              setw -g window-status-current-style 'fg=colour15 bg=#{@accent} bold'
+              setw -g window-status-current-format '#[fg=#{@accent} bg=colour0]#[fg=colour0 bg=#{@accent}]#{?window_zoomed_flag,  ,} #I #W #F #[fg=#{@accent} bg=colour0]'
 
-        setw -g window-status-bell-style 'fg=#{@accent} bg=colour4 bold'
+              setw -g window-status-style 'fg=#{@accent} dim'
+              setw -g window-status-format ' #I #W #[fg=colour4]#F '
 
-        # messages
-        set -g message-style 'fg=#{@accent} bg=colour0 bold'
+              setw -g window-status-bell-style 'fg=#{@accent} bg=colour4 bold'
 
-		set -s escape-time 0
+              # messages
+              set -g message-style 'fg=#{@accent} bg=colour0 bold'
+
+        set -s escape-time 0
       '';
     };
   };

@@ -14,7 +14,6 @@
         cd = "z";
         ls = "${pkgs.coreutils}/bin/ls --color=auto";
         grep = "grep --color=auto";
-        bat = "${pkgs.bat}/bin/bat --theme=tokyonight_night";
         cx = "chmod +x";
         window-class = "${pkgs.hyprland}/bin/hyprctl clients -j | jq \".[].class\" -r";
         rename-session = "${pkgs.tmux}/bin/tmux rename-session";

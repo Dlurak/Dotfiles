@@ -73,6 +73,10 @@
       ];
     };
     projects = {
+	  Dlool ={
+        root_dir = "~/SoftwareDevelopment/web/dlool_frontend_v2/";
+        template = "svelte";
+	  };
       Moxide = {
         root_dir = "~/SoftwareDevelopment/cli/moxide/";
         template = "rust";
@@ -80,6 +84,19 @@
       Dotfiles = {
         root_dir = "~/Dotfiles/";
         template = "nvim";
+      };
+	  School = {
+        root_dir = "~/Schule/E-1/Notizen";
+        windows = [
+          {
+            name = " Neovim";
+            panes = ["nvim Mathematik/main.tex"];
+          }
+          {
+            name = "LaTeX";
+            panes = ["zathura output/Mathematik.pdf" "rebuild"];
+          }
+        ];
       };
       OsmApp = {
         root_dir = "~/SoftwareDevelopment/web/osmapp/";

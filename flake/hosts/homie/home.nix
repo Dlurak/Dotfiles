@@ -17,8 +17,9 @@
   homeManagerModules.rofi.enable = true;
   homeManagerModules.zsh.enable = true;
   homeManagerModules.starship.enable = true;
+  homeManagerModules.terminals.enable = true;
+  homeManagerModules.zathura.enable = true;
 
-  # TODO: Move to a standalone module
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
@@ -27,42 +28,6 @@
   };
 
   services.mpris-proxy.enable = true;
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "JetBrains Mono";
-      size = 13;
-    };
-    settings = {
-      enable_audio_bell = false;
-      confirm_os_window_close = 0;
-    };
-    themeFile = "Catppuccin-Frappe";
-  };
-
-  programs.ghostty = {
-    enable = true;
-    installBatSyntax = false;
-    installVimSyntax = false;
-    settings = {
-      window-decoration = false;
-      confirm-close-surface = false;
-
-      ###########
-      ## Fonts ##
-      ###########
-      font-size = 12.5;
-      font-family-bold = "JetBrains Mono ExtraBold";
-      font-family-italic = "JetBrains Mono Italic";
-      font-family-bold-italic = "JetBrains Mono ExtraBold Italic";
-
-      #############
-      ## Theming ##
-      #############
-      theme = "catppuccin-frappe";
-    };
-  };
 
   programs.bat = {
     enable = true;

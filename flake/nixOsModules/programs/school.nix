@@ -11,7 +11,10 @@
   config = lib.mkIf config.program.school.enable {
     environment.systemPackages = with pkgs; [
       pandoc
-      texlive.combined.scheme-medium
+      texlive.combined.scheme-full
+	  xournalpp
+	  rnote
+	  zathura
     ];
   };
 }

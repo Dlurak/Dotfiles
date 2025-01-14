@@ -17,7 +17,6 @@
       tmux
       (import ../derivations/moxide.nix {inherit pkgs;})
       (import ../derivations/mox.nix {inherit pkgs;})
-      (import ../derivations/muxbar.nix {inherit pkgs;})
       jq
     ];
     programs.nano.enable = false;

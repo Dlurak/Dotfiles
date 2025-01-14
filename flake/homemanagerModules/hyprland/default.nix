@@ -45,9 +45,10 @@ in {
                 ", edge:r:u, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
                 ", edge:r:d, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%-"
 
-                ", tap:4, exec, pkill nwg-drawer || ${pkgs.nwg-drawer}/bin/nwg-drawer"
+                ", edge:u:d, exec, pkill nwg-drawer || ${pkgs.nwg-drawer}/bin/nwg-drawer"
                 ", swipe:4:d, killactive"
 
+                ", tap:4, fullscreen, 0"
                 ", tap:5, togglefloating"
 
                 ", swipe:3:ld, exec, ${pkgs.firefox}/bin/firefox"

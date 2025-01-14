@@ -10,7 +10,9 @@
     ./moxide
 	./rofi.nix
 	./starship.nix
+    ./terminals.nix
     ./tmux.nix
+	./zathura.nix
 	./zsh.nix
   ];
 }

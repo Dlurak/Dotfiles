@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -29,13 +30,13 @@
           "https://github.com" = {
             helper = [
               "" # Clear default helper
-              "!/usr/bin/gh auth git-credential"
+              "!${pkgs.gh}/bin/gh auth git-credential"
             ];
           };
           "https://gist.github.com" = {
             helper = [
               "" # Clear default helper
-              "!/usr/bin/gh auth git-credential"
+              "!${pkgs.gh}/bin/gh auth git-credential"
             ];
           };
         };

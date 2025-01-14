@@ -4,14 +4,6 @@ return {
 		body = '\\section{$1}',
 	},
 	{
-		trigger = 'subsection',
-		body = '\\subsection{$1}',
-	},
-	{
-		trigger = 'subsubsection',
-		body = '\\subsubsection{$1}',
-	},
-	{
 		trigger = 'itemize',
 		body = [[\begin{itemize}
 	\item $1
@@ -80,4 +72,12 @@ return {
     $1
 \end{minipage}]]
 	},
+	{
+		trigger = 'lim',
+		body = [[\lim_{${1:x}\to${2:\\infty}}]]
+	},
+	{
+		trigger = 'pdf',
+		body = [[\includepdf[fitpaper=true]{${2:Deutsch/assets/AB.pdf}}]]
+	}
 }

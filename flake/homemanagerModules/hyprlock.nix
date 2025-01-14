@@ -19,10 +19,6 @@ in {
         settings = {
           background = [{path = "${hyprlock.background}";}];
           auth = {
-            pam = {
-              enabled = true;
-              module = "swaylock";
-            };
             fingerprint = {
               enabled = true;
               ready_message = "(Scan fingerprint to unlock)";

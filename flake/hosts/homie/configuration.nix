@@ -57,7 +57,7 @@
   mime = {
     enable = true;
     apps = with pkgs; {
-      "application/pdf" = firefox;
+      "application/pdf" = zathura;
       "image/svg+xml" = inkscape;
 
       "image/bmp" = eog;

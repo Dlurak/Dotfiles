@@ -1,9 +1,12 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
   ...
-}: {
+}: let
+  ags = inputs.ags;
+in {
   options = {
     program.hypr.enable = lib.mkEnableOption "Enable hyprland and wayland";
   };
@@ -15,15 +18,45 @@
       wl-clipboard
       grim
       slurp
-      ags
       rofi-wayland
       hyprlock
       hyprpicker
       hyprpaper
       hypridle
       hyprsunset
-	  wlinhibit
+      wlinhibit
 
+      ags.packages.${pkgs.system}.ags
+      (ags.lib.bundle {
+        inherit pkgs;
+        extraPackages = with ags.packages.${pkgs.system};
+          [
+            hyprland
+            mpris
+            battery
+            wireplumber
+            network
+            bluetooth
+            powerprofiles
+            notifd
+          ]
+          ++ (with pkgs; [
+            hyprpicker
+            hypridle
+            hyprsunset
+            slurp
+            grim
+            brightnessctl
+            libnotify
+            wlinhibit
+            wl-clipboard
+            libnotify
+          ]);
+        src = ../../../ags;
+        name = "my-shell";
+        entry = "app.ts";
+        gtk4 = false;
+      })
       (pkgs.writeShellScriptBin "rotate" ''
         if [ -z "$1" ]; then
             echo "Usage: rotate-screen {up|left|down|right}"

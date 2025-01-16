@@ -36,18 +36,17 @@ require("lazy").setup({
 
 	require("custom.plugins.aerial"),
 
+	require("custom.plugins.luasnip"),
+
 	{ 'wakatime/vim-wakatime', lazy = false },
 
 	{
+		"saadparwaiz1/cmp_luasnip",
 		"neovim/nvim-lspconfig",
 
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"kdheepak/cmp-latex-symbols",
-
-		"edgedb/edgedb-vim",
-		"elkowar/yuck.vim",
-		"apple/pkl-neovim",
 	},
 })

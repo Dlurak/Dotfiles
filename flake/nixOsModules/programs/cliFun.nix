@@ -15,14 +15,15 @@
       clolcat
       lolcat
       cmatrix
-	  cowsay
+      cowsay
       fastfetch
       figlet
       neofetch
       nitch
       pipes-rs
-	  sl
+      sl
       toilet
+      (fortune.override {withOffensive = true;})
     ];
   };
 }

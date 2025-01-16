@@ -8,11 +8,11 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./moxide
-	./rofi.nix
-	./starship.nix
+    ./rofi.nix
+    ./starship.nix
     ./terminals.nix
     ./tmux.nix
-	./zathura.nix
-	./zsh.nix
+    ./zathura.nix
+    ./zsh.nix
   ];
 }

@@ -78,6 +78,6 @@ return {
 	},
 	{
 		trigger = 'pdf',
-		body = [[\includepdf[fitpaper=true]{${2:Deutsch/assets/AB.pdf}}]]
+		body = [[\includepdf{${2:Deutsch/assets/AB.pdf}}]]
 	}
 }

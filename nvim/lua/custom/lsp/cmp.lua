@@ -1,5 +1,4 @@
 local cmp = require "cmp"
-require("custom.snippets.init").register_cmp_source()
 
 local kind_icons = {
 	Text = "",
@@ -63,7 +62,7 @@ cmp.setup {
 	},
 	sources = {
 		{name = "nvim_lsp", max_item_count = 10},
-		{name = "snp"},
+		{name = "luasnip"},
 		{name = "path"},
 		{name = "buffer", keyword_length = 5, max_item_count = 10}
 	},
@@ -81,14 +80,19 @@ cmp.setup {
 		completion = window_style,
 		documentation = window_style,
 	},
+	snippet = {
+      expand = function(args)
+        require'luasnip'.lsp_expand(args.body)
+      end
+    },
 }
 
 cmp.setup.filetype('tex', {
   sources = cmp.config.sources({
     {name = "nvim_lsp", max_item_count = 10},
-    {name = "snp"},
+    {name = "luasnip"},
     {name = "path"},
     {name = "buffer", keyword_length = 5, max_item_count = 10},
-    {name = "latex_symbols", option = { strategy = 2 }, max_item_count = 10},
+    {name = "latex_symbols", option = { strategy = 2 }, max_item_count = 25},
   })
 })

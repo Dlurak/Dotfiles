@@ -131,3 +131,39 @@ Maybe I document more from my NeoVim setup when I find the motivation for it.
 I use `<C-f>` as the prefix
 
 Maybe I document more from my tmux setup when I find the motivation for it.
+
+## Future Ideas
+
+The dotfiles are never finished and I have some ideas for the future:
+
+- Figure out how to use `inputs` in home-manager
+- Add a touch friendly app launcher using ags
+- Add tabs into the controll center
+    - Normal
+    - Notifications
+    - Audio
+        - Mixer
+        - Sink selection
+    - App launcher
+    - Calculator
+    - If the ICE Portal API is available create a new tab with train information
+        - The german highspeed railway has an api on train about the train journey, it is soooooo cool!
+- On Screenkeyboard using ags
+- Brightness of external monitors
+- Pause when the audio sink changes
+- Add indcators using ags
+    - screen brightness
+    - volume
+    - if possible keyboard backlight
+- Add a screenshot menu
+    - Area
+    - One Screen
+    - All screens
+    - One window
+    - Or recordings
+- Customize discord and spotify
+- Add firefox css
+- Configure firefox using nix
+- Move to nixvim?
+- [OpenDrop](image_url) for Airdrop
+    - Really really really cool projct!

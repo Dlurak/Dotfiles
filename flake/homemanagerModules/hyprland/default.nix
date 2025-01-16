@@ -16,7 +16,7 @@ in {
         accent = colors.teal;
         inactive = colors.base;
         shadow = colors.crust;
-        bind = import ./bind.nix {pkgs = pkgs;};
+        bind = import ./bind.nix {inherit pkgs;};
         rules = import ./rules.nix;
       in {
         enable = true;
@@ -64,9 +64,9 @@ in {
 
           monitor = ["eDP-1,1920x1080,0x0,1"];
           exec-once = [
+            "my-shell"
             "${pkgs.hyprpaper}/bin/hyprpaper"
             "${pkgs.hypridle}/bin/hypridle"
-            "${pkgs.ags}/bin/ags"
             "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -L 300"
           ];
           general = {

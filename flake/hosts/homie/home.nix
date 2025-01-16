@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}: {
+  imports = [ ../../homemanagerModules/default.nix ];
+
   homeManagerModules.git.enable = true;
   homeManagerModules.gtk.enable = true;
   homeManagerModules.homeManager.enable = true;

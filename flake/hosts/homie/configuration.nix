@@ -1,4 +1,6 @@
 {
+  config,
+  lib,
   pkgs,
   inputs,
   ...
@@ -89,10 +91,7 @@
 
   home-manager = {
     users.dlurak = {...}: {
-      imports = [
-        ./home.nix
-        inputs.self.outputs.homeManagerModules.default
-      ];
+      imports = [./home.nix];
     };
     backupFileExtension = "backup";
   };

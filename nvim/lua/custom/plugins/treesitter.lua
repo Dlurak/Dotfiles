@@ -17,7 +17,8 @@ return {
 				"javascript",
 				"typescript",
 				"html",
-				"markdown"
+				"markdown",
+				"latex"
 			},
 			modules = {},
 			ignore_install = {},

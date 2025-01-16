@@ -4,7 +4,19 @@
 
   rules = import ./rules.nix;
 in {
-  bind = [
+  bind = let
+    screenshotNotify = pkgs.writeShellScriptBin "screenshot-notify" ''
+      ACTION_VIEW="viewScreenshot"
+      ${pkgs.libnotify}/bin/notify-send "File copied and saved" \
+      	--app-name="Screenshot" \
+      	--action=$ACTION_VIEW="View" |
+      	while read -r action; do
+      		if [[ "$action" == $ACTION_VIEW ]]; then
+      			xdg-open ~/Pictures/screenshot.png
+      		fi
+      	done
+    '';
+  in [
     "${secondMod}, h, changegroupactive, b"
     "${secondMod}, l, changegroupactive, b"
     "${secondMod}, left, changegroupactive, b"
@@ -19,12 +31,12 @@ in {
     "${mainMod} SHIFT, N, exec, ${pkgs.xfce.thunar}/bin/thunar"
 
     "${mainMod}, U, exec, ${pkgs.hyprlock}/bin/hyprlock"
-    "${mainMod} SHIFT, U, exec, ${pkgs.ags}/bin/ags --toggle-window power"
+    "${mainMod} SHIFT, U, exec, ags toggle power"
     "${mainMod} SHIFT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
 
     # screenshot
-    "${mainMod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy"
-    "${mainMod}, S, exec, ${pkgs.grim}/bin/grim ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy"
+    "${mainMod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy && ${screenshotNotify}/bin/screenshot-notify"
+    "${mainMod}, S, exec, ${pkgs.grim}/bin/grim ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy && ${screenshotNotify}/bin/screenshot-notify"
 
     "${mainMod} SHIFT, Space, togglefloating"
     "${mainMod}, Space, centerwindow"
@@ -85,8 +97,8 @@ in {
 
     "${mainMod}, Tab, workspace, previous"
 
-    "${mainMod}, Y, exec, ${pkgs.ags}/bin/ags --toggle-window \"controll-center\""
-    "${mainMod} SHIFT, Y, exec, ${pkgs.ags}/bin/ags --toggle-window \"bar-0\""
+    "${mainMod}, Y, exec, ags toggle controll-center"
+    "${mainMod} SHIFT, Y, exec, ags toggle bar"
     "${mainMod}, F9, exec, ${pkgs.rofi-wayland}/bin/rofi -show window"
   ];
   binde = [

@@ -17,5 +17,4 @@ keymap_set("n", "<leader>lh", vim_utils.toggle_inlay_hints , {
 require("custom.remappings.splits")
 require("custom.remappings.spelling")
 require("custom.remappings.vertical")
-require("custom.remappings.snippets")
 require("custom.remappings.tabs")

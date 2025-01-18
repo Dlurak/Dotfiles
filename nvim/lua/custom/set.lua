@@ -17,6 +17,7 @@ opt.spelllang = "de,en"
 
 -- have 4 lines padding when scrolling
 opt.scrolloff = 4
+opt.sidescrolloff = 12
 
 -- Hightlight the current line number
 opt.cursorlineopt = "number"

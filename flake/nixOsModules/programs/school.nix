@@ -15,6 +15,7 @@
 	  xournalpp
 	  rnote
 	  zathura
+	  peaclock # Seeing how long 'til the lesson is over
     ];
   };
 }

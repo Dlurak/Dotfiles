@@ -32,7 +32,6 @@
         notification-warning-fg = "rgba(250,227,176,1)";
         inputbar-fg = rgba.text;
         inputbar-bg = rgba.surface0;
-        recolor = true;
         recolor-lightcolor = rgba.base;
         recolor-darkcolor = rgba.text;
         index-fg = rgba.text;
@@ -44,6 +43,7 @@
         highlight-color = colors.setRgbaOpacity 0.4 rgba.teal;
         highlight-fg = colors.setRgbaOpacity 0.4 rgba.pink;
         highlight-active-color = colors.setRgbaOpacity 0.4 rgba.pink;
+		page-padding = 8;
       };
     };
   };

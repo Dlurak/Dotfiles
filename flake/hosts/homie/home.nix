@@ -1,8 +1,8 @@
-{
-  pkgs,
-  ...
-}: {
-  imports = [ ../../homemanagerModules/default.nix ];
+{pkgs, ...}: let
+  colors = import ../../colors.nix;
+  hex = colors.hex;
+in {
+  imports = [../../homemanagerModules/default.nix];
 
   homeManagerModules.git.enable = true;
   homeManagerModules.gtk.enable = true;
@@ -57,4 +57,10 @@
     "file:///home/dlurak/Schule/"
     "file:///home/dlurak/38c3/"
   ];
+
+  home.file.".peaclock/config".text = ''
+    set seconds on
+    style active-bg ${hex.teal}
+    style date ${hex.teal}
+  '';
 }

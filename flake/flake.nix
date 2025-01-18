@@ -19,5 +19,13 @@
         inputs.home-manager.nixosModules.default
       ];
     };
+    nixosConfigurations.nix-malina = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./nixOsModules
+        ./hosts/nix-malina/configuration.nix
+        inputs.home-manager.nixosModules.default
+      ];
+    };
   };
 }

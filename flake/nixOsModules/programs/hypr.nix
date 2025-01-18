@@ -52,7 +52,7 @@ in {
             wl-clipboard
             libnotify
           ]);
-        src = ../../../ags;
+        src = ../../noneNix/ags;
         name = "my-shell";
         entry = "app.ts";
         gtk4 = false;

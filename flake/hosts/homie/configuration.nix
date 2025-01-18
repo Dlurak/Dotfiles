@@ -1,17 +1,17 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+{pkgs, ...}: {
+  imports = [./hardware-configuration.nix];
 
-  bootloader.enable = true;
+  bootloader = {
+    enableSystemdBoot = true;
+    enableRaspberryPi = false;
+  };
   fontsModule.enable = true;
   powerOff.enable = true;
+
+  networkModule = {
+    enable = true;
+    hostName = "homie";
+  };
 
   users.users.dlurak = {
     isNormalUser = true;

@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  colors = import ../../colors.nix;
+  hex = colors.hex;
+in {
+  imports = [../../homemanagerModules/default.nix];
+
   homeManagerModules.git.enable = true;
   homeManagerModules.gtk.enable = true;
   homeManagerModules.homeManager.enable = true;
@@ -12,13 +17,13 @@
     background = ../../assets/lockscreen.png;
   };
   homeManagerModules.hyprland.enable = true;
-  homeManagerModules.hypridle.enable = true;
+  homeManagerModules.hypridle.enable = false;
   homeManagerModules.moxide = import ./moxide.nix;
   homeManagerModules.rofi.enable = true;
   homeManagerModules.zsh.enable = true;
   homeManagerModules.starship.enable = true;
   homeManagerModules.terminals.enable = true;
-  homeManagerModules.zathura.enable = true;
+  homeManagerModules.zathura.enable = false;
 
   programs.direnv = {
     enable = true;
@@ -26,8 +31,6 @@
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
-
-  services.mpris-proxy.enable = true;
 
   programs.bat = {
     enable = true;
@@ -45,11 +48,9 @@
     };
   };
 
-  gtk.gtk3.bookmarks = [
-    "file:///home/dlurak/SoftwareDevelopment/"
-    "file:///home/dlurak/Documents"
-    "file:///home/dlurak/Downloads"
-    "file:///home/dlurak/Schule/"
-    "file:///home/dlurak/38c3/"
-  ];
+  home.file.".peaclock/config".text = ''
+    set seconds on
+    style active-bg ${hex.teal}
+    style date ${hex.teal}
+  '';
 }

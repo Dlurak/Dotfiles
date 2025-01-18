@@ -25,9 +25,16 @@
   program = {
     cliMinimal.enable = true;
     cliRandom.enable = true;
-    desktop.enable = true;
-    dev.enable = true;
     funCli.enable = true;
+    desktop = {
+      browsers.enable = true;
+      chatting.enable = true;
+      graphics.enable = true;
+      misc.enable = true;
+      terms.enable = true;
+      utils.enable = true;
+    };
+    dev.enable = true;
     hypr.enable = true;
     lsp.enable = true;
     utils.enable = true;

@@ -24,6 +24,7 @@
       sl
       toilet
       (fortune.override {withOffensive = true;})
+	  peaclock
     ];
   };
 }

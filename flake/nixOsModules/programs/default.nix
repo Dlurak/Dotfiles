@@ -3,7 +3,7 @@
     ./cliFun.nix
     ./cliMinimal.nix
     ./cliRandom.nix
-    ./desktop.nix
+	./desktop
     ./dev.nix
     ./school.nix
     ./hypr.nix

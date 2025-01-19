@@ -136,6 +136,8 @@ Maybe I document more from my tmux setup when I find the motivation for it.
 
 The dotfiles are never finished and I have some ideas for the future:
 
+### Laptop
+
 - Figure out how to use `inputs` in home-manager
 - Add a touch friendly app launcher using ags
 - Add tabs into the controll center
@@ -167,3 +169,27 @@ The dotfiles are never finished and I have some ideas for the future:
 - Move to nixvim?
 - [OpenDrop](image_url) for Airdrop
     - Really really really cool projct!
+
+### Raspberry Pi
+
+I also run this config on a Raspberry Pi 4, for this computer I have also some ideas:
+
+- Create a lightweight river or maybe sway setup
+    - It *can* run my normal hyprland setup but it really isn't a fast and snappy experience
+- Host a bunch of services, no docker or something like that just systemd and nix.
+- Host these:
+    - [crosstab](https://github.com/dlurak/crosstab)
+    - [gitea](https://github.com/go-gitea/gitea)
+    - [LibreTranslate](https://libretranslate.com/)
+    - [Librespeed](https://github.com/librespeed/speedtest-go)
+    - [Homebox](https://hay-kot.github.io/homebox/)
+    - [Immich](https://github.com/immich-app/immich)
+    - [Monica](https://github.com/monicahq/monica)
+    - [MediaTracker](https://github.com/bonukai/MediaTracker)
+- Potentially also host these (I yet have to decide if I like and need them):
+    - [Mealie](https://mealie.io/)
+    - [Paperless](https://docs.paperless-ngx.com/)
+    - [Wallabag](https://wallabag.org/)
+    - [Hoarder](https://hoarder.app/)
+    - [HabitTrove](https://github.com/dohsimpson/HabitTrove)
+- Maybe install an airplay server to turn any monitor into an airplay monitor?

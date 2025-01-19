@@ -17,7 +17,6 @@
       pamixer
       pavucontrol
       upower
-      kanata
       ngrok
       wf-recorder
 

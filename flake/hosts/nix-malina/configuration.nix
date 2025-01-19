@@ -25,7 +25,7 @@
 
   program = {
     cliMinimal.enable = true;
-    cliRandom.enable = true;
+    cliRandom.enable = false;
     funCli.enable = true;
     desktop = {
       browsers.enable = true;
@@ -38,7 +38,7 @@
     dev.enable = true;
     hypr.enable = true;
     lsp.enable = true;
-    utils.enable = true;
+    utils.enable = false;
     uwu.enable = false;
     school.enable = false;
     zsh.enable = true;

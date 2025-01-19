@@ -7,6 +7,7 @@
     ./dev.nix
     ./school.nix
     ./hypr.nix
+    ./river.nix
     ./lsp.nix
     ./utils.nix
     ./uwu.nix

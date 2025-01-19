@@ -36,8 +36,9 @@
       misc.enable = false;
     };
     dev.enable = true;
-    hypr.enable = true;
-    lsp.enable = true;
+    hypr.enable = false;
+	river.enable = true;
+	lsp.enable = true;
     utils.enable = false;
     uwu.enable = false;
     school.enable = false;

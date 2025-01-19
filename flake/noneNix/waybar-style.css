@@ -1,0 +1,98 @@
+@define-color neutral #303446;
+@define-color pink #f4b8e4;
+@define-color green #a6d189;
+@define-color secondary #51576d;
+@define-color blue #8caaee;
+@define-color cyan #81c8be;
+
+* {
+	border: none;
+	border-radius: 10;
+    font-family: "JetbrainsMono Nerd Font";
+	font-size: 15px;
+	min-height: 10px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+    color: transparent;
+	background: transparent;
+}
+
+#tags {
+	background: @neutral;
+	margin-top: 6px;
+	margin-left: 12px;
+	font-size: 4px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}
+
+#tags button {
+	color: @green;
+	transition: none;
+	background: transparent;
+	font-size: 16px;
+}
+
+#tags button.focused {
+	color: @pink;
+	background: @secondary;
+}
+
+#tags button:hover {
+	color: @pink;
+	background: @secondary;
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+#pulseaudio {
+	color: @neutral;
+	background: @blue;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}
+
+#custom-playerctl {
+	color: @neutral;
+	background: @cyan;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}
+
+#clock {
+	color: @neutral;
+	background: @green;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+}

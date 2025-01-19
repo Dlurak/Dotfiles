@@ -36,6 +36,7 @@
     };
     dev.enable = true;
     hypr.enable = true;
+    river.enable = false;
     lsp.enable = true;
     utils.enable = true;
     uwu.enable = true;

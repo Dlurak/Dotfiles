@@ -25,7 +25,7 @@
         ##########
         ## EVAL ##
         ##########
-        eval "$(fzf --zsh)"
+        eval "$(${pkgs.fzf}/bin/fzf --zsh)"
 
         ##############
         ## SETTINGS ##

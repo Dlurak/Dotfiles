@@ -12,6 +12,7 @@
     environment.systemPackages = with pkgs; [
       git
       vim
+	  nh
       neovim
       ripgrep
       tmux

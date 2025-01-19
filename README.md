@@ -174,8 +174,6 @@ The dotfiles are never finished and I have some ideas for the future:
 
 I also run this config on a Raspberry Pi 4, for this computer I have also some ideas:
 
-- Create a lightweight river or maybe sway setup
-    - It *can* run my normal hyprland setup but it really isn't a fast and snappy experience
 - Host a bunch of services, no docker or something like that just systemd and nix.
 - Host these:
     - [crosstab](https://github.com/dlurak/crosstab)

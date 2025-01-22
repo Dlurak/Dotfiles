@@ -11,10 +11,17 @@ import { WiFi } from "./WifiView"
 import { Bluetooth } from "./BluetoothView"
 import AstalNetwork from "gi://AstalNetwork"
 import AstalBluetooth from "gi://AstalBluetooth"
+import { Apps } from "./Apps/Apps"
 
-type View = "controlls" | "wifi" | "bluetooth"
+type View = "controlls" | "wifi" | "bluetooth" | "apps"
 
 type ControllProps = { setCurrentView: (view: View) => void }
+
+type TabButton = [string, View]
+const tabButtons: TabButton[] = [
+	[ " ", "controlls"],
+	[ "󰀻 ", "apps"],
+]
 
 const Controlls = ({ setCurrentView }: ControllProps) => {
 	const network = AstalNetwork.get_default()
@@ -45,13 +52,18 @@ export const ControllCenter = () => {
     const { TOP, LEFT  } = Astal.WindowAnchor
 
 	const currentView = Variable<View>("controlls");
+	const reset = () => currentView.set("controlls")
+	const resetAndClose = () => {
+		reset()
+		App.toggle_window("controll-center")
+	}
 
     return (
 		<window
 			name="controll-center"
 			className="controll-center"
 			exclusivity={Astal.Exclusivity.NORMAL}
-			anchor={TOP | LEFT  }
+			anchor={TOP | LEFT}
 			application={App}
 			margin-top={8}
 			margin-left={8}
@@ -64,17 +76,35 @@ export const ControllCenter = () => {
 				}
 			}}
 		>
-			<box className="controll-center-wrapper" vertical spacing={8}>
-				{currentView((view) => {
-					switch (view) {
-						case "controlls":
-							return <Controlls setCurrentView={(view) => currentView.set(view)} />
-						case "wifi":
-							return <WiFi reset={() => currentView.set("controlls")} />
-						case "bluetooth":
-							return <Bluetooth reset={() => currentView.set("controlls")} />
-					}
-				})}
+			<box>
+				<box vertical className="view-select">
+					{tabButtons.map(([icon, view]) => (
+						<button
+							className={currentView(v => v === view ? "focused" : "")}
+							onClick={() => currentView.set(view)}
+						>
+							{` ${icon}`}
+						</button>
+					))}
+					<box vexpand />
+					<button onClick={() => App.toggle_window("power")}>
+						
+					</button>
+				</box>
+				<box vertical spacing={8} className="controll-center-wrapper">
+					{currentView((view) => {
+						switch (view) {
+							case "controlls":
+								return <Controlls setCurrentView={(view) => currentView.set(view)} />
+							case "wifi":
+								return <WiFi reset={reset} />
+							case "bluetooth":
+								return <Bluetooth reset={reset} />
+							case "apps":
+								return <Apps reset={resetAndClose} />
+						}
+					})}
+				</box>
 			</box>
 		</window>
 	)

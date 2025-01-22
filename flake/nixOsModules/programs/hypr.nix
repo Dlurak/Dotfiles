@@ -22,7 +22,6 @@ in {
       hyprlock
       hyprpicker
       hyprpaper
-      hypridle
       hyprsunset
       wlinhibit
 
@@ -42,7 +41,6 @@ in {
           ]
           ++ (with pkgs; [
             hyprpicker
-            hypridle
             hyprsunset
             slurp
             grim

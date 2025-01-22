@@ -9,7 +9,7 @@
     ags,
     ...
   }: let
-    system = pkgs.system;
+    system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     extraPackages = with ags.packages.${system}; [
       hyprland
@@ -20,9 +20,9 @@
       bluetooth
       powerprofiles
       notifd
+	  apps
 
       pkgs.hyprpicker
-      pkgs.hypridle
       pkgs.hyprsunset
       pkgs.slurp
       pkgs.grim

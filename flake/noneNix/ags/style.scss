@@ -50,6 +50,23 @@ window.controll-center {
   min-width: 350px;
   border: 1px solid $teal;
 
+  .view-select {
+    background: #232634;
+    padding: 8px;
+    border-radius: 16px 0 0 16px;
+    margin: 2px;
+
+    > button {
+      padding: 5px;
+    }
+
+    > .focused {
+      color: $teal;
+      border: red;
+      outline: red;
+    }
+  }
+
   .subwindow-title-line {
     min-width: 350px;
     font-weight: bold;
@@ -77,6 +94,9 @@ window.controll-center {
 
   .power-line * {
     margin: 4px;
+  }
+  .power-line {
+    padding: 0 4px;
   }
 
   button {
@@ -160,6 +180,20 @@ window.controll-center {
 
     .media-player-meta {
       margin: 4px;
+    }
+  }
+
+  .AppButton {
+    .name {
+      font-weight: bold;
+    }
+
+    .description {
+      font-weight: 200;
+    }
+
+    icon {
+      font-size: 30px;
     }
   }
 }

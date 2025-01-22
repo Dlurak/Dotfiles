@@ -14,6 +14,7 @@
         zulip
         element-desktop
         signal-desktop
+        whatsapp-for-linux
       ]
       ++ (
         if pkgs.stdenv.isx86_64

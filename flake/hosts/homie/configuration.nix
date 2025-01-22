@@ -54,7 +54,7 @@
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = true;
+    powerOnBoot = false;
   };
   services.blueman.enable = true;
 
@@ -94,6 +94,9 @@
       "image/svg+xml-compressed" = eog;
       "image/vnd.wap.wbmp" = eog;
       "image/x-icns" = eog;
+
+	  "video/qicktime" = mpv;
+	  "application/ogg" = mpv;
     };
   };
 

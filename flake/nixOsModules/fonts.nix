@@ -27,6 +27,8 @@
       (import ./derivations/spaceGrotesk.nix {
         pkgs = pkgs;
       })
+	  barlow
+	  source-sans-pro
     ];
   };
 }

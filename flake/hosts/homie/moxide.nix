@@ -95,7 +95,7 @@
           {
             name = "LaTeX";
 		    layout = "even-horizontal";
-            panes = ["zathura output/Mathematik.pdf" "rebuild"];
+            panes = ["cd output/ && zathura Mathematik.pdf" "rebuild"];
           }
         ];
       };

@@ -66,7 +66,6 @@ in {
           exec-once = [
             "my-shell"
             "${pkgs.hyprpaper}/bin/hyprpaper"
-            "${pkgs.hypridle}/bin/hypridle"
             "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -L 300"
           ];
           general = {

@@ -8,10 +8,12 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./moxide
+    ./river.nix
     ./rofi.nix
     ./starship.nix
     ./terminals.nix
     ./tmux.nix
+    ./waybar.nix
     ./zathura.nix
     ./zsh.nix
   ];

@@ -46,10 +46,23 @@
 
   nixModule.enable = true;
 
+  # For airplay
   firewall = {
     enable = true;
-    tcp = [];
-    udp = [];
+    tcp = [7000 7001 7100];
+    udp = [5353 6000 6001 7011];
+  };
+  services.avahi = {
+    enable = true;
+    nssmdns = true; # printing
+    openFirewall = true; # ensuring that firewall ports are open as needed
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+      userServices = true;
+      domain = true;
+    };
   };
 
   hardware.bluetooth = {
@@ -95,8 +108,8 @@
       "image/vnd.wap.wbmp" = eog;
       "image/x-icns" = eog;
 
-	  "video/qicktime" = mpv;
-	  "application/ogg" = mpv;
+      "video/qicktime" = mpv;
+      "application/ogg" = mpv;
     };
   };
 

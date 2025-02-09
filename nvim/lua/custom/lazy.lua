@@ -38,6 +38,11 @@ require("lazy").setup({
 
 	require("custom.plugins.luasnip"),
 
+	{
+		'kaarmu/typst.vim',
+		ft = 'typst',
+		lazy=false
+	},
 	{ 'wakatime/vim-wakatime', lazy = false },
 
 	{

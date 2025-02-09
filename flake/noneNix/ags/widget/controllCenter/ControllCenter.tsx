@@ -12,16 +12,11 @@ import { Bluetooth } from "./BluetoothView"
 import AstalNetwork from "gi://AstalNetwork"
 import AstalBluetooth from "gi://AstalBluetooth"
 import { Apps } from "./Apps/Apps"
-
-type View = "controlls" | "wifi" | "bluetooth" | "apps"
+import { Mixer } from "./Mixer/Mixer"
+import { SidePanel } from "./SidePanel"
+import { View } from "../../types"
 
 type ControllProps = { setCurrentView: (view: View) => void }
-
-type TabButton = [string, View]
-const tabButtons: TabButton[] = [
-	[ " ", "controlls"],
-	[ "󰀻 ", "apps"],
-]
 
 const Controlls = ({ setCurrentView }: ControllProps) => {
 	const network = AstalNetwork.get_default()
@@ -77,20 +72,7 @@ export const ControllCenter = () => {
 			}}
 		>
 			<box>
-				<box vertical className="view-select">
-					{tabButtons.map(([icon, view]) => (
-						<button
-							className={currentView(v => v === view ? "focused" : "")}
-							onClick={() => currentView.set(view)}
-						>
-							{` ${icon}`}
-						</button>
-					))}
-					<box vexpand />
-					<button onClick={() => App.toggle_window("power")}>
-						
-					</button>
-				</box>
+				<SidePanel currentView={currentView} />
 				<box vertical spacing={8} className="controll-center-wrapper">
 					{currentView((view) => {
 						switch (view) {
@@ -102,6 +84,8 @@ export const ControllCenter = () => {
 								return <Bluetooth reset={reset} />
 							case "apps":
 								return <Apps reset={resetAndClose} />
+							case "mixer":
+								return <Mixer reset={resetAndClose} />
 						}
 					})}
 				</box>

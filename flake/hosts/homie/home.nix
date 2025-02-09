@@ -66,4 +66,14 @@ in {
     style active-bg ${hex.teal}
     style date ${hex.teal}
   '';
+
+  xdg.desktopEntries = {
+	uxplay = {
+		name = "UxPlay";
+		genericName = "AirPlay";
+		exec = "${pkgs.uxplay}/bin/uxplay -p";
+		terminal = false;
+		categories = [ "Applications" ];
+	};
+  };
 }

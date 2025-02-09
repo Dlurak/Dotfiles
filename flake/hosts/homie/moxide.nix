@@ -118,7 +118,16 @@
       };
       talks = {
         root_dir = "~/talks/";
-        template = "baseDev";
+        windows = [
+          {
+            name = " Neovim";
+            panes = ["nvim"];
+          }
+          {
+            name = "Rebuild";
+            panes = ["nix run nixpkgs#watchexec -- -r -e md -- nix build ."];
+          }
+        ];
       };
     };
   }

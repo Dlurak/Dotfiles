@@ -23,14 +23,13 @@ in
     	--pointer "👉"
     )
 
-    emoji="$(echo "$value" | cut -c1-4)"
-    name="$(echo "$value" | cut -c6-)"
-
+	IFS=' ' read -r emoji name <<< "$value"
     case "$emoji" in
     	$project_emoji)
     		${moxide}/bin/moxide project start "$name"
     		;;
     	$template_emoji)
+			echo "$name"
     		${moxide}/bin/moxide template start "$name"
     		;;
     	$directory_emoji)

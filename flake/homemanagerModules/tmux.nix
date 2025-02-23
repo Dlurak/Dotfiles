@@ -43,8 +43,10 @@
               ## KEYBINDINGS ##
               #################
 
-              bind-key ö display-popup -B -E -w 40% -h 12 "${mox}/bin/mox"
-              bind-key ä display-popup -B -E -w 40% -h 12 "${change-session}/bin/change-session"
+              bind-key ö display-popup -B -E -w 40% -h 14 "${mox}/bin/mox"
+              bind-key ä display-popup -B -E -w 40% -h 14 "${change-session}/bin/change-session"
+
+              bind-key ü choose-session
 
               # Splits
               unbind s
@@ -90,6 +92,7 @@
 
               # clock mode
               setw -g clock-mode-colour colour7
+              setw -g clock-mode-style 24
 
               # copy mode
               setw -g mode-style 'fg=colour7 bg=colour18 bold'

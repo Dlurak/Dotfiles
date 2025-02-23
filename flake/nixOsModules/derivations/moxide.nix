@@ -1,14 +1,14 @@
 {pkgs, ...}:
 pkgs.rustPlatform.buildRustPackage rec {
   pname = "moxide";
-  version = "0.1.0";
+  version = "0.2.0";
 
-  cargoHash = "sha256-MqJ3lxnzvvmNXEMgx0su8vRDXAZbNtPuuphNzjeMN+w=";
+  cargoHash = "sha256-TEoy2Jae7QV3MlZokAmWgwy9q0XBIxC17Ns9RJTZoeU=";
   src = pkgs.fetchFromGitHub {
     owner = "dlurak";
     repo = "moxide";
     rev = "v${version}";
-    hash = "sha256-XYEcMaHqu84aKIcV0pQZXl4sIeH9BkRGA2gcwZveXCU=";
+    hash = "sha256-f3suE8Gz7V62+O1J3W+Ps2HhVCAhRmxRFfrB2Lc1Tz4=";
   };
 
   meta = {

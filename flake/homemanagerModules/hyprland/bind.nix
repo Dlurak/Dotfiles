@@ -34,6 +34,8 @@ in {
     "${mainMod} SHIFT, U, exec, ags toggle power"
     "${mainMod} SHIFT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
 
+    "${mainMod} SHIFT, E, exec, ${pkgs.smile}/bin/smile"
+
     # screenshot
     "${mainMod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy && ${screenshotNotify}/bin/screenshot-notify"
     "${mainMod}, S, exec, ${pkgs.grim}/bin/grim ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy && ${screenshotNotify}/bin/screenshot-notify"

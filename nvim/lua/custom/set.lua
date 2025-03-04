@@ -1,10 +1,12 @@
+local opt = vim.opt
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local opt = vim.opt
-
 opt.number = true
 opt.relativenumber = true
+
+opt.mouse = ""
 
 opt.tabstop = 4
 opt.softtabstop = 4

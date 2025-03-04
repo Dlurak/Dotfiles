@@ -91,7 +91,7 @@ in {
             };
           };
           animations = {
-            enabled = true;
+            enabled = false;
             bezier = "shot, 0.2, 1.0, 0.2, 1.0";
             animation = [
               "windows, 1, 4, shot, slide"

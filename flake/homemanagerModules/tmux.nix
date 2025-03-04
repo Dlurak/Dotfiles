@@ -106,6 +106,7 @@
               set -g status-style 'fg=#{@accent}'
               set -g status-interval 1
               set -g status-right '#(${muxbar}/bin/muxbar)'
+              # set -g status-right '#(~/SoftwareDevelopment/ricing/muxbar/target/release/muxbar)'
               set -g status-right-length 150
 
               setw -g window-status-current-style 'fg=colour15 bg=#{@accent} bold'

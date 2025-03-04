@@ -68,10 +68,10 @@ in {
   '';
 
   xdg.desktopEntries = {
-	uxplay = {
-		name = "UxPlay";
-		genericName = "AirPlay";
-		exec = "${pkgs.uxplay}/bin/uxplay -p";
+	peaclock = {
+		name = "Peaclock";
+		genericName = "Clock";
+		exec = "${pkgs.ghostty}/bin/ghostty --command=\"${pkgs.peaclock}/bin/peaclock\"";
 		terminal = false;
 		categories = [ "Applications" ];
 	};

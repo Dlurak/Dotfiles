@@ -13,7 +13,7 @@
       [josm]
       ++ (
         if pkgs.stdenv.isx86_64
-        then [typora spotify]
+        then [typora]
         else []
       );
   };

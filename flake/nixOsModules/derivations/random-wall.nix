@@ -3,9 +3,6 @@
     wallpapers=(
       "${../../assets/wallpaper/ryo-vending.png}"
       "${../../assets/wallpaper/geometry.png}"
-      "${../../assets/wallpaper/tokyo-night.png}"
-
-      "${../../assets/wallpaper/stripes.png}"
       "${../../assets/wallpaper/stripes.png}"
     )
 

@@ -8,11 +8,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags.url = "github:aylur/ags";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {nixpkgs,ags, ...} @ inputs: {
+  outputs = {
+    nixpkgs,
+    ags,
+    spicetify-nix,
+    ...
+  } @ inputs: {
     nixosConfigurations.homie = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs ags;};
+      specialArgs = {inherit inputs ags spicetify-nix;};
       modules = [
         ./nixOsModules
         ./hosts/homie/configuration.nix

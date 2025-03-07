@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   colors = import ../../colors.nix;
   hex = colors.hex;
 in {

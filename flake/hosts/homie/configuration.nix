@@ -1,4 +1,9 @@
-{pkgs,ags, ...}: {
+{
+  pkgs,
+  ags,
+  spicetify-nix,
+  ...
+}: {
   imports = [./hardware-configuration.nix];
 
   bootloader = {
@@ -102,9 +107,12 @@
   };
 
   home-manager = {
-  extraSpecialArgs = {inherit ags;};
+    extraSpecialArgs = {inherit ags spicetify-nix;};
     users.dlurak = {...}: {
-      imports = [./home.nix];
+      imports = [
+        ./home.nix
+        ./spicetify.nix
+      ];
     };
     backupFileExtension = "backup";
   };

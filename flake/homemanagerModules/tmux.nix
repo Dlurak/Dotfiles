@@ -82,7 +82,7 @@
 
               set -ga terminal-overrides ",xterm-256color:Tc"
 
-              set -g @accent "colour14"
+              set -g @accent "colour13"
               # don't do anything when a 'bell' rings
               set -g visual-activity off
               set -g visual-bell off

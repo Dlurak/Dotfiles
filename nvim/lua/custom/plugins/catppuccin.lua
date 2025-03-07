@@ -1,10 +1,10 @@
 return {
-	"catppuccin/nvim",
+	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("catppuccin").setup({
-			flavor = "frappe",
+		require("tokyonight").setup({
+			style = "night",
 
 			styles = {
 				comments = {},
@@ -19,51 +19,44 @@ return {
 				properties = {},
 				types = {},
 				operators = {},
-				-- miscs = {}, -- Uncomment to turn off hard-coded styles
 			},
 
-			integrations = {
-				cmp = true,
-				gitsigns = true,
-				treesitter = true,
-				harpoon = true,
-				mini = {
-					enabled = true,
-				},
-				indent_blankline = {
-					enabled = true,
-					scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
-					colored_indent_levels = false,
-				},
-				neotest = true,
-				native_lsp = {
-					enabled = true,
-					virtual_text = {
-						errors = { "italic" },
-						hints = { "italic" },
-						warnings = { "italic" },
-						information = { "italic" },
-						ok = { "italic" },
-					},
-					underlines = {
-						errors = { "underline" },
-						hints = { "underline" },
-						warnings = { "underline" },
-						information = { "underline" },
-						ok = { "underline" },
-					},
-					inlay_hints = {
-						background = true,
-					},
-				},
-				telescope = {
-					enabled = true,
-					style = "nvchad"
-				},
-				lsp_trouble = false
+			plugins = {
+				auto = true
 			},
+
+			on_highlights = function(hl, c)
+				local prompt = "#2d3149"
+				hl.TelescopeNormal = {
+					bg = c.bg_dark,
+					fg = c.fg_dark,
+				}
+				hl.TelescopeBorder = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopePromptNormal = {
+					bg = prompt,
+				}
+				hl.TelescopePromptBorder = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePromptTitle = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePreviewTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopeResultsTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+			end,
 		})
 
-		vim.cmd("colorscheme catppuccin-frappe")
+		vim.cmd("colorscheme tokyonight-night")
 	end
 }

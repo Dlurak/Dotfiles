@@ -3,7 +3,8 @@ pkgs.rustPlatform.buildRustPackage {
   pname = "muxbar";
   version = "0.1.0";
 
-  cargoHash = "sha256-oOtu5nH0kk2/mELCFCIEeKLd0uHI70Y8/ny7Q6/j9I4=";
+  useFetchCargoVendor = true;
+  cargoHash = "sha256-LhuDqWrf9fEt9Xh5KF1Z79OjZZevqLmTTfSxh9DcTh4=";
   src = pkgs.fetchFromGitHub {
     owner = "dlurak";
     repo = "muxbar";

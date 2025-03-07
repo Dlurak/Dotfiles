@@ -1,4 +1,7 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  ...
+}: let
   colors = import ../../colors.nix;
   hex = colors.hex;
 in {
@@ -10,7 +13,7 @@ in {
   homeManagerModules.tmux.enable = true;
   homeManagerModules.hyprpaper = {
     enable = true;
-    path = ../../assets/wallpaper.png;
+    path = ../../assets/wallpaper/stripes.png;
   };
   homeManagerModules.hyprlock = {
     enable = true;
@@ -39,41 +42,42 @@ in {
 
   programs.bat = {
     enable = true;
-    config.theme = "catppuccin";
+    config.theme = "tokyonight";
     themes = {
-      catppuccin = {
+      tokyonight = {
         src = pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "bat";
-          rev = "699f60fc8ec434574ca7451b444b880430319941";
-          sha256 = "sha256-6fWoCH90IGumAMc4buLRWL0N61op+AuMNN9CAR9/OdI=";
+          owner = "folke";
+          repo = "tokyonight.nvim";
+          rev = "057ef5d260c1931f1dffd0f052c685dcd14100a3";
+          sha256 = "sha256-1xZhQR1BhH2eqax0swlNtnPWIEUTxSOab6sQ3Fv9WQA=";
         };
-        file = "themes/Catppuccin Frappe.tmTheme";
+        file = "extras/sublime/tokyonight_night.tmTheme";
       };
     };
   };
 
   gtk.gtk3.bookmarks = [
     "file:///home/dlurak/SoftwareDevelopment/"
-    "file:///home/dlurak/Documents"
+    "file:///home/dlurak/Dotfiles"
+    "file:///home/dlurak/Pictures/"
     "file:///home/dlurak/Downloads"
     "file:///home/dlurak/Schule/"
-    "file:///home/dlurak/38c3/"
+    "file:///home/dlurak/Schule/E-1/Notizen/"
   ];
 
   home.file.".peaclock/config".text = ''
     set seconds on
-    style active-bg ${hex.teal}
-    style date ${hex.teal}
+    style active-bg ${hex.pink}
+    style date ${hex.pink}
   '';
 
   xdg.desktopEntries = {
-	peaclock = {
-		name = "Peaclock";
-		genericName = "Clock";
-		exec = "${pkgs.ghostty}/bin/ghostty --command=\"${pkgs.peaclock}/bin/peaclock\"";
-		terminal = false;
-		categories = [ "Applications" ];
-	};
+    peaclock = {
+      name = "Peaclock";
+      genericName = "Clock";
+      exec = "${pkgs.ghostty}/bin/ghostty --command=\"${pkgs.peaclock}/bin/peaclock\"";
+      terminal = false;
+      categories = ["Applications"];
+    };
   };
 }

@@ -18,7 +18,7 @@
         default-bg = rgba.base;
         completion-bg = rgba.surface0;
         completion-fg = rgba.text;
-        completion-highlight-bg = colors.setRgbaOpacity 0.4 rgba.teal;
+        completion-highlight-bg = colors.setRgbaOpacity 0.4 rgba.pink;
         completion-highlight-fg = rgba.text;
         completion-group-bg = rgba.surface0;
         completion-group-fg = rgba.blue;
@@ -40,7 +40,7 @@
         index-active-bg = rgba.surface0;
         render-loading-bg = rgba.base;
         render-loading-fg = rgba.text;
-        highlight-color = colors.setRgbaOpacity 0.4 rgba.teal;
+        highlight-color = colors.setRgbaOpacity 0.4 rgba.pink;
         highlight-fg = colors.setRgbaOpacity 0.4 rgba.pink;
         highlight-active-color = colors.setRgbaOpacity 0.4 rgba.pink;
 		page-padding = 8;

@@ -18,7 +18,7 @@
         enable_audio_bell = false;
         confirm_os_window_close = 0;
       };
-      themeFile = "Catppuccin-Frappe";
+      themeFile = "tokyo_night_night";
     };
 
     programs.ghostty = {
@@ -40,7 +40,7 @@
         #############
         ## Theming ##
         #############
-        theme = "catppuccin-frappe";
+        theme = "tokyonight_night";
       };
     };
   };

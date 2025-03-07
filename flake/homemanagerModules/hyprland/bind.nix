@@ -1,6 +1,11 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  ags,
+}: let
   mainMod = "SUPER";
   secondMod = "SUPER ALT";
+
+  agsPath = "${ags.packages.${pkgs.system}.ags}/bin/ags";
 
   rules = import ./rules.nix;
 in {
@@ -31,7 +36,7 @@ in {
     "${mainMod} SHIFT, N, exec, ${pkgs.xfce.thunar}/bin/thunar"
 
     "${mainMod}, U, exec, ${pkgs.hyprlock}/bin/hyprlock"
-    "${mainMod} SHIFT, U, exec, ags toggle power"
+    "${mainMod} SHIFT, U, exec, ${agsPath} toggle power"
     "${mainMod} SHIFT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
 
     "${mainMod} SHIFT, E, exec, ${pkgs.smile}/bin/smile"
@@ -99,8 +104,8 @@ in {
 
     "${mainMod}, Tab, workspace, previous"
 
-    "${mainMod}, Y, exec, ags toggle controll-center"
-    "${mainMod} SHIFT, Y, exec, ags toggle bar"
+    "${mainMod}, Y, exec, ${agsPath} toggle controll-center"
+    "${mainMod} SHIFT, Y, exec, ${agsPath} toggle bar"
     "${mainMod}, F9, exec, ${pkgs.rofi-wayland}/bin/rofi -show window"
   ];
   binde = [

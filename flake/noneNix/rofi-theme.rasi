@@ -1,0 +1,109 @@
+* {
+    bg-col: #2D3149;
+    selected-col: #283457;
+    pink: #BB9AF7;
+    fg-col: #C6D0F5;
+    fg-col2: #E78284;
+    grey: #737994;
+
+    width: 500;
+    font: "JetBrainsMono Nerd Font 14";
+}
+
+element-text,
+element-icon,
+mode-switcher,
+prompt  {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 550px;
+    border: 0px;
+    border-color: @pink;
+    background-color: @bg-col;
+    border-radius: 10px;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @pink;
+    padding: 15px 15px 15px 15px;
+}
+
+prompt {
+    padding: 6px;
+    text-color: @bg-col;
+}
+
+textbox-prompt-colon {
+	background-color: inherit;
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    text-color: @bg-col;
+    background-color: inherit;
+}
+
+
+listview {
+    columns: 1;
+    lines: 5;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 10px;
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+element-text {
+    vertical-align: 0.5; 
+}
+
+element-icon {
+    size: 40px;
+}
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @pink;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button {
+    padding: 10px;
+    background-color: @bg-col;
+    text-color: @grey;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @bg-col;
+  text-color: @pink;
+}
+
+message {
+    background-color: @bg-col;
+    padding: 2px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: #ff00ff;
+    background-color: @bg-col;
+}

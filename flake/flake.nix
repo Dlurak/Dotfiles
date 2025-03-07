@@ -10,9 +10,9 @@
     ags.url = "github:aylur/ags";
   };
 
-  outputs = {nixpkgs, ...} @ inputs: {
+  outputs = {nixpkgs,ags, ...} @ inputs: {
     nixosConfigurations.homie = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs ags;};
       modules = [
         ./nixOsModules
         ./hosts/homie/configuration.nix

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs,ags, ...}: {
   imports = [./hardware-configuration.nix];
 
   bootloader = {
@@ -46,23 +46,11 @@
 
   nixModule.enable = true;
 
-  # For airplay
+  airplay.enable = false;
   firewall = {
     enable = true;
-    tcp = [7000 7001 7100];
-    udp = [5353 6000 6001 7011];
-  };
-  services.avahi = {
-    enable = true;
-    nssmdns = true; # printing
-    openFirewall = true; # ensuring that firewall ports are open as needed
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-      userServices = true;
-      domain = true;
-    };
+    tcp = [];
+    udp = [];
   };
 
   hardware.bluetooth = {
@@ -73,7 +61,7 @@
 
   services.power-profiles-daemon.enable = true;
 
-  virtualisation.waydroid.enable = true;
+  virtualisation.waydroid.enable = false;
 
   services.fprintd.enable = true;
 
@@ -114,6 +102,7 @@
   };
 
   home-manager = {
+  extraSpecialArgs = {inherit ags;};
     users.dlurak = {...}: {
       imports = [./home.nix];
     };

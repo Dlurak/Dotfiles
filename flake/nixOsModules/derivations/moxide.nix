@@ -3,7 +3,8 @@ pkgs.rustPlatform.buildRustPackage rec {
   pname = "moxide";
   version = "0.2.0";
 
-  cargoHash = "sha256-TEoy2Jae7QV3MlZokAmWgwy9q0XBIxC17Ns9RJTZoeU=";
+  useFetchCargoVendor = true;
+  cargoHash = "sha256-nHp5KSU1mzsr3t8diREhs5fbxrJcJaEpciZNKCkmp5A=";
   src = pkgs.fetchFromGitHub {
     owner = "dlurak";
     repo = "moxide";

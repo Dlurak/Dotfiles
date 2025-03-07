@@ -12,10 +12,11 @@
       enable = true;
       package = pkgs.rofi-wayland;
       cycle = true;
-      terminal = "${pkgs.kitty}/bin/kitty";
-      theme = ../noneNix/rofi-frappe.rasi;
+      terminal = "${pkgs.ghostty}/bin/ghostty";
+      theme = ../noneNix/rofi-theme.rasi;
       extraConfig = {
         modi = "run,drun,window";
+
         show-icons = true;
         drun-display-format = "{icon} {name}";
         location = 0;

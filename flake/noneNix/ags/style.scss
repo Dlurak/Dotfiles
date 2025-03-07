@@ -2,8 +2,7 @@
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
-$teal: #81c8be;
-$sky: #99d1db;
+$accent: #bb9af7;
 $surface2: #232634;
 
 slider {
@@ -24,7 +23,7 @@ window.bar {
   font-weight: bold;
 
   .bar-system-button {
-    color: $sky;
+    color: $accent;
     min-width: 32px;
     min-height: 34px;
   }
@@ -48,7 +47,7 @@ window.controll-center {
   color: $fg-color;
   border-radius: 16px;
   min-width: 350px;
-  border: 1px solid $teal;
+  border: 1px solid $accent;
 
   .view-select {
     background: #232634;
@@ -61,7 +60,7 @@ window.controll-center {
     }
 
     > .focused {
-      color: $teal;
+      color: $accent;
       border: red;
       outline: red;
     }
@@ -203,7 +202,7 @@ window.notifications-popup {
     background: $bg-color;
     color: $fg-color;
     border-radius: 8px;
-    border: 1px solid $teal;
+    border: 1px solid $accent;
 
     > box {
       min-width: 300px;
@@ -270,7 +269,7 @@ window.power {
 
       &:hover,
       &:focus {
-      border: 1px solid $sky;
+        border: 1px solid $accent;
       }
 
       .power-icon {

@@ -31,7 +31,7 @@ in {
         set-repeat = "50 300";
         focus-follows-cursor = "always";
         set-cursor-warp = "on-focus-change";
-        border-color-focused = "0x${trim hex.teal}";
+        border-color-focused = "0x${trim hex.pink}";
         border-color-unfocused = "0x${trim hex.base}";
         rule-add = ["-app-id 'galculator' float"];
         default-layout = "rivertile";

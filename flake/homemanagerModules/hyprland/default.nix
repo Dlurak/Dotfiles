@@ -2,10 +2,42 @@
   pkgs,
   config,
   lib,
+  ags,
   ...
 }: let
   allColors = import ../../colors.nix;
   colors = allColors.hypr;
+  shellName = "tokyo-shell";
+  myShell = ags.lib.bundle {
+    inherit pkgs;
+    extraPackages =
+      (with ags.packages.${pkgs.system}; [
+        hyprland
+        mpris
+        battery
+        wireplumber
+        network
+        bluetooth
+        powerprofiles
+        notifd
+        apps
+      ])
+      ++ (with pkgs; [
+        hyprpicker
+        hyprsunset
+        slurp
+        grim
+        brightnessctl
+        libnotify
+        wlinhibit
+        wl-clipboard
+        libnotify
+      ]);
+    src = ../../noneNix/ags;
+    name = shellName;
+    entry = "app.ts";
+    gtk4 = false;
+  };
 in {
   options = {
     homeManagerModules.hyprland.enable = lib.mkEnableOption "Enable hyprland config";
@@ -13,10 +45,10 @@ in {
   config = with config.homeManagerModules;
     lib.mkIf hyprland.enable {
       wayland.windowManager.hyprland = let
-        accent = colors.teal;
+        accent = colors.pink;
         inactive = colors.base;
         shadow = colors.crust;
-        bind = import ./bind.nix {inherit pkgs;};
+        bind = import ./bind.nix {inherit pkgs ags;};
         rules = import ./rules.nix;
       in {
         enable = true;
@@ -64,13 +96,13 @@ in {
 
           monitor = ["eDP-1,1920x1080,0x0,1"];
           exec-once = [
-            "my-shell"
+            "${myShell}/bin/${shellName}"
             "${pkgs.hyprpaper}/bin/hyprpaper"
             "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -L 300"
           ];
           general = {
             gaps_in = 5;
-            gaps_out = 20;
+            gaps_out = 8;
             border_size = 2;
             "col.active_border" = accent;
             "col.inactive_border" = inactive;
@@ -79,7 +111,7 @@ in {
             layout = "dwindle";
           };
           decoration = {
-            rounding = 5;
+            rounding = 3;
             active_opacity = 1.0;
             inactive_opacity = 1.0;
 

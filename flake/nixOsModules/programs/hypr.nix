@@ -1,12 +1,9 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
   ...
-}: let
-  ags = inputs.ags;
-in {
+}: {
   options = {
     program.hypr.enable = lib.mkEnableOption "Enable hyprland and wayland";
   };
@@ -14,7 +11,7 @@ in {
   config = lib.mkIf config.program.hypr.enable {
     environment.systemPackages = with pkgs; [
       nwg-drawer
-	  wshowkeys
+      wshowkeys
       glib
       wl-clipboard
       grim
@@ -26,37 +23,8 @@ in {
       hyprsunset
       wlinhibit
 
-      ags.packages.${pkgs.system}.ags
-      (ags.lib.bundle {
-        inherit pkgs;
-        extraPackages = with ags.packages.${pkgs.system};
-          [
-            hyprland
-            mpris
-            battery
-            wireplumber
-            network
-            bluetooth
-            powerprofiles
-            notifd
-			apps
-          ]
-          ++ (with pkgs; [
-            hyprpicker
-            hyprsunset
-            slurp
-            grim
-            brightnessctl
-            libnotify
-            wlinhibit
-            wl-clipboard
-            libnotify
-          ]);
-        src = ../../noneNix/ags;
-        name = "my-shell";
-        entry = "app.ts";
-        gtk4 = false;
-      })
+      (import ../derivations/random-wall.nix {inherit pkgs;})
+
       (pkgs.writeShellScriptBin "rotate" ''
         if [ -z "$1" ]; then
             echo "Usage: rotate-screen {up|left|down|right}"
@@ -92,11 +60,11 @@ in {
     programs.hyprland.enable = true;
     services.gvfs.enable = true;
 
-	security.wrappers.wshowkeys = {
-		owner = "root";
-		group = "root";
-		setuid = true;
-		source = "${pkgs.wshowkeys}/bin/wshowkeys";
-	};
+    security.wrappers.wshowkeys = {
+      owner = "root";
+      group = "root";
+      setuid = true;
+      source = "${pkgs.wshowkeys}/bin/wshowkeys";
+    };
   };
 }

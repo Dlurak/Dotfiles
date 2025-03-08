@@ -23,10 +23,8 @@
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
       adblock
-      powerBar
       fullAppDisplay
       keyboardShortcut
-      oldSidebar
       hidePodcasts
       songStats
     ];

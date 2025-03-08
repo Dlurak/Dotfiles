@@ -42,7 +42,7 @@ fn parse_unit_arg(arg: &str) -> Option<Unit> {
 
     let unit_str = &arg[prefix_len..];
     Unit::try_from(unit_str).map_err(|e| {
-        eprintln!("Invalid unit '{}': {}", unit_str, e);
+        eprintln!("Error': {}", e);
         exit(1);
     }).ok()
 }
@@ -51,7 +51,7 @@ fn main() {
     let unit = env::args()
         .find(|arg| arg.starts_with("--unit=") || arg.starts_with("-u="))
         .and_then(|arg| parse_unit_arg(&arg))
-        .unwrap_or_else(Unit::default);
+        .unwrap_or_default();
 
     let start = SystemTime::now();
     match start.duration_since(UNIX_EPOCH) {

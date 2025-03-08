@@ -1,6 +1,6 @@
 <div align="center">
 
-# Personal Nix Dotfiles
+# Personal NixOS Dotfiles
 
 </div>
 
@@ -16,13 +16,14 @@ The following programms are configured:
 - Hyprpaper
 - Neovim (**Not** using nixvim or home-manager)
 - Tmux
-- Kitty
 - Ghostty
-- Ags (v1, **not** using home-manager)
+- Kitty
+- Ags (v2, **not** using home-manager)
 - Moxide
 - Zsh
 - bat
 - rofi-wayland
+- Zathura
 
 ## Screenshots
 
@@ -32,6 +33,7 @@ The following programms are configured:
 ![Hyprlock](./assets/hyprlock.png)
 ![Neovim lsp](./assets/neovim.png)
 ![Overview](./assets/overview.png)
+![Control Center](./assets/control-center.png)
 
 </div>
 
@@ -43,13 +45,16 @@ I run this configuration on a 2-1 Laptop so there are some touch gestures:
 | ---------------------------------------- | --------------------------------- |
 | Swiping from the left/right edge inwards | Skip through workspaces           |
 | Swiping from the bottom edge up          | Hide/Show onscreen keyboard       |
+| Swiping from the upper edge down         | Open an app launcher              |
 | Swiping up/down on the left edge         | Lower/Raise the volume            |
 | Swiping up/down on the right edge        | Lower/Raise the screen brightness |
-| Tap with 4 fingers                       | Show an app selector              |
-| Swipe down with 4 fingers                | Kill the active programm          |
-| Tap with 5 fingers                       | Toggle floating                   |
 | Longpress with 2 fingers                 | Move window                       |
 | Longpress with 3 fingers                 | Resize window                     |
+| Tap with 3 fingers                       | Take screenshot                   |
+| Tap with 4 fingers                       | Toggle fullscreen                 |
+| Tap with 5 fingers                       | Toggle floating                   |
+| Swipe down with 4 fingers                | Kill the active programm          |
+| Swipe up/down with 3 fingers             | Move to next/previous workspace   |
 
 ## Keybindings
 
@@ -62,7 +67,7 @@ This aren't all but at least some keybindings:
 | Keybinding                   | Action          |
 | ------------------           | --------------- |
 | `Super` + `Return`           | Ghostty         |
-| `Super` + `Shift` + `Return` | Ghostty         |
+| `Super` + `Shift` + `Return` | Kitty           |
 | `Super` + `w`                | Firefox         |
 | `Super` + `Shift` + `w`      | Chromium        |
 | `Super` + `n`                | Nautilus        |
@@ -98,7 +103,6 @@ Screenshots are copied to the clipboard and stored in `~/Pictures/screenshot.png
 | `Super` + `Shift` + Number      | Move window to workspace                 |
 | `Super` + `Shift` + Number      | Move window to workspace                 |
 | `Super` + `Tab`                 | Previous workspace (traverse history)    |
-| `Super` + `F9`                  | Choose window                            |
 
 #### Misc
 
@@ -109,6 +113,9 @@ Screenshots are copied to the clipboard and stored in `~/Pictures/screenshot.png
 | `Super` + `Shift` + `C`         | Colorpicker                     |
 | `Super` + `Y`                   | Toggle controll center          |
 | `Super` + `Shift` + `Y`         | Toggle bar                      |
+| `Super` + `F8`                  | Run command                     |
+| `Super` + `F9`                  | Choose window                   |
+| `Super` + `F10`                 | Random wallpaper                |
 
 ### NeoVim
 
@@ -138,7 +145,6 @@ The dotfiles are never finished and I have some ideas for the future:
 
 ### Laptop
 
-- Figure out how to use `inputs` in home-manager
 - Add a touch friendly app launcher using ags
 - Add tabs into the controll center
     - Normal
@@ -146,7 +152,6 @@ The dotfiles are never finished and I have some ideas for the future:
     - Audio
         - Mixer
         - Sink selection
-    - App launcher
     - Calculator
     - If the ICE Portal API is available create a new tab with train information
         - The german highspeed railway has an api on train about the train journey, it is soooooo cool!
@@ -163,9 +168,7 @@ The dotfiles are never finished and I have some ideas for the future:
     - All screens
     - One window
     - Or recordings
-- Customize discord and spotify
-- Add firefox css
-- Configure firefox using nix
+- Customize discord
 - Move to nixvim?
 - [OpenDrop](image_url) for Airdrop
     - Really really really cool projct!

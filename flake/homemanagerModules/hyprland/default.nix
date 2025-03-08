@@ -52,14 +52,12 @@ in {
         rules = import ./rules.nix;
       in {
         enable = true;
-        plugins = [
-          pkgs.hyprlandPlugins.hyprgrass
-        ];
+        plugins = [pkgs.hyprlandPlugins.hyprgrass];
         settings = {
           plugin = {
             touch_gestures = {
               sensitivity = 5.0;
-              workspace_swipe_fingers = 3;
+              workspace_swipe_fingers = 0;
               workspace_swipe_edge = "lr";
               long_press_delay = 400;
               resize_on_border_long_press = true;
@@ -80,6 +78,7 @@ in {
                 ", edge:u:d, exec, pkill nwg-drawer || ${pkgs.nwg-drawer}/bin/nwg-drawer"
                 ", swipe:4:d, killactive"
 
+                ", tap:3, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy"
                 ", tap:4, fullscreen, 0"
                 ", tap:5, togglefloating"
 

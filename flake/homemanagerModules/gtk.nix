@@ -11,16 +11,16 @@
     gtk = {
       enable = true;
       cursorTheme = {
-        package = pkgs.google-cursor;
-        name = "GoogleDot-Black";
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Ice";
         size = 24;
       };
       theme = {
         package = pkgs.tokyonight-gtk-theme.override {
-			colorVariants = ["dark"];
-			themeVariants = ["pink"];
-			tweakVariants = ["macos"];
-		};
+          colorVariants = ["dark"];
+          themeVariants = ["pink"];
+          tweakVariants = ["macos"];
+        };
         name = "Tokyonight-Pink-Dark";
         # package = pkgs.catppuccin-gtk;
         # name = "catppuccin-frappe-blue-standard";

@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   options = {
@@ -17,6 +18,7 @@
       cmatrix
       cowsay
       fastfetch
+      inputs.retch.defaultPackage.${pkgs.system}
       figlet
       neofetch
       nitch
@@ -24,7 +26,7 @@
       sl
       toilet
       (fortune.override {withOffensive = true;})
-	  peaclock
+      peaclock
     ];
   };
 }

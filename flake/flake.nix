@@ -12,6 +12,10 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    muxbar = {
+      url = "github:dlurak/muxbar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     retch = {
       url = "github:dlurak/retch";
       inputs.nixpkgs.follows = "nixpkgs";

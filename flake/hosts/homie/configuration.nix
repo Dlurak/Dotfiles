@@ -2,6 +2,7 @@
   pkgs,
   ags,
   spicetify-nix,
+  inputs,
   ...
 }: {
   imports = [./hardware-configuration.nix];
@@ -107,7 +108,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit ags spicetify-nix;};
+    extraSpecialArgs = {inherit inputs ags spicetify-nix;};
     users.dlurak = {...}: {
       imports = [
         ./home.nix

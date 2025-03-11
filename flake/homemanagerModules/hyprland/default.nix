@@ -50,6 +50,7 @@ in {
         shadow = colors.crust;
         bind = import ./bind.nix {inherit pkgs ags;};
         rules = import ./rules.nix;
+		wvkbdCommand = "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -H 333 -L 300 --bg 1A1B26 --fg 2D3149 --fg-sp 283457  --press-sp BB9AF7 --press BB9AF7 --fn \"SpaceGrotesk 13\"  --landscape-layers landscape,specialpad -l simple,specialpad";
       in {
         enable = true;
         plugins = [pkgs.hyprlandPlugins.hyprgrass];
@@ -67,7 +68,7 @@ in {
               hyprgrass-bind = [
                 ", edge:r:l, workspace, +1"
                 ", edge:l:r, workspace, -1"
-                ", edge:d:u, exec, kill -34 $(pgrep wvkbd-mobintl) || ${pkgs.wvkbd}/bin/wvkbd-mobintl -L 300"
+                ", edge:d:u, exec, kill -34 $(pgrep wvkbd-mobintl) || ${wvkbdCommand}"
 
                 ", edge:l:u, exec, ${pkgs.pamixer}/bin/pamixer -i 4"
                 ", edge:l:d, exec, ${pkgs.pamixer}/bin/pamixer -d 4"
@@ -100,7 +101,8 @@ in {
           exec-once = [
             "${myShell}/bin/${shellName}"
             "${pkgs.hyprpaper}/bin/hyprpaper"
-            "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -L 300"
+            "${pkgs.iio-hyprland}/bin/iio-hyprland"
+            wvkbdCommand
           ];
           general = {
             gaps_in = 5;

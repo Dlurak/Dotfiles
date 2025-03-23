@@ -5,10 +5,7 @@
   ...
 }: let
   utils = import ../../utils.nix {lib = lib;};
-  generators = import ./mkYaml.nix {
-    lib = lib;
-    pkgs = pkgs;
-  };
+  generators = import ./mkYaml.nix { inherit lib pkgs; };
 in {
   options = {
     homeManagerModules.moxide.enable = lib.mkEnableOption "Enable moxide (config)";

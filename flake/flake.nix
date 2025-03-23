@@ -13,11 +13,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     muxbar = {
-      url = "github:dlurak/muxbar";
+      url = "github:dlurak/muxbar/personal-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     retch = {
       url = "github:dlurak/retch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    moxide = {
+      url = "github:dlurak/moxide";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

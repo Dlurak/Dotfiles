@@ -1,6 +1,8 @@
 {
   lib,
   config,
+  inputs,
+  pkgs,
   ...
 }: {
   options = {
@@ -13,7 +15,17 @@
   };
 
   config = lib.mkIf config.nixModule.enable {
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) ["discord"];
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-32.3.3"
+    ];
+    nixpkgs.overlays = [
+      (final: prev: {
+        fortune = prev.fortune.override {withOffensive = true;};
+        moxide = inputs.moxide.defaultPackage.${pkgs.system};
+      })
+    ];
     nix.settings.experimental-features = ["nix-command" "flakes"];
     system.stateVersion = config.nixModule.stateVersion;
   };

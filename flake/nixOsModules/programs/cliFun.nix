@@ -25,7 +25,7 @@
       pipes-rs
       sl
       toilet
-      (fortune.override {withOffensive = true;})
+      fortune
       peaclock
     ];
   };

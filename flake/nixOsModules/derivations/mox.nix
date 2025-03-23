@@ -1,5 +1,5 @@
-{pkgs, ...}: let
-  moxide = import ./moxide.nix {inherit pkgs;};
+{pkgs, inputs, ...}: let
+  moxide = inputs.moxide.defaultPackage.${pkgs.system};
 in
   pkgs.writeShellScriptBin "mox" ''
     project_emoji="🚀"

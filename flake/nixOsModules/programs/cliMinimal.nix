@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   options = {
@@ -12,12 +13,13 @@
     environment.systemPackages = with pkgs; [
       git
       vim
-	  nh
+      nh
       neovim
       ripgrep
       tmux
-      (import ../derivations/moxide.nix {inherit pkgs;})
-      (import ../derivations/mox.nix {inherit pkgs;})
+      inputs.moxide.defaultPackage.${pkgs.system}
+      (import ../derivations/mox.nix {inherit pkgs inputs;})
+      (import ../derivations/habitctl.nix {inherit pkgs;})
       jq
     ];
     programs.nano.enable = false;

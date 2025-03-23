@@ -11,10 +11,11 @@
   config = lib.mkIf config.program.desktop.graphics.enable {
     environment.systemPackages = with pkgs; [
       eog
-	  shotwell
-	  inkscape
-	  gimp
-	  krita
+      shotwell
+      inkscape
+      gimp
+      sly
+      krita
     ];
   };
 }

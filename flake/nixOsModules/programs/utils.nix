@@ -17,7 +17,6 @@
       pamixer
       pavucontrol
       upower
-      ngrok
       wf-recorder
 
       (writers.writeRustBin "colors" {} (builtins.readFile ../customScripts/colors.rs))

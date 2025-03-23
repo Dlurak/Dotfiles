@@ -25,6 +25,10 @@
       name = "GitHub";
       path = "~/GitHub/";
     }
+    {
+      name = "Wiki";
+      path = "~/wiki";
+    }
   ];
   templates = {
     baseDev.windows = [
@@ -81,6 +85,10 @@
     };
     Dotfiles = {
       root_dir = "~/Dotfiles/";
+      template = "nvim";
+    };
+    Wiki = {
+      root_dir = "~/wiki/";
       template = "nvim";
     };
     School = {

@@ -1,6 +1,6 @@
 {inputs, ...}: {
   imports = [
-    (import ./programs { inputs = inputs; })
+    (import ./programs {inherit inputs;})
     ./airplay.nix
     ./bootloader.nix
     ./firewall.nix

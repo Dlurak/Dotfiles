@@ -22,7 +22,7 @@
   users.users.dlurak = {
     isNormalUser = true;
     description = "dlurak";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "input"];
   };
   users.defaultUserShell = pkgs.zsh;
 

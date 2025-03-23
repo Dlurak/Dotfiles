@@ -6,6 +6,17 @@ return {
 					increment = '<C-a>',
 					decrement = '<C-x>'
 				},
+				additions = {
+					{
+						"Montag",
+						"Dienstag",
+						"Mittwoch",
+						"Donnerstag",
+						"Freitag",
+						"Samstag",
+						"Sonntag",
+					}
+				},
 			})
 		end
 	}

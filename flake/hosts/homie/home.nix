@@ -18,7 +18,7 @@ in {
   };
   homeManagerModules.hyprland.enable = true;
   homeManagerModules.hypridle.enable = true;
-  homeManagerModules.moxide = import ./moxide.nix;
+  programs.moxide = import ./moxide.nix;
   homeManagerModules.rofi.enable = true;
   homeManagerModules.zsh.enable = true;
   homeManagerModules.starship.enable = true;

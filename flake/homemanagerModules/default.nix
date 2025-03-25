@@ -1,5 +1,6 @@
-{...}: {
+{inputs, ...}: {
   imports = [
+    inputs.moxide.homeManagerModules.moxide
     ./git.nix
     ./gtk.nix
     ./homeManager.nix
@@ -7,7 +8,6 @@
     ./hyprland
     ./hyprlock.nix
     ./hyprpaper.nix
-    ./moxide
     ./river.nix
     ./rofi.nix
     ./starship.nix

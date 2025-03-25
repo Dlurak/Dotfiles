@@ -170,6 +170,10 @@ in {
             workspace_swipe_distance = 100;
           };
 
+		  ecosystem = {
+			  no_donation_nag = true;
+		  };
+
           bind = bind.bind;
           binde = bind.binde;
           bindm = bind.bindm;

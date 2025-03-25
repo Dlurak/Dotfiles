@@ -109,6 +109,7 @@ in {
     "${mainMod}, F8, exec, ${pkgs.rofi-wayland}/bin/rofi -show run"
     "${mainMod}, F9, exec, ${pkgs.rofi-wayland}/bin/rofi -show window"
     "${mainMod}, F10, exec, ${import ../../nixOsModules/derivations/random-wall.nix {inherit pkgs;}}/bin/random-wall"
+    "${mainMod} SHIFT, F10, exec, ${pkgs.ani-cli.override {withVlc = true; withMpv = false;}}/bin/ani-cli --rofi -v"
   ];
   binde = [
     "${secondMod}, h, resizeactive, -5 0"

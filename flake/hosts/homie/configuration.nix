@@ -35,6 +35,7 @@
     desktop = {
       browsers.enable = true;
       chatting.enable = true;
+      entertainment.enable = true;
       graphics.enable = true;
       misc.enable = true;
       terms.enable = true;

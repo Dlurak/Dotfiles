@@ -1,6 +1,7 @@
 {
   pkgs,
   ags,
+  lib,
 }: let
   mainMod = "SUPER";
   secondMod = "SUPER ALT";
@@ -10,20 +11,10 @@
   rules = import ./rules.nix;
 in {
   bind = let
-    screenshotNotify = pkgs.writeShellScriptBin "screenshot-notify" ''
-      ACTION_VIEW="viewScreenshot"
-      ${pkgs.libnotify}/bin/notify-send "File copied and saved" \
-      	--app-name="Screenshot" \
-      	--action=$ACTION_VIEW="View" |
-      	while read -r action; do
-      		if [[ "$action" == $ACTION_VIEW ]]; then
-      			xdg-open ~/Pictures/screenshot.png
-      		fi
-      	done
-    '';
+    screenshotNotify = import ../../noneNix/ags/nix/screenshot-notify.nix {inherit pkgs;};
   in [
     "${secondMod}, h, changegroupactive, b"
-    "${secondMod}, l, changegroupactive, b"
+    "${secondMod}, l, changegroupactive, f"
     "${secondMod}, left, changegroupactive, b"
     "${secondMod}, right, changegroupactive, f"
 
@@ -108,8 +99,15 @@ in {
     "${mainMod} SHIFT, Y, exec, ${agsPath} toggle bar"
     "${mainMod}, F8, exec, ${pkgs.rofi-wayland}/bin/rofi -show run"
     "${mainMod}, F9, exec, ${pkgs.rofi-wayland}/bin/rofi -show window"
-    "${mainMod}, F10, exec, ${import ../../nixOsModules/derivations/random-wall.nix {inherit pkgs;}}/bin/random-wall"
-    "${mainMod} SHIFT, F10, exec, ${pkgs.ani-cli.override {withVlc = true; withMpv = false;}}/bin/ani-cli --rofi -v"
+    "${mainMod}, F10, exec, ${import ../../nixOsModules/derivations/random-wall.nix {
+      inherit pkgs lib;
+      walls = [
+        ../../assets/wallpaper/ryo-vending.png
+        ../../assets/wallpaper/geometry.png
+        ../../assets/wallpaper/stripes.png
+      ];
+    }}/bin/random-wall"
+    "${mainMod} SHIFT, F10, exec, ${pkgs.ani-cli.override {withVlc = true;}}/bin/ani-cli --rofi -v"
   ];
   binde = [
     "${secondMod}, h, resizeactive, -5 0"

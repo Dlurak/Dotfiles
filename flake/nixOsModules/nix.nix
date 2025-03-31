@@ -17,11 +17,10 @@
   config = lib.mkIf config.nixModule.enable {
     nixpkgs.config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) ["discord"];
-    nixpkgs.config.permittedInsecurePackages = [
-      "electron-32.3.3"
-    ];
+    nixpkgs.config.permittedInsecurePackages = [];
     nixpkgs.overlays = [
       (final: prev: {
+        ani-cli = prev.ani-cli.override {withVlc = true;};
         fortune = prev.fortune.override {withOffensive = true;};
         moxide = inputs.moxide.defaultPackage.${pkgs.system};
       })

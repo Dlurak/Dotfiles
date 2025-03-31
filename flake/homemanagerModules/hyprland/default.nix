@@ -7,37 +7,8 @@
 }: let
   allColors = import ../../colors.nix;
   colors = allColors.hypr;
-  shellName = "tokyo-shell";
-  myShell = ags.lib.bundle {
-    inherit pkgs;
-    extraPackages =
-      (with ags.packages.${pkgs.system}; [
-        hyprland
-        mpris
-        battery
-        wireplumber
-        network
-        bluetooth
-        powerprofiles
-        notifd
-        apps
-      ])
-      ++ (with pkgs; [
-        hyprpicker
-        hyprsunset
-        slurp
-        grim
-        brightnessctl
-        libnotify
-        wlinhibit
-        wl-clipboard
-        libnotify
-      ]);
-    src = ../../noneNix/ags;
-    name = shellName;
-    entry = "app.ts";
-    gtk4 = false;
-  };
+  tokyoShell = import ./../../noneNix/ags/nix/build.nix {inherit ags pkgs;};
+  tokyoShellPath = "${tokyoShell}/bin/tokyo-shell";
 in {
   options = {
     homeManagerModules.hyprland.enable = lib.mkEnableOption "Enable hyprland config";
@@ -48,9 +19,9 @@ in {
         accent = colors.pink;
         inactive = colors.base;
         shadow = colors.crust;
-        bind = import ./bind.nix {inherit pkgs ags;};
+        bind = import ./bind.nix {inherit pkgs ags lib;};
         rules = import ./rules.nix;
-		wvkbdCommand = "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -H 333 -L 300 --bg 1A1B26 --fg 2D3149 --fg-sp 283457  --press-sp BB9AF7 --press BB9AF7 --fn \"SpaceGrotesk 13\"  --landscape-layers landscape,specialpad -l simple,specialpad";
+        wvkbdCommand = "${pkgs.wvkbd}/bin/wvkbd-mobintl --hidden -H 333 -L 300 --bg 1A1B26 --fg 2D3149 --fg-sp 283457  --press-sp BB9AF7 --press BB9AF7 --fn \"SpaceGrotesk 13\"  --landscape-layers landscape,specialpad -l simple,specialpad";
       in {
         enable = true;
         plugins = [pkgs.hyprlandPlugins.hyprgrass];
@@ -100,7 +71,7 @@ in {
 
           monitor = ["eDP-1,1920x1080,0x0,1"];
           exec-once = [
-            "${myShell}/bin/${shellName}"
+            tokyoShellPath
             "${pkgs.hyprpaper}/bin/hyprpaper"
             "${pkgs.iio-hyprland}/bin/iio-hyprland"
             wvkbdCommand
@@ -170,9 +141,9 @@ in {
             workspace_swipe_distance = 100;
           };
 
-		  ecosystem = {
-			  no_donation_nag = true;
-		  };
+          ecosystem = {
+            no_donation_nag = true;
+          };
 
           bind = bind.bind;
           binde = bind.binde;

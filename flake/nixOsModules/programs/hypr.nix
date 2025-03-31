@@ -22,8 +22,6 @@
       hyprpaper
       hyprsunset
       wlinhibit
-
-      (import ../derivations/random-wall.nix {inherit pkgs;})
     ];
     programs.hyprland.enable = true;
     services.gvfs.enable = true;

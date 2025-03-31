@@ -1,46 +1,34 @@
-{
+let
+  dirs = attr:
+    map (name: {
+      inherit name;
+      path = attr.${name};
+    }) (builtins.attrNames attr);
+in {
   enable = true;
-  paths = [
-    {
-      name = "Home";
-      path = "~/";
-    }
-    {
-      name = "Downloads";
-      path = "~/Downloads";
-    }
-    {
-      name = "Documents";
-      path = "~/Documents";
-    }
-    {
-      name = "E-Phase";
-      path = "~/Schule/E-1/";
-    }
-    {
-      name = "Informatik";
-      path = "~/Schule/E-1/Informatik/";
-    }
-    {
-      name = "GitHub";
-      path = "~/GitHub/";
-    }
-    {
-      name = "Wiki";
-      path = "~/wiki";
-    }
-  ];
+  paths = dirs {
+    Home = "~/";
+    Downloads = "~/Downloads";
+    Documents = "~/Documents";
+    E-Phase = "~/Schule/E-1/";
+    Informatik = "~/Schule/E-1/Informatik/";
+    GitHub = "~/GitHub/";
+    Wiki = "~/wiki";
+  };
   templates = {
-    baseDev.windows = [
-      {
-        name = " Neovim";
-        panes = ["nvim"];
-      }
-      {
-        name = " Nix-Shell";
-        panes = ["git status"];
-      }
-    ];
+    baseDev = {
+      hidden = true;
+      windows = [
+        {
+          name = " Neovim";
+          panes = ["nvim"];
+        }
+        {
+          name = " Nix-Shell";
+          panes = ["git status"];
+        }
+      ];
+    };
     nvim.windows = [
       {
         name = " Neovim";
@@ -67,6 +55,17 @@
         name = "Server";
         layout = "even-horizontal";
         panes = ["pnpm run dev" "pnpm run test"];
+      }
+    ];
+    typst-school.windows = [
+      {
+        name = " Neovim";
+        panes = [''nvim +$ "+colorscheme tokyonight-day" "+set wrap" main.typ''];
+      }
+      {
+        name = "Typst";
+        layout = "even-horizontal";
+        panes = ["zathura main.pdf" "typst watch main.typ"];
       }
     ];
   };

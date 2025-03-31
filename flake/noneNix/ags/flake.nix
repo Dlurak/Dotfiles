@@ -2,52 +2,33 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     ags.url = "github:aylur/ags";
+    utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
+    self,
     nixpkgs,
     ags,
-    ...
-  }: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    extraPackages = with ags.packages.${system}; [
-      hyprland
-      mpris
-      battery
-      wireplumber
-      network
-      bluetooth
-      powerprofiles
-      notifd
-	  apps
-
-      pkgs.hyprpicker
-      pkgs.hyprsunset
-      pkgs.slurp
-      pkgs.grim
-      pkgs.brightnessctl
-      pkgs.libnotify
-      pkgs.wlinhibit
-      pkgs.wl-clipboard
-      pkgs.libnotify
-
-      (
-        pkgs.writers.writeBashBin "screenshot-notify"
-        (builtins.readFile ./scripts/screenshot-notify.sh)
-      )
-    ];
-  in {
-    devShells.${system}.default = pkgs.mkShell {
-      buildInputs = [(ags.packages.${system}.default.override {inherit extraPackages;})];
-    };
-    packages.${system}.default = ags.lib.bundle {
-      inherit pkgs;
-      inherit extraPackages;
-      src = ./.;
-      name = "my-shell";
-      entry = "app.ts";
-      gtk4 = false;
-    };
-  };
+    utils,
+  }:
+    utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {inherit system;};
+      extraPackages = import ./nix/extra-packages.nix {inherit ags pkgs;};
+      tokyo-shell = import ./nix/build.nix {inherit ags pkgs;};
+    in {
+      packages.default = tokyo-shell;
+      defaultPackage = tokyo-shell;
+      apps = let
+        app = {
+          type = "app";
+          program = "${tokyo-shell}/bin/tokyo-shell";
+        };
+      in {
+        default = app;
+        tokyo-shell = app;
+      };
+      devShells.default = pkgs.mkShell {
+        buildInputs = [(ags.packages.${system}.default.override {inherit extraPackages;})];
+      };
+    });
 }

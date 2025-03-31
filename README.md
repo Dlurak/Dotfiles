@@ -30,7 +30,7 @@ The following programms are configured:
 <div align="center">
 
 ![Overview](./assets/overview2.png)
-![Hyprlock](./assets/hyprlock.png)
+![Hyprlock](./assets/new-hyprlock.png)
 ![Neovim lsp](./assets/neovim.png)
 ![Overview](./assets/overview.png)
 ![Control Center](./assets/control-center.png)

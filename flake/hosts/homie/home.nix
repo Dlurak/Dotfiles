@@ -14,7 +14,7 @@ in {
   };
   homeManagerModules.hyprlock = {
     enable = true;
-    background = ../../assets/lockscreen.png;
+    background = ../../assets/wallpaper/geometry.png;
   };
   homeManagerModules.hyprland.enable = true;
   homeManagerModules.hypridle.enable = true;

@@ -11,9 +11,9 @@
     services.upower = {
       enable = true;
       criticalPowerAction = "Hibernate";
-      percentageLow = 7;
-      percentageCritical = 6;
-      percentageAction = 5;
+      percentageLow = 10;
+      percentageCritical = 8;
+      percentageAction = 7;
     };
   };
 }

@@ -14,6 +14,8 @@ opt.shiftwidth = 4
 vim.expandtab = true
 
 opt.wrap = false
+opt.breakindent = true
+opt.linebreak = true
 
 opt.spelllang = "de,en"
 
@@ -25,8 +27,23 @@ opt.sidescrolloff = 12
 opt.cursorlineopt = "number"
 
 -- Fold using treesitter
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
-opt.foldenable = false
+vim.o.foldenable = true
+vim.o.foldlevel = 99
+vim.o.foldtext = ""
+vim.opt.foldcolumn = "0"
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+-- Prefer LSP folding if client supports it https://www.reddit.com/r/neovim/comments/1jmqd7t/comment/mkdsgkt/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+         local client = vim.lsp.get_client_by_id(args.data.client_id)
+         if client:supports_method('textDocument/foldingRange') then
+             local win = vim.api.nvim_get_current_win()
+             vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+        end
+    end,
+ })
+
+vim.opt.fillchars:append({fold = " "})
 
 opt.fillchars:append({ eob = " " })

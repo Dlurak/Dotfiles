@@ -1,14 +1,19 @@
-{pkgs, ...}: 
+{
+  pkgs,
+  lib,
+  walls,
+  ...
+}: let
+  wallPaths = builtins.map (p: "${p}") walls;
+in
   pkgs.writeShellScriptBin "random-wall" ''
-    wallpapers=(
-      "${../../assets/wallpaper/ryo-vending.png}"
-      "${../../assets/wallpaper/geometry.png}"
-      "${../../assets/wallpaper/stripes.png}"
-    )
+       wallpapers=(
+			${lib.concatLines wallPaths}
+       )
 
-    WALLPAPER="''${wallpapers[RANDOM % ''${#wallpapers[@]}]}"
+       WALLPAPER="''${wallpapers[RANDOM % ''${#wallpapers[@]}]}"
 
-    echo hyprpaper preload "''${WALLPAPER}"
-    hyprctl hyprpaper preload "''${WALLPAPER}"
-    hyprctl hyprpaper wallpaper ",''${WALLPAPER}"
+       echo hyprpaper preload "''${WALLPAPER}"
+       hyprctl hyprpaper preload "''${WALLPAPER}"
+       hyprctl hyprpaper wallpaper ",''${WALLPAPER}"
   ''

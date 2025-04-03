@@ -24,6 +24,10 @@
       url = "github:dlurak/moxide";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+   manada = {
+      url = "github:dlurak/manada";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -37,14 +41,6 @@
       modules = [
         ./nixOsModules
         ./hosts/homie/configuration.nix
-        inputs.home-manager.nixosModules.default
-      ];
-    };
-    nixosConfigurations.nix-malina = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./nixOsModules
-        ./hosts/nix-malina/configuration.nix
         inputs.home-manager.nixosModules.default
       ];
     };

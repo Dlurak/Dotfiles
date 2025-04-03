@@ -16,13 +16,12 @@ local servers = {
 		"bashls",
 		"ruff",
 		"marksman",
-		"v_analyzer",
 		"dockerls",
 		"clangd",
-		"sourcekit",
 		"hls",
 		"nixd",
-		"denols"
+		"denols",
+		"zls",
 	}
 }
 

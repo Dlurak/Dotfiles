@@ -20,12 +20,17 @@
     nixpkgs.config.permittedInsecurePackages = [];
     nixpkgs.overlays = [
       (final: prev: {
-        ani-cli = prev.ani-cli.override {withVlc = true;};
+        ani-cli = prev.ani-cli.override {
+          withVlc = true;
+          withMpv = true;
+        };
         fortune = prev.fortune.override {withOffensive = true;};
         moxide = inputs.moxide.defaultPackage.${pkgs.system};
       })
     ];
-    nix.settings.experimental-features = ["nix-command" "flakes"];
+    nix.settings = {
+      experimental-features = ["nix-command" "flakes"];
+    };
     system.stateVersion = config.nixModule.stateVersion;
   };
 }

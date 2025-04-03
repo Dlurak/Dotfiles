@@ -1,6 +1,7 @@
 {inputs, ...}: {
   imports = [
     (import ./programs {inherit inputs;})
+	inputs.manada.nixosModules.x86_64-linux.default
     ./airplay.nix
     ./bootloader.nix
     ./firewall.nix

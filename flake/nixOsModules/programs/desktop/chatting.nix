@@ -13,7 +13,7 @@
       [
         zulip
         element-desktop
-        signal-desktop
+        signal-desktop-bin
         whatsapp-for-linux
       ]
       ++ (

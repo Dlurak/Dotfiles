@@ -10,7 +10,8 @@
 
   config = lib.mkIf config.program.desktop.browsers.enable {
     environment.systemPackages = with pkgs; [
-      (ani-cli.override {withVlc = true; withMpv = false;})
+      ani-cli
+	  vlc
     ];
   };
 }

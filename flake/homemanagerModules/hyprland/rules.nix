@@ -1,31 +1,16 @@
-{
-  windowrule = [
-    # "float,^(galculator)$"
-    # "float,^(qemu)$"
-    #
-    # ####################################
-    # ## AUTOMATIC WORKSPACE ASSIGNMENT ##
-    # ####################################
-    #
-    # "workspace 5,^(Element)$"
-    # "workspace 5,^(discord)$"
-    # "workspace 5,^(Signal)$"
-    # "workspace 9,^(Spotify)$"
-  ];
-  windowrulev2 = [
-    ########################
-    ## Picture in Picture ##
-    ########################
-    "float,title:^(Picture-in-Picture)$"
-    "noinitialfocus,title:^(Picture-in-Picture)$"
-    "pin,title:^(Picture-in-Picture)$"
-    "keepaspectratio,title:^(Picture-in-Picture)$"
+[
+  ########################
+  ## Picture in Picture ##
+  ########################
+  "float,title:^(Picture-in-Picture)$"
+  "noinitialfocus,title:^(Picture-in-Picture)$"
+  "pin,title:^(Picture-in-Picture)$"
+  "keepaspectratio,title:^(Picture-in-Picture)$"
 
-    "float,class:^(it.mijorus.smile)$"
+  "float,class:^(it.mijorus.smile)$"
 
-    "suppressevent maximize, class:.*" # You'll probably like this.
+  "suppressevent maximize, class:.*" # You'll probably like this.
 
-    "float,class:^(galculator)$"
-    "float,class:^(qemu)$"
-  ];
-}
+  "float,class:^(galculator)$"
+  "float,class:^(qemu)$"
+]

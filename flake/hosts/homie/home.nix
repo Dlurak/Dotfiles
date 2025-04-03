@@ -25,9 +25,6 @@ in {
   homeManagerModules.terminals.enable = true;
   homeManagerModules.zathura.enable = true;
 
-  homeManagerModules.river.enable = false;
-  homeManagerModules.waybar.enable = false;
-
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;

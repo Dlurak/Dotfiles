@@ -10,13 +10,17 @@
   config = lib.mkIf config.homeManagerModules.terminals.enable {
     programs.kitty = {
       enable = true;
-      font = {
-        name = "JetBrains Mono";
-        size = 13;
-      };
       settings = {
         enable_audio_bell = false;
         confirm_os_window_close = 0;
+        ###########
+        ## Fonts ##
+        ###########
+        font_family = "JetBrains Mono";
+        bold_font = "JetBrains Mono ExtraBold";
+        italic_font = "JetBrains Mono Italic";
+        bold_italic_font = "JetBrains Mono ExtraBold Italic";
+        font_size = 13;
       };
       themeFile = "tokyo_night_night";
     };
@@ -33,6 +37,7 @@
         ## Fonts ##
         ###########
         font-size = 12.5;
+        font-family = "JetBrains Mono";
         font-family-bold = "JetBrains Mono ExtraBold";
         font-family-italic = "JetBrains Mono Italic";
         font-family-bold-italic = "JetBrains Mono ExtraBold Italic";

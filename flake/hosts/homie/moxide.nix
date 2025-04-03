@@ -14,6 +14,7 @@ in {
     Informatik = "~/Schule/E-1/Informatik/";
     GitHub = "~/GitHub/";
     Wiki = "~/wiki";
+    Nixpkgs = "~/GitHub/nixpkgs/";
   };
   templates = {
     baseDev = {

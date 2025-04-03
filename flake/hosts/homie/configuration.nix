@@ -3,6 +3,7 @@
   ags,
   spicetify-nix,
   inputs,
+  options,
   ...
 }: {
   imports = [./hardware-configuration.nix];
@@ -49,6 +50,40 @@
     uwu.enable = true;
     school.enable = true;
     zsh.enable = true;
+  };
+  programs.manada = let
+    defaultConfig = options.programs.manada.config.default;
+  in {
+    enable = true;
+    config =
+      defaultConfig
+      // {
+        data = {
+          conversions = {
+            yb.zb = "x * 1024";
+            zb.eb = "x * 1024";
+            eb.pb = "x * 1024";
+            pb.tb = "x * 1024";
+            tb.gb = "x * 1024";
+            gb.mb = "x * 1024";
+            mb.kb = "x * 1024";
+            kb.b = "x * 1024";
+            b.bit = "x * 8";
+            bit.yb = "x / (1048576 * 1048576 * 1048576 * 8388608)";
+          };
+          aliases = {
+            yb = ["yotta" "yottabyte"];
+            zb = ["zotta" "zottabyte"];
+            eb = ["exa" "exabyte"];
+            pb = ["peta" "petabyte"];
+            tb = ["terra" "terrabyte"];
+            gb = ["giga" "gigabyte"];
+            mb = ["mega" "megabyte"];
+            kb = ["kilo" "kilobyte"];
+            b = ["byte"];
+          };
+        };
+      };
   };
 
   nixModule.enable = true;

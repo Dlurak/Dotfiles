@@ -4,8 +4,9 @@
   lib,
   ...
 }: let
-  lock = "pidof hyprlock || hyprlock";
+  lock = "pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock";
   lockWarning = 30;
+  lockDarkening = 15;
   lockTimeout = 60 * 5;
   suspendTimeout = 60 * 10;
 in {
@@ -25,7 +26,12 @@ in {
         listener = [
           {
             timeout = lockTimeout - lockWarning;
-            on-timeout = "${pkgs.libnotify}/bin/notify-send -t 3000 'Locking' 'This computer locks in ${toString lockWarning} seconds'";
+            on-timeout = "${pkgs.libnotify}/bin/notify-send -t 3000 'Locking' 'This computer locks in ${toString lockWarning} seconds' -a Autolock";
+          }
+          {
+            timeout = lockTimeout - lockDarkening;
+            on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl set 2% -- save";
+            on-resume = "${pkgs.brightnessctl}/bin/brightnessctl --restore";
           }
           {
             timeout = lockTimeout;

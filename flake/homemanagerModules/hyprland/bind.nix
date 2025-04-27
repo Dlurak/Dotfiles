@@ -2,6 +2,7 @@
   pkgs,
   ags,
   lib,
+  inputs,
 }: let
   mainMod = "SUPER";
   secondMod = "SUPER ALT";
@@ -9,6 +10,7 @@
   agsPath = "${ags.packages.${pkgs.system}.ags}/bin/ags";
 
   rules = import ./rules.nix;
+  ferrishot = inputs.ferrishot.packages.${pkgs.system}.default;
 in {
   bind = let
     screenshotNotify = import ../../noneNix/ags/nix/screenshot-notify.nix {inherit pkgs;};
@@ -18,8 +20,8 @@ in {
     "${secondMod}, left, changegroupactive, b"
     "${secondMod}, right, changegroupactive, f"
 
-    "${mainMod}, Return, exec, ${pkgs.ghostty}/bin/ghostty"
-    "${mainMod} SHIFT, Return, exec, ${pkgs.kitty}/bin/kitty"
+    "${mainMod}, Return, exec, ${pkgs.kitty}/bin/kitty"
+    "${mainMod} SHIFT, Return, exec, ${pkgs.ghostty}/bin/ghostty"
     "${mainMod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
     "${mainMod}, W, exec, ${pkgs.firefox}/bin/firefox"
     "${mainMod} SHIFT, W, exec, ${pkgs.chromium}/bin/chromium"
@@ -34,7 +36,7 @@ in {
 
     # screenshot
     "${mainMod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy && ${screenshotNotify}/bin/screenshot-notify"
-    "${mainMod}, S, exec, ${pkgs.grim}/bin/grim ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy && ${screenshotNotify}/bin/screenshot-notify"
+    "${mainMod}, S, exec, ${ferrishot}/bin/ferrishot"
 
     "${mainMod} SHIFT, Space, togglefloating"
     "${mainMod}, Space, centerwindow"
@@ -105,6 +107,7 @@ in {
         ../../assets/wallpaper/ryo-vending.png
         ../../assets/wallpaper/geometry.png
         ../../assets/wallpaper/stripes.png
+        ../../assets/wallpaper/dimis_hintergrundbild.png
       ];
     }}/bin/random-wall"
     "${mainMod} SHIFT, F10, exec, ${pkgs.ani-cli.override {withVlc = true;}}/bin/ani-cli --rofi -v"

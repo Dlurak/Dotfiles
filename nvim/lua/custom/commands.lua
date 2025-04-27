@@ -1,7 +1,6 @@
 local toggle_inlay_hints = require("custom.utils.vim").toggle_inlay_hints
 local scratch            = require("custom.userFuncs.scratch")
 local floaterm           = require("custom.userFuncs.floaterm")
-local pandoc             = require("custom.userFuncs.pandoc")
 
 local write_quit = {"Wq", "WQ"}
 
@@ -70,14 +69,6 @@ vim.api.nvim_create_user_command(
 	'Floaterm',
 	floaterm.floaterm,
 	{ desc = "Toggle a floating terminal" }
-)
-
-vim.api.nvim_create_user_command(
-	'Pandoc',
-	function()
-		pandoc.pandoc()
-	end,
-	{ desc = "Open a pandoc windo" }
 )
 
 vim.api.nvim_create_user_command(

@@ -26,19 +26,14 @@
       userEmail = config.homeManagerModules.git.email;
 
       extraConfig = {
-        credential = {
-          "https://github.com" = {
-            helper = [
-              "" # Clear default helper
-              "!${pkgs.gh}/bin/gh auth git-credential"
-            ];
-          };
-          "https://gist.github.com" = {
-            helper = [
-              "" # Clear default helper
-              "!${pkgs.gh}/bin/gh auth git-credential"
-            ];
-          };
+        credential = let
+          credential.helper = [
+            "" # Clear default helper
+            "!${pkgs.gh}/bin/gh auth git-credential"
+          ];
+        in {
+          "https://github.com" = credential;
+          "https://gist.github.com" = credential;
         };
       };
     };

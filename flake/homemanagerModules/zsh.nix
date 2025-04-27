@@ -21,7 +21,7 @@
         ":q" = "exit";
       };
       completionInit = "compinit && autoload -Uz compinit";
-      initExtra = ''
+      initContent = ''
         ##########
         ## EVAL ##
         ##########

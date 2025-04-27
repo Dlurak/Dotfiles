@@ -1,4 +1,4 @@
-{pkgs}: let
+{pkgs, inputs}: let
   wvkbdCommand = import ./wvKbd.nix {inherit pkgs;};
 in {
   sensitivity = 5.0;

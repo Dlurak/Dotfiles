@@ -39,12 +39,13 @@ in {
     rust.windows = [
       {
         name = " Neovim";
-        panes = ["nvim"];
+		layout = "1996,190x42,0,0{125x42,0,0,0,64x42,126,0,3}";
+        panes = ["nvim" "bacon"];
       }
       {
         name = "Cargo";
         layout = "even-horizontal";
-        panes = ["cargo run" "bacon"];
+        panes = ["cargo build"];
       }
     ];
     svelte.windows = [
@@ -77,6 +78,10 @@ in {
     };
     Moxide = {
       root_dir = "~/SoftwareDevelopment/cli/moxide/";
+      template = "rust";
+    };
+    Manada = {
+      root_dir = "~/SoftwareDevelopment/cli/manada/";
       template = "rust";
     };
     Muxbar = {

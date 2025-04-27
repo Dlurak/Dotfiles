@@ -16,8 +16,8 @@ The following programms are configured:
 - Hyprpaper
 - Neovim (**Not** using nixvim or home-manager)
 - Tmux
-- Ghostty
 - Kitty
+- Ghostty
 - Ags (v2, **not** using home-manager)
 - Moxide
 - Zsh
@@ -66,8 +66,8 @@ This aren't all but at least some keybindings:
 
 | Keybinding                   | Action          |
 | ------------------           | --------------- |
-| `Super` + `Return`           | Ghostty         |
-| `Super` + `Shift` + `Return` | Kitty           |
+| `Super` + `Return`           | Kitty           |
+| `Super` + `Shift` + `Return` | Ghostty         |
 | `Super` + `w`                | Firefox         |
 | `Super` + `Shift` + `w`      | Chromium        |
 | `Super` + `n`                | Nautilus        |

@@ -56,7 +56,7 @@ in {
     "file:///home/dlurak/Pictures/"
     "file:///home/dlurak/Downloads"
     "file:///home/dlurak/Schule/"
-    "file:///home/dlurak/Schule/E-1/Notizen/"
+    "file:///home/dlurak/Schule/E-1/Notizen-Typst/"
   ];
 
   home.file.".peaclock/config".text = ''
@@ -69,9 +69,15 @@ in {
     peaclock = {
       name = "Peaclock";
       genericName = "Clock";
-      exec = "${pkgs.ghostty}/bin/ghostty --command=\"${pkgs.peaclock}/bin/peaclock\"";
+	  # Kitty launches faster then ghostty
+      exec = "${pkgs.kitty}/bin/kitty \"${pkgs.peaclock}/bin/peaclock\"";
       terminal = false;
       categories = ["Applications"];
     };
+  };
+
+  programs.manada = {
+    enable = false;
+    config = {};
   };
 }

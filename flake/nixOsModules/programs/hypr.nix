@@ -10,12 +10,9 @@
 
   config = lib.mkIf config.program.hypr.enable {
     environment.systemPackages = with pkgs; [
-      nwg-drawer
       wshowkeys
       glib
       wl-clipboard
-      grim
-      slurp
       rofi-wayland
       hyprlock
       hyprpicker

@@ -3,6 +3,7 @@
   config,
   lib,
   ags,
+  inputs,
   ...
 }: let
   allColors = import ../../colors.nix;
@@ -19,7 +20,7 @@ in {
         accent = colors.pink;
         inactive = colors.base;
         shadow = colors.crust;
-        bind = import ./bind.nix {inherit pkgs ags lib;};
+        bind = import ./bind.nix {inherit pkgs ags lib inputs;};
       in {
         enable = true;
         plugins = let
@@ -31,7 +32,7 @@ in {
         settings =
           {
             plugin = {
-              touch_gestures = import ./touchGestures.nix {inherit pkgs;};
+              touch_gestures = import ./touchGestures.nix {inherit pkgs inputs;};
             };
 
             monitor = ["eDP-1,1920x1080,0x0,1"];

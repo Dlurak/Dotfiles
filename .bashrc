@@ -11,7 +11,7 @@ alias :q='exit'
 
 # tmux
 alias rename-session='tmux rename-session'
-alias rename-windmw='tmux rename-window'
+alias rename-window='tmux rename-window'
 
 ############
 ## Prompt ##

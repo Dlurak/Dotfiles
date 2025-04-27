@@ -12,7 +12,7 @@
       enable = true;
       package = pkgs.rofi-wayland;
       cycle = true;
-      terminal = "${pkgs.ghostty}/bin/ghostty";
+      terminal = "${pkgs.kitty}/bin/kitty";
       theme = ../noneNix/rofi-theme.rasi;
       extraConfig = {
         modi = "run,drun,window";

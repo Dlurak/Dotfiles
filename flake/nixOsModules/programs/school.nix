@@ -14,6 +14,7 @@
       rnote
       zathura
       evince
+	  typst
       peaclock # Seeing how long 'til the lesson is over
 
       (writeShellApplication {

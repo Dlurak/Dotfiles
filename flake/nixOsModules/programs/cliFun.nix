@@ -19,6 +19,7 @@
       cowsay
       fastfetch
       inputs.retch.defaultPackage.${pkgs.system}
+      inputs.jiman.defaultPackage.${pkgs.system}
       figlet
       neofetch
       nitch
@@ -27,6 +28,7 @@
       toilet
       fortune
       peaclock
+	  (import ../derivations/tracker.nix {inherit pkgs;})
     ];
   };
 }

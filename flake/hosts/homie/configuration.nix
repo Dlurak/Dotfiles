@@ -52,7 +52,7 @@
   };
   programs.manada.enable = true;
   # programs.manada = let
-    # defaultConfig = options.programs.manada.config.default;
+  # defaultConfig = options.programs.manada.config.default;
   # in {
   #   enable = true;
   # };
@@ -75,6 +75,8 @@
   services.power-profiles-daemon.enable = true;
 
   services.fprintd.enable = true;
+
+  documentation.doc.enable = false;
 
   mime = {
     enable = true;

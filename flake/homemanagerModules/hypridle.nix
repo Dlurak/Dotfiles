@@ -30,7 +30,7 @@ in {
           }
           {
             timeout = lockTimeout - lockDarkening;
-            on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl set 2% -- save";
+            on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl set 2% --save";
             on-resume = "${pkgs.brightnessctl}/bin/brightnessctl --restore";
           }
           {

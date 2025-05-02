@@ -34,8 +34,6 @@ require("lazy").setup({
 	require("custom.plugins.gitsigns"),
 	require("custom.plugins.decisive"),
 
-	require("custom.plugins.aerial"),
-
 	require("custom.plugins.luasnip"),
 
 	{

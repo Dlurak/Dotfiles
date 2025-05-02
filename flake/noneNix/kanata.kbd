@@ -29,21 +29,18 @@
 )
 
 (defalias
-  a (tap-hold $tap-time $hold-time a lmet)
-  s (tap-hold $tap-time $hold-time s lalt)
-  d (tap-hold $tap-time $hold-time d lsft)
-  f (tap-hold $tap-time $hold-time f lctl)
-  j (tap-hold $tap-time $hold-time j rctl)
-  k (tap-hold $tap-time $hold-time k rsft)
-  l (tap-hold $tap-time $hold-time l ralt)
+  a   (tap-hold $tap-time $hold-time a lmet)
+  s   (tap-hold $tap-time $hold-time s lalt)
+  d   (tap-hold $tap-time $hold-time d lsft)
+  f   (tap-hold $tap-time $hold-time f lctl)
+  j   (tap-hold $tap-time $hold-time j rctl)
+  k   (tap-hold $tap-time $hold-time k rsft)
+  l   (tap-hold $tap-time $hold-time l ralt)
   scl (tap-hold $tap-time $hold-time ; rmet)
-  o (tap-hold $tap-time $hold-time o $cln)
+  o   (tap-hold $tap-time $hold-time o $cln)
 
-  esc (tap-hold 0 $hold-time esc (layer-switch symbols))
-  qt (tap-hold 0 $hold-time Quote (layer-switch arrows))
-
-  esc-secondary (layer-switch primary)
-  qt-secondary (layer-switch primary)
+  esc (tap-hold $tap-time $hold-time esc (layer-while-held symbols))
+  qt  (tap-hold $tap-time $hold-time Quote (layer-while-held symbols))
 )
 
 ;; First defined layer is the starting layer
@@ -55,14 +52,8 @@
 )
 
 (deflayer symbols
-  XX              XX  XX  XX  XX XX        XX  XX  XX  XX XX XX            XX
-  XX              XX $lc $rc $lr XX        XX $rr $lb $rb XX XX            XX
-  @esc-secondary   1   2   3   4  5         6   7   8   9  0 @qt-secondary XX
-  XX              XX  XX  XX  XX XX        $/  $\  XX  XX XX
-)
-(deflayer arrows
-  XX              XX XX XX XX XX        XX   XX XX    XX XX XX            XX
-  XX              XX XX XX XX XX        XX   XX XX    XX XX XX            XX
-  @esc-secondary  XX XX XX XX XX      left down up right XX @qt-secondary XX
-  XX              XX XX XX XX XX        XX   XX XX    XX XX
+  XX XX  XX  XX  XX XX        XX  XX  XX  XX XX   XX XX
+  XX XX $lc $rc $lr XX        XX $rr $lb $rb $cln XX XX
+  XX  1   2   3   4  5         6   7   8   9  0   XX XX
+  XX XX  XX  XX  XX XX        $/  $\  XX  XX XX
 )

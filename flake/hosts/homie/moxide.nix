@@ -4,6 +4,7 @@ let
       inherit name;
       path = attr.${name};
     }) (builtins.attrNames attr);
+  nvimName = " Neovim";
 in {
   enable = true;
   paths = dirs {
@@ -17,29 +18,16 @@ in {
     Nixpkgs = "~/GitHub/nixpkgs/";
   };
   templates = {
-    baseDev = {
-      hidden = true;
-      windows = [
-        {
-          name = " Neovim";
-          panes = ["nvim"];
-        }
-        {
-          name = " Nix-Shell";
-          panes = ["git status"];
-        }
-      ];
-    };
     nvim.windows = [
       {
-        name = " Neovim";
+        name = nvimName;
         panes = ["nvim"];
       }
     ];
     rust.windows = [
       {
-        name = " Neovim";
-		layout = "1996,190x42,0,0{125x42,0,0,0,64x42,126,0,3}";
+        name = nvimName;
+        layout = "1996,190x42,0,0{125x42,0,0,0,64x42,126,0,3}";
         panes = ["nvim" "bacon"];
       }
       {
@@ -50,7 +38,7 @@ in {
     ];
     svelte.windows = [
       {
-        name = " Neovim";
+        name = nvimName;
         panes = ["nvim"];
       }
       {
@@ -59,79 +47,55 @@ in {
         panes = ["pnpm run dev" "pnpm run test"];
       }
     ];
-    typst-school.windows = [
-      {
-        name = " Neovim";
-        panes = [''nvim +$ "+colorscheme tokyonight-day" "+set wrap" main.typ''];
-      }
-      {
-        name = "Typst";
-        layout = "even-horizontal";
-        panes = ["zathura main.pdf" "typst watch main.typ"];
-      }
-    ];
-  };
-  projects = {
-    Dlool = {
-      root_dir = "~/SoftwareDevelopment/web/dlool_frontend_v2/";
-      template = "svelte";
-    };
-    Moxide = {
-      root_dir = "~/SoftwareDevelopment/cli/moxide/";
-      template = "rust";
-    };
-    Manada = {
-      root_dir = "~/SoftwareDevelopment/cli/manada/";
-      template = "rust";
-    };
-    Muxbar = {
-      root_dir = "~/SoftwareDevelopment/ricing/muxbar/";
-      template = "rust";
-    };
-    Dotfiles = {
-      root_dir = "~/Dotfiles/";
-      template = "nvim";
-    };
-    Wiki = {
-      root_dir = "~/wiki/";
-      template = "nvim";
-    };
-    School = {
-      root_dir = "~/Schule/E-1/Notizen";
+    typst-school = {
+      hidden = true;
       windows = [
         {
-          name = " Neovim";
-          panes = ["nvim Mathematik/main.tex"];
+          name = nvimName;
+          panes = [''nvim +$ "+colorscheme tokyonight-day" "+set wrap" main.typ''];
         }
         {
-          name = "LaTeX";
+          name = "Typst";
           layout = "even-horizontal";
-          panes = ["cd output/ && zathura Mathematik.pdf" "rebuild"];
+          panes = ["zathura main.pdf" "typst watch main.typ"];
         }
       ];
     };
+  };
+  projects = let
+    mkMkPrj = template: dir: {
+      inherit template;
+      root_dir = dir;
+    };
+    mkRustPrj = mkMkPrj "rust";
+    mkNvimPrj = mkMkPrj "nvim";
+  in {
+    Dlool = mkMkPrj "svelte" "~/SoftwareDevelopment/web/dlool_frontend_v2/";
+    Moxide = mkRustPrj "~/SoftwareDevelopment/cli/moxide/";
+    Jiman = mkRustPrj "~/SoftwareDevelopment/random/jiman/";
+    Manada = mkRustPrj "~/SoftwareDevelopment/cli/manada/";
+    Muxbar = mkRustPrj "~/SoftwareDevelopment/ricing/muxbar/";
+    Dotfiles = mkNvimPrj "~/Dotfiles/";
+    Wiki = mkNvimPrj "~/wiki/";
     OsmApp = {
       root_dir = "~/SoftwareDevelopment/web/osmapp/";
       windows = [
         {
-          name = " Neovim";
+          name = nvimName;
           panes = ["nvim"];
         }
         {
           name = "Server";
-          panes = ["yarn dev" "echo OsmApp"];
+          panes = ["yarn dev"];
         }
       ];
     };
-    aoc = {
-      root_dir = "~/SoftwareDevelopment/AdventOfCode/";
-      template = "baseDev";
-    };
+    "Advent-of-code" = mkNvimPrj "~/SoftwareDevelopment/AdventOfCode/";
     talks = {
       root_dir = "~/talks/";
       windows = [
         {
-          name = " Neovim";
+          name = nvimName;
           panes = ["nvim"];
         }
         {
@@ -144,7 +108,7 @@ in {
       root_dir = "~/SoftwareDevelopment/games/3d-pong/";
       windows = [
         {
-          name = " Neovim";
+          name = nvimName;
           panes = ["nvim"];
         }
         {

@@ -13,7 +13,7 @@
       eog
       shotwell
       inkscape
-      gimp
+      gimp3
       sly
       krita
     ];

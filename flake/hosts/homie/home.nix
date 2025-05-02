@@ -50,14 +50,17 @@ in {
     };
   };
 
-  gtk.gtk3.bookmarks = [
-    "file:///home/dlurak/SoftwareDevelopment/"
-    "file:///home/dlurak/Dotfiles"
-    "file:///home/dlurak/Pictures/"
-    "file:///home/dlurak/Downloads"
-    "file:///home/dlurak/Schule/"
-    "file:///home/dlurak/Schule/E-1/Notizen-Typst/"
-  ];
+  gtk.gtk3.bookmarks = let
+    files = map (path: "file://${path}");
+  in
+    files [
+      "/home/dlurak/SoftwareDevelopment/"
+      "/home/dlurak/Dotfiles"
+      "/home/dlurak/Pictures/"
+      "/home/dlurak/Downloads"
+      "/home/dlurak/Schule/"
+      "/home/dlurak/Schule/E-1/Notizen-Typst/"
+    ];
 
   home.file.".peaclock/config".text = ''
     set seconds on
@@ -69,7 +72,7 @@ in {
     peaclock = {
       name = "Peaclock";
       genericName = "Clock";
-	  # Kitty launches faster then ghostty
+      # Kitty launches faster then ghostty
       exec = "${pkgs.kitty}/bin/kitty \"${pkgs.peaclock}/bin/peaclock\"";
       terminal = false;
       categories = ["Applications"];

@@ -12,6 +12,7 @@ keymap_set("t", "<esc><esc>", "<c-\\><c-n>")
 keymap_set("n", "<leader>lh", vim_utils.toggle_inlay_hints , {
 	desc = "LSP | Toggle Inlay Hints", silent = true
 })
+keymap_set("n", "ycc", "yygccp", { remap = true })
 
 
 require("custom.remappings.splits")

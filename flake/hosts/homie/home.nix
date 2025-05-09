@@ -21,6 +21,7 @@ in {
   programs.moxide = import ./moxide.nix;
   homeManagerModules.rofi.enable = true;
   homeManagerModules.zsh.enable = true;
+  homeManagerModules.nu.enable = false;
   homeManagerModules.starship.enable = true;
   homeManagerModules.terminals.enable = true;
   homeManagerModules.zathura.enable = true;
@@ -72,7 +73,6 @@ in {
     peaclock = {
       name = "Peaclock";
       genericName = "Clock";
-      # Kitty launches faster then ghostty
       exec = "${pkgs.kitty}/bin/kitty \"${pkgs.peaclock}/bin/peaclock\"";
       terminal = false;
       categories = ["Applications"];

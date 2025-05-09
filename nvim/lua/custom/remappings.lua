@@ -1,4 +1,4 @@
-local vim_utils = require("custom.utils.vim")
+local vim_utils = require("utils.vim")
 
 vim.g.mapleader = " "
 
@@ -9,10 +9,14 @@ keymap("n", "<leader>m", "`", {noremap = true, silent = true })
 keymap("n", "<TAB>", "<C-^>", {noremap = true, silent = true, desc = "Alternate bufers" })
 
 keymap_set("t", "<esc><esc>", "<c-\\><c-n>")
-keymap_set("n", "<leader>lh", vim_utils.toggle_inlay_hints , {
+keymap_set("n", "ycc", "yygccp", { remap = true })
+
+keymap_set("n", "<leader>lh", vim_utils.toggle_inlay_hints, {
 	desc = "LSP | Toggle Inlay Hints", silent = true
 })
-keymap_set("n", "ycc", "yygccp", { remap = true })
+keymap_set("n", "<leader>ll",  require("custom.lsp.configs").next_diagnostics, {
+	desc = "LSP | Toggle Virtual Lines", silent = true
+})
 
 
 require("custom.remappings.splits")

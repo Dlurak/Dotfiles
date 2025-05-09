@@ -26,7 +26,7 @@ impl TryFrom<&str> for Unit {
         match value {
             "sec" | "seconds" | "s" => Ok(Unit::Seconds),
             "milliseconds" | "ms" => Ok(Unit::Milliseconds),
-            _ => Err(format!("Invalid unit: {}", value)),
+            _ => Err(format!("invalid unit: {}", value)),
         }
     }
 }

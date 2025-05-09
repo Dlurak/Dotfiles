@@ -1,4 +1,4 @@
-local toggle_inlay_hints = require("custom.utils.vim").toggle_inlay_hints
+local toggle_inlay_hints = require("utils.vim").toggle_inlay_hints
 local scratch            = require("custom.userFuncs.scratch")
 local floaterm           = require("custom.userFuncs.floaterm")
 

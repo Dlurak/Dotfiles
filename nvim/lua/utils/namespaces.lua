@@ -16,7 +16,7 @@ module.namespaces = {
 -- @return A function that takes a key sequence and returns the complete key mapping string.
 -- @usage
 -- ```lua
--- local keymap = require("custom.utils.namespaces").keymap
+-- local keymap = require("utils.namespaces").keymap
 -- local km = keymap("<leader>l")
 -- vim.api.nvim_set_keymap('n', km('f'), '<CMD>:w<CR>', {})
 -- ```

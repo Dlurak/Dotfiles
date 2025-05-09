@@ -1,5 +1,5 @@
-local keymap = require("custom.utils.namespaces").keymap
-local namespace = require("custom.utils.namespaces").namespaces.harpoon
+local keymap = require("utils.namespaces").keymap
+local namespace = require("utils.namespaces").namespaces.harpoon
 
 local km = keymap(namespace)
 

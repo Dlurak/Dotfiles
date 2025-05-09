@@ -10,23 +10,19 @@ local servers = {
 		"gopls",
 	},
 	default_config = {
-		"lua_ls",
-		"emmet_language_server",
-		"tailwindcss",
-		"bashls",
-		"ruff",
-		"marksman",
-		"dockerls",
-		"clangd",
-		"hls",
-		"nixd",
-		"denols",
-		"zls",
+		lua_ls = "lua-language-server",
+		emmet_language_server = nil,
+		tailwindcss = nil,
+		bashls = nil,
+		marksman = nil,
+		nixd = nil,
 	}
 }
 
-for _, value in ipairs(servers.default_config) do
-	require("lspconfig")[value].setup { on_attach = on_attach }
+for lsp_server, exec_name in pairs(servers.default_config) do
+	if vim.fn.executable(exec_name or lsp_server) == 1 then
+		require("lspconfig")[lsp_server].setup { on_attach = on_attach }
+	end
 end
 
 require("custom.lsp.collection.svelte")

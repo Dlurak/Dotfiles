@@ -1,5 +1,5 @@
-local keymap = require("custom.utils.namespaces").keymap
-local namespace = require("custom.utils.namespaces").namespaces.neotest
+local keymap = require("utils.namespaces").keymap
+local namespace = require("utils.namespaces").namespaces.neotest
 
 local km = keymap(namespace)
 
@@ -14,7 +14,7 @@ return {
 		},
 		dependencies = {
 			"marilari88/neotest-vitest",
-			'nvim-neotest/neotest-jest',
+			"rouge8/neotest-rust",
 
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
@@ -25,14 +25,7 @@ return {
 			require("neotest").setup({
 				adapters = {
 					require("neotest-vitest"),
-					require('neotest-jest')({
-						jestCommand = "npm test --",
-						jestConfigFile = "custom.jest.config.ts",
-						env = { CI = true },
-						cwd = function(path)
-							return vim.fn.getcwd()
-						end,
-					}),
+					require("neotest-rust")
 				},
 			})
 		end

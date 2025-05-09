@@ -19,7 +19,7 @@
       cowsay
       fastfetch
       inputs.retch.defaultPackage.${pkgs.system}
-      inputs.jiman.defaultPackage.${pkgs.system}
+      inputs.jiman.packages.${pkgs.system}.jiman
       figlet
       neofetch
       nitch

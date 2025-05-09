@@ -12,6 +12,7 @@
     environment.systemPackages = with pkgs; [
       nixd
       rust-analyzer
+      cargo-nextest # For neotest
       nodePackages.typescript-language-server
       nodePackages_latest.svelte-language-server
       vscode-langservers-extracted

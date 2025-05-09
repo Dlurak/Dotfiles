@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   options = {
@@ -52,7 +53,8 @@
 
         zstyle ':completion:*' list-colors "$\{s.:. LS_COLORS}"
 
-        nitch
+        ${pkgs.nitch}/bin/nitch
+        # ${inputs.jiman.packages.${pkgs.system}.jiman}/bin/jiman print ace --width=100%
       '';
     };
     programs.zoxide = {

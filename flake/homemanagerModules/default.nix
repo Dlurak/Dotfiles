@@ -14,6 +14,8 @@
     ./terminals.nix
     ./tmux.nix
     ./zathura.nix
+
+    ./nu.nix
     ./zsh.nix
   ];
 }

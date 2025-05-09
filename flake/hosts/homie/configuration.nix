@@ -25,7 +25,6 @@
     description = "dlurak";
     extraGroups = ["networkmanager" "wheel" "input"];
   };
-  users.defaultUserShell = pkgs.zsh;
 
   locale.enable = true;
 
@@ -48,7 +47,9 @@
     utils.enable = true;
     uwu.enable = true;
     school.enable = true;
+
     zsh.enable = true;
+    nu.enable = false;
   };
   programs.manada.enable = true;
   # programs.manada = let

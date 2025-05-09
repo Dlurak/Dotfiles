@@ -10,6 +10,8 @@
     ./lsp.nix
     ./utils.nix
     ./uwu.nix
+
+    ./nuShell.nix
     ./zshShell.nix
   ];
 }

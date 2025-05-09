@@ -33,8 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ferrishot = {
-      # url = "github:nik-rev/ferrishot/main";
-      url = "github:dlurak/ferrishot-fork/flake-fix";
+      url = "github:nik-rev/ferrishot/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.desktop.misc.enable = lib.mkEnableOption "Enable miscellaneous programs";
   };
@@ -12,6 +13,8 @@
     environment.systemPackages = with pkgs; [
       josm
       cavalier
+      paper-clip
+      pdfarranger
       paper-clip
       komikku
     ];

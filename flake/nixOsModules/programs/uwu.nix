@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.uwu.enable = lib.mkEnableOption "enabwe uwu pwogwams";
   };

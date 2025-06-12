@@ -36,21 +36,36 @@
       url = "github:nik-rev/ferrishot/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-
-  outputs = {
-    nixpkgs,
-    ags,
-    spicetify-nix,
-    ...
-  } @ inputs: {
-    nixosConfigurations.homie = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs ags spicetify-nix;};
-      modules = [
-        ./nixOsModules
-        ./hosts/homie/configuration.nix
-        inputs.home-manager.nixosModules.default
-      ];
+    bright = {
+      url = "github:dlurak/bright";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs =
+    {
+      nixpkgs,
+      ags,
+      spicetify-nix,
+      ...
+    }@inputs:
+    let
+      forAllSystems =
+        function:
+        nixpkgs.lib.genAttrs [ "aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux" ] (
+          system: function nixpkgs.legacyPackages.${system}
+        );
+    in
+    {
+      nixosConfigurations.homie = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs ags spicetify-nix; };
+        modules = [
+          ./nixOsModules
+          ./hosts/homie/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+
+      formatter = forAllSystems (pkgs: pkgs.nixfmt-tree);
+    };
 }

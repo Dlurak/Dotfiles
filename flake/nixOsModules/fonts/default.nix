@@ -1,16 +1,15 @@
 {
   pkgs,
   lib,
-}: let
+}:
+let
   stdenv = pkgs.stdenvNoCC;
   mkFontDerivations = builtins.mapAttrs (
-    name: src:
-      if builtins.isPath src
-      then import ./mkFont.nix {inherit stdenv name src;}
-      else src
+    name: src: if builtins.isPath src then import ./mkFont.nix { inherit stdenv name src; } else src
   );
-in (mkFontDerivations {
+in
+(mkFontDerivations {
   pilowlava = ../../assets/fonts/Pilowlava-Regular.otf;
   spaceGrotesk = ../../assets/fonts/space-grotesk;
-  "SF-Pro" = import ./sfPro.nix {inherit pkgs stdenv lib;};
+  "SF-Pro" = import ./sfPro.nix { inherit pkgs stdenv lib; };
 })

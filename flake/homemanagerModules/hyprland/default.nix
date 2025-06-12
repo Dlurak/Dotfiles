@@ -5,42 +5,58 @@
   ags,
   inputs,
   ...
-}: let
+}:
+let
   allColors = import ../../colors.nix;
   colors = allColors.hypr;
-  tokyoShell = import ./../../noneNix/ags/nix/build.nix {inherit ags pkgs;};
+  tokyoShell = import ./../../noneNix/ags/nix/build.nix { inherit ags pkgs; };
   tokyoShellPath = "${tokyoShell}/bin/tokyo-shell";
-in {
+in
+{
   options = {
     homeManagerModules.hyprland.enable = lib.mkEnableOption "Enable hyprland config";
   };
-  config = with config.homeManagerModules;
+  config =
+    with config.homeManagerModules;
     lib.mkIf hyprland.enable {
-      wayland.windowManager.hyprland = let
-        accent = colors.pink;
-        inactive = colors.base;
-        shadow = colors.crust;
-        bind = import ./bind.nix {inherit pkgs ags lib inputs;};
-      in {
-        enable = true;
-        plugins = let
-          hyprgrass = import ./hyprgrass.nix (with pkgs; {
-            hyprgrass = hyprlandPlugins.hyprgrass;
-            inherit fetchFromGitHub;
-          });
-        in [hyprgrass];
-        settings =
-          {
+      wayland.windowManager.hyprland =
+        let
+          accent = colors.pink;
+          inactive = colors.base;
+          shadow = colors.crust;
+          bind = import ./bind.nix {
+            inherit
+              pkgs
+              ags
+              lib
+              inputs
+              ;
+          };
+        in
+        {
+          enable = true;
+          plugins =
+            let
+              hyprgrass = import ./hyprgrass.nix (
+                with pkgs;
+                {
+                  hyprgrass = hyprlandPlugins.hyprgrass;
+                  inherit fetchFromGitHub;
+                }
+              );
+            in
+            [ hyprgrass ];
+          settings = {
             plugin = {
-              touch_gestures = import ./touchGestures.nix {inherit pkgs inputs;};
+              touch_gestures = import ./touchGestures.nix { inherit pkgs inputs; };
             };
 
-            monitor = ["eDP-1,1920x1080,0x0,1"];
+            monitor = [ "eDP-1,1920x1080,0x0,1" ];
             exec-once = [
               tokyoShellPath
               "${pkgs.hyprpaper}/bin/hyprpaper"
               "${pkgs.iio-hyprland}/bin/iio-hyprland"
-              (import ./wvKbd.nix {inherit pkgs;})
+              (import ./wvKbd.nix { inherit pkgs; })
             ];
             general = {
               gaps_in = 5;
@@ -101,8 +117,7 @@ in {
             bindl = bind.bindl;
 
             windowrule = import ./rules.nix;
-          }
-          // import ./input.nix;
-      };
+          } // import ./input.nix;
+        };
     };
 }

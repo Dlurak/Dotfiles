@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./browsers.nix
     ./chatting.nix

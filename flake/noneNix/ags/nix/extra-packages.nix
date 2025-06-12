@@ -1,7 +1,8 @@
 {
   ags,
   pkgs,
-}: let
+}:
+let
   agsPackages = ags.packages.${pkgs.system};
   agsDependencies = with agsPackages; [
     hyprland
@@ -26,4 +27,4 @@
     libnotify
   ];
 in
-  agsDependencies ++ systemDeps ++ [(import ./screenshot-notify.nix {inherit pkgs;})]
+agsDependencies ++ systemDeps ++ [ (import ./screenshot-notify.nix { inherit pkgs; }) ]

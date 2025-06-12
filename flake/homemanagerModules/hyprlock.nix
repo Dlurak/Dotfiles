@@ -2,19 +2,19 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   allColors = import ../colors.nix;
   colors = allColors.hypr;
-  setRgbaOpacity = newOpacity: colorName: (allColors.setRgbaOpacity newOpacity allColors.rgba.${colorName});
-in {
+  setRgbaOpacity =
+    newOpacity: colorName: (allColors.setRgbaOpacity newOpacity allColors.rgba.${colorName});
+in
+{
   options = {
     homeManagerModules.hyprlock.enable = lib.mkEnableOption "Enable hyprlock config";
-    homeManagerModules.hyprlock.background = lib.mkOption {
-      type = lib.types.path;
-      description = "The path to the wallpaper";
-    };
   };
-  config = with config.homeManagerModules;
+  config =
+    with config.homeManagerModules;
     lib.mkIf hyprlock.enable {
       programs.hyprlock = {
         enable = true;
@@ -37,7 +37,7 @@ in {
           background = [
             {
               monitor = "";
-              path = "${hyprlock.background}";
+              path = "${../assets/wallpaper/geometry.png}";
               blur_passes = 3;
               blur_size = 12;
               noise = "0.1";

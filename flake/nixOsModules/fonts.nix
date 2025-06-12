@@ -3,9 +3,11 @@
   pkgs,
   config,
   ...
-}: let
-  customFonts = import ./fonts {inherit pkgs lib;};
-in {
+}:
+let
+  customFonts = import ./fonts { inherit pkgs lib; };
+in
+{
   options = {
     fontsModule.enable = lib.mkEnableOption "Enable the custom fonts module";
   };
@@ -27,6 +29,7 @@ in {
         jetbrains-mono
         barlow
         source-sans-pro
+        times-newer-roman
       ])
       ++ (with customFonts; [
         pilowlava

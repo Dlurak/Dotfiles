@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     airplay.enable = lib.mkEnableOption "Enable airplay receiver";
   };
@@ -22,9 +23,18 @@
     };
     firewall = {
       enable = true;
-      tcp = [7000 7001 7100];
-      udp = [5353 6000 6001 7011];
+      tcp = [
+        7000
+        7001
+        7100
+      ];
+      udp = [
+        5353
+        6000
+        6001
+        7011
+      ];
     };
-    environment.systemPackages = [pkgs.uxplay];
+    environment.systemPackages = [ pkgs.uxplay ];
   };
 }

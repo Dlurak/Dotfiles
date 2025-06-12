@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     homeManagerModules.nu.enable = lib.mkEnableOption "Enable nu config";
   };

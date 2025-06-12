@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     powerOff.enable = lib.mkEnableOption "Enable the poweroff config";
   };

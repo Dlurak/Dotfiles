@@ -39,7 +39,7 @@
   scl (tap-hold $tap-time $hold-time ; rmet)
   o   (tap-hold $tap-time $hold-time o $cln)
 
-  esc (tap-hold $tap-time $hold-time esc (layer-while-held symbols))
+  esc (tap-hold 0 150 esc (layer-while-held symbols))
   qt  (tap-hold $tap-time $hold-time Quote (layer-while-held symbols))
 )
 

@@ -5,13 +5,11 @@
   inputs,
   options,
   ...
-}: {
-  imports = [./hardware-configuration.nix];
+}:
+{
+  imports = [ ./hardware-configuration.nix ];
 
-  bootloader = {
-    enableSystemdBoot = true;
-    enableRaspberryPi = false;
-  };
+  bootloader.enableSystemdBoot = true;
   fontsModule.enable = true;
   powerOff.enable = true;
 
@@ -23,8 +21,14 @@
   users.users.dlurak = {
     isNormalUser = true;
     description = "dlurak";
-    extraGroups = ["networkmanager" "wheel" "input"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "video"
+    ];
   };
+  # services.udev.packages = with pkgs; [bright];
 
   locale.enable = true;
 
@@ -43,7 +47,6 @@
     };
     dev.enable = true;
     hypr.enable = true;
-    lsp.enable = true;
     utils.enable = true;
     uwu.enable = true;
     school.enable = true;
@@ -63,8 +66,8 @@
   airplay.enable = false;
   firewall = {
     enable = true;
-    tcp = [];
-    udp = [];
+    tcp = [ ];
+    udp = [ ];
   };
 
   hardware.bluetooth = {
@@ -112,17 +115,21 @@
 
       "video/qicktime" = mpv;
       "application/ogg" = mpv;
+
+      "application/gzip" = xournalpp;
     };
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs ags spicetify-nix;};
-    users.dlurak = {...}: {
-      imports = [
-        ./home.nix
-        ./spicetify.nix
-      ];
-    };
+    extraSpecialArgs = { inherit inputs ags spicetify-nix; };
+    users.dlurak =
+      { ... }:
+      {
+        imports = [
+          ./home.nix
+          ./spicetify.nix
+        ];
+      };
     backupFileExtension = "backup";
   };
 }

@@ -2,14 +2,18 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
-}: let
+}:
+let
   lock = "pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock";
   lockWarning = 30;
   lockDarkening = 15;
   lockTimeout = 60 * 5;
   suspendTimeout = 60 * 10;
-in {
+  bright = inputs.bright.packages.${pkgs.system}.bright;
+in
+{
   options = {
     homeManagerModules.hypridle.enable = lib.mkEnableOption "Enable hypridle (config)";
   };
@@ -30,8 +34,8 @@ in {
           }
           {
             timeout = lockTimeout - lockDarkening;
-            on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl set 2% --save";
-            on-resume = "${pkgs.brightnessctl}/bin/brightnessctl --restore";
+            on-timeout = "${bright}/bin/bright --easing 'x^3' set 25% --save --duration 600ms";
+            on-resume = "${bright}/bin/bright --easing 'x^3' set restore --duration 600ms";
           }
           {
             timeout = lockTimeout;

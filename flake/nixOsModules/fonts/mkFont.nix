@@ -8,7 +8,7 @@ stdenv.mkDerivation {
   dontUnpack = true;
   version = "1.0.0";
   inherit src;
-  buildInputs = [];
+  buildInputs = [ ];
   installPhase = ''
     mkdir -p $out/share/fonts
     cp -r $src $out/share/fonts

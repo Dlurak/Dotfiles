@@ -3,9 +3,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   path = pkg: pkgs.lib.elemAt (builtins.attrNames (builtins.readDir "${pkg}/share/applications")) 0;
-in {
+in
+{
   options = {
     mime.enable = lib.mkEnableOption "Enable the mime options";
     mime.apps = lib.mkOption {

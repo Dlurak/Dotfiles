@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     homeManagerModules.homeManager.enable = lib.mkEnableOption "Enable homemanager";
   };

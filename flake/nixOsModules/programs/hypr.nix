@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.hypr.enable = lib.mkEnableOption "Enable hyprland and wayland";
   };

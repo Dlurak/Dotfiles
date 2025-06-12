@@ -3,7 +3,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     homeManagerModules.git.enable = lib.mkEnableOption "Enable git (config)";
     homeManagerModules.git.userName = lib.mkOption {
@@ -26,15 +27,17 @@
       userEmail = config.homeManagerModules.git.email;
 
       extraConfig = {
-        credential = let
-          credential.helper = [
-            "" # Clear default helper
-            "!${pkgs.gh}/bin/gh auth git-credential"
-          ];
-        in {
-          "https://github.com" = credential;
-          "https://gist.github.com" = credential;
-        };
+        credential =
+          let
+            credential.helper = [
+              "" # Clear default helper
+              "!${pkgs.gh}/bin/gh auth git-credential"
+            ];
+          in
+          {
+            "https://github.com" = credential;
+            "https://gist.github.com" = credential;
+          };
       };
     };
   };

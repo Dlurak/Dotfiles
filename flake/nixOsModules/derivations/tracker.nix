@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 pkgs.rustPlatform.buildRustPackage {
   pname = "tracker";
   version = "0.1.5";
@@ -6,11 +6,11 @@ pkgs.rustPlatform.buildRustPackage {
   src = pkgs.fetchFromGitHub {
     owner = "ShenMian";
     repo = "tracker";
-    rev = "73a31b767b51412d305b34952897ccbcf26bff5b";
-    hash = "sha256-gR+Hrqr3CJp0QXy3c6QrMoWzTxFggaPqfWir9zl35hk=";
+    rev = "97b0e892d7335970812717f66965b5d7abc72765";
+    hash = "sha256-Qnc8k4rc0U7ZDjvPxJGJV7ew0c83aXeBi+fGZLhZCFs=";
   };
-  cargoHash = "sha256-2xUS/lxwKDAq/ASDkE/gavHxsPcPqFpD93KLgOze+wk=";
+  cargoHash = "sha256-cif40SeZqWOL2qTtKfxmjqbp3QHF/HtjCy26pfJiRog=";
 
-  nativeBuildInputs = with pkgs; [pkg-config];
-  buildInputs = with pkgs; [openssl];
+  nativeBuildInputs = with pkgs; [ pkg-config ];
+  buildInputs = with pkgs; [ openssl ];
 }

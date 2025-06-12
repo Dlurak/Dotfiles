@@ -6,8 +6,6 @@ vim.g.loaded_netrwPlugin = 1
 opt.number = true
 opt.relativenumber = true
 
-opt.mouse = ""
-
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4

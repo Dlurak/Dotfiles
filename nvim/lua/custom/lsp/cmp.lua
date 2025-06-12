@@ -36,12 +36,6 @@ local source_name = {
 	buffer = "[Buf]",
 }
 
-
-----------------------
--- Highlight groups --
-----------------------
--- vim.api.nvim_set_hl(0, 'CmpBorder', { bg = colors.base_bg, fg = colors.primary_accent })
-
 local window_style = cmp.config.window.bordered {
 	scrollbar = false,
 	side_padding = 1,
@@ -64,7 +58,7 @@ cmp.setup {
 		{name = "nvim_lsp", max_item_count = 10},
 		{name = "snp"},
 		{name = "path"},
-		{name = "buffer", keyword_length = 5, max_item_count = 10}
+		{name = "buffer", keyword_length = 5, max_item_count = 10},
 	},
 	formatting = {
 		format = function (entry, vim_item)

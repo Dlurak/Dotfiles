@@ -2,6 +2,7 @@
   input = {
     kb_layout = "de";
     kb_options = "caps:escape";
+    kb_variant = "nodeadkeys";
     #kb_variant = "colemark";
     kb_model = "";
     kb_rules = "";

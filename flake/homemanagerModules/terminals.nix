@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     homeManagerModules.terminals.enable = lib.mkEnableOption "Enable the terminal module";
   };

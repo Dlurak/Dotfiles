@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     homeManagerModules.rofi.enable = lib.mkEnableOption "Enable rofi config";
   };

@@ -6,7 +6,6 @@ return {
 	},
 	{ 'wakatime/vim-wakatime', lazy = false },
 	{
-		"saadparwaiz1/cmp_luasnip",
 		"neovim/nvim-lspconfig",
 
 		"hrsh7th/nvim-cmp",

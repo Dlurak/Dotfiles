@@ -3,19 +3,22 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.desktop.utils.enable = lib.mkEnableOption "Enable utils";
   };
 
   config = lib.mkIf config.program.desktop.utils.enable {
     environment.systemPackages = with pkgs; [
+      alpaca
       galculator
-	  pika-backup
-	  resources
-	  nautilus
-	  networkmanagerapplet
-	  zathura
+      nautilus
+      networkmanagerapplet
+      pavucontrol
+      pika-backup
+      resources
+      zathura
     ];
   };
 }

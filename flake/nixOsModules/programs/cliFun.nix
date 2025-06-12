@@ -4,7 +4,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   options = {
     program.funCli.enable = lib.mkEnableOption "Enable useless but fun cli programs";
   };
@@ -28,7 +29,7 @@
       toilet
       fortune
       peaclock
-	  (import ../derivations/tracker.nix {inherit pkgs;})
+      (import ../derivations/tracker.nix { inherit pkgs; })
     ];
   };
 }

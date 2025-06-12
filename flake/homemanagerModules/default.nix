@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = [
     inputs.moxide.homeManagerModules.moxide
     inputs.manada.homemanagerModules.x86_64-linux.default

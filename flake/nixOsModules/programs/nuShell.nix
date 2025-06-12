@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.nu.enable = lib.mkEnableOption "Enable nu shell";
   };

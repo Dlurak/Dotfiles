@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     homeManagerModules.gtk.enable = lib.mkEnableOption "Enable gtk config";
   };
@@ -17,9 +18,9 @@
       };
       theme = {
         package = pkgs.tokyonight-gtk-theme.override {
-          colorVariants = ["dark"];
-          themeVariants = ["pink"];
-          tweakVariants = ["macos"];
+          colorVariants = [ "dark" ];
+          themeVariants = [ "pink" ];
+          tweakVariants = [ "macos" ];
         };
         name = "Tokyonight-Pink-Dark";
         # package = pkgs.catppuccin-gtk;
@@ -27,10 +28,9 @@
         # name = "catppuccin-latte-blue-standard";
       };
       iconTheme = {
-        # package = pkgs.fluent-icon-theme;
-        # name = "Fluent-dark";
         # name = "WhiteSur-dark";
         # package = pkgs.whitesur-icon-theme;
+
         name = "Dracula";
         package = pkgs.dracula-icon-theme;
       };

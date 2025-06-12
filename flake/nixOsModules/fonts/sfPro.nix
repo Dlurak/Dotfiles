@@ -14,7 +14,7 @@ stdenv.mkDerivation {
     sha256 = "sha256-mAXExj8n8gFHq19HfGy4UOJYKVGPYgarGd/04kUIqX4=";
   };
 
-  nativeBuildInputs = with pkgs; [unzip];
+  nativeBuildInputs = with pkgs; [ unzip ];
 
   installPhase = ''
     mkdir -p $out/share/fonts/opentype
@@ -27,6 +27,6 @@ stdenv.mkDerivation {
     description = "San Francisco Pro Fonts";
     homepage = "https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts";
     license = licenses.mit;
-    maintainers = [maintainers.sahibjotsaggu];
+    maintainers = [ maintainers.sahibjotsaggu ];
   };
 }

@@ -3,14 +3,14 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.utils.enable = lib.mkEnableOption "Enable utility programs";
   };
 
   config = lib.mkIf config.program.utils.enable {
     environment.systemPackages = with pkgs; [
-      brightnessctl
       nh
       unzip
       tokei
@@ -19,8 +19,10 @@
       upower
       wf-recorder
 
-      (writers.writeRustBin "colors" {} (builtins.readFile ../customScripts/colors.rs))
-      (writers.writeRustBin "timestamp" {} (builtins.readFile ../customScripts/timestamp.rs))
+      confy
+
+      (writers.writeRustBin "colors" { } (builtins.readFile ../customScripts/colors.rs))
+      (writers.writeRustBin "timestamp" { } (builtins.readFile ../customScripts/timestamp.rs))
     ];
     services.kanata = {
       enable = true;
@@ -29,5 +31,6 @@
         configFile = ../../noneNix/kanata.kbd;
       };
     };
+    programs.bright.enable = true;
   };
 }

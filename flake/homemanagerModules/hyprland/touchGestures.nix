@@ -1,6 +1,12 @@
-{pkgs, inputs}: let
-  wvkbdCommand = import ./wvKbd.nix {inherit pkgs;};
-in {
+{
+  pkgs,
+  inputs,
+}:
+let
+  wvkbdCommand = import ./wvKbd.nix { inherit pkgs; };
+  bright = inputs.bright.packages.${pkgs.system}.default;
+in
+{
   sensitivity = 5.0;
   workspace_swipe_fingers = 0;
   workspace_swipe_edge = "lr";
@@ -17,8 +23,8 @@ in {
     ", edge:l:u, exec, ${pkgs.pamixer}/bin/pamixer -i 3"
     ", edge:l:d, exec, ${pkgs.pamixer}/bin/pamixer -d 3"
 
-    ", edge:r:u, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
-    ", edge:r:d, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%-"
+    ", edge:r:u, exec, ${bright}/bin/bright --easing 'x^3' set 4%+"
+    ", edge:r:d, exec, ${bright}/bin/bright --easing 'x^3' set 4%-"
 
     ", edge:u:d, exec, pkill nwg-drawer || ${pkgs.nwg-drawer}/bin/nwg-drawer"
     ", swipe:4:d, killactive"

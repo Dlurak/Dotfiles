@@ -1,21 +1,17 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   colors = import ../../colors.nix;
   hex = colors.hex;
-in {
-  imports = [../../homemanagerModules/default.nix];
+in
+{
+  imports = [ ../../homemanagerModules/default.nix ];
 
   homeManagerModules.git.enable = true;
   homeManagerModules.gtk.enable = true;
   homeManagerModules.homeManager.enable = true;
   homeManagerModules.tmux.enable = true;
-  homeManagerModules.hyprpaper = {
-    enable = true;
-    path = ../../assets/wallpaper/stripes.png;
-  };
-  homeManagerModules.hyprlock = {
-    enable = true;
-    background = ../../assets/wallpaper/geometry.png;
-  };
+  homeManagerModules.hyprpaper.enable = true;
+  homeManagerModules.hyprlock.enable = true;
   homeManagerModules.hyprland.enable = true;
   homeManagerModules.hypridle.enable = true;
   programs.moxide = import ./moxide.nix;
@@ -51,9 +47,10 @@ in {
     };
   };
 
-  gtk.gtk3.bookmarks = let
-    files = map (path: "file://${path}");
-  in
+  gtk.gtk3.bookmarks =
+    let
+      files = map (path: "file://${path}");
+    in
     files [
       "/home/dlurak/SoftwareDevelopment/"
       "/home/dlurak/Dotfiles"
@@ -75,12 +72,12 @@ in {
       genericName = "Clock";
       exec = "${pkgs.kitty}/bin/kitty \"${pkgs.peaclock}/bin/peaclock\"";
       terminal = false;
-      categories = ["Applications"];
+      categories = [ "Applications" ];
     };
   };
 
   programs.manada = {
     enable = false;
-    config = {};
+    config = { };
   };
 }

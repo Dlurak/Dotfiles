@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.desktop.graphics.enable = lib.mkEnableOption "Enable graphics programs";
   };
@@ -16,6 +17,7 @@
       gimp3
       sly
       krita
+      ffmpeg
     ];
   };
 }

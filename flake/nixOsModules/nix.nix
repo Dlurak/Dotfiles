@@ -2,9 +2,9 @@
   lib,
   config,
   inputs,
-  pkgs,
   ...
-}: {
+}:
+{
   options = {
     nixModule.enable = lib.mkEnableOption "Enable nix settings";
     nixModule.stateVersion = lib.mkOption {
@@ -14,23 +14,23 @@
     };
   };
 
-  config = lib.mkIf config.nixModule.enable {
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) ["discord"];
-    nixpkgs.config.permittedInsecurePackages = [];
-    nixpkgs.overlays = [
-      (final: prev: {
-        ani-cli = prev.ani-cli.override {
-          withVlc = true;
-          withMpv = true;
-        };
-        fortune = prev.fortune.override {withOffensive = true;};
-        moxide = inputs.moxide.defaultPackage.${pkgs.system};
-      })
-    ];
-    nix.settings = {
-      experimental-features = ["nix-command" "flakes"];
+  config =
+    let
+      pkgIsIn = list: pkg: builtins.elem (lib.getName pkg) list;
+    in
+    lib.mkIf config.nixModule.enable {
+      nixpkgs.overlays = import ./overlays { inherit inputs; };
+
+      nixpkgs.config.allowUnfreePredicate = pkgIsIn [ "discord" ];
+
+      nixpkgs.config.permittedInsecurePackages = [ ];
+
+      nix.settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+      };
+      system.stateVersion = config.nixModule.stateVersion;
     };
-    system.stateVersion = config.nixModule.stateVersion;
-  };
 }

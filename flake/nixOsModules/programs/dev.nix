@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.dev.enable = lib.mkEnableOption "Enable minimal cli programs";
   };
@@ -12,7 +13,7 @@
     environment.systemPackages = with pkgs; [
       alejandra
       gh
-	  silicon
+      silicon
     ];
   };
 }

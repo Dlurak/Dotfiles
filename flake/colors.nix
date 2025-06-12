@@ -29,5 +29,6 @@
     base = "rgba(26,27,38,1)";
     crust = "rgba(22,22,30,1)";
   };
-  setRgbaOpacity = newOpacity: color: builtins.replaceStrings [ ",1)" ] [ ",${toString newOpacity})" ] color;
+  setRgbaOpacity =
+    newOpacity: color: builtins.replaceStrings [ ",1)" ] [ ",${toString newOpacity})" ] color;
 }

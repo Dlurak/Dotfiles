@@ -4,7 +4,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   options = {
     program.cliMinimal.enable = lib.mkEnableOption "Enable minimal cli programs";
   };
@@ -18,8 +19,8 @@
       ripgrep
       tmux
       inputs.moxide.defaultPackage.${pkgs.system}
-      (import ../derivations/mox.nix {inherit pkgs inputs;})
-      (import ../derivations/habitctl.nix {inherit pkgs;})
+      (import ../derivations/mox.nix { inherit pkgs inputs; })
+      (import ../derivations/habitctl.nix { inherit pkgs; })
       jq
     ];
     programs.nano.enable = false;

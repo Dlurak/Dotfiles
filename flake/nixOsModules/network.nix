@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     networkModule.enable = lib.mkEnableOption "Enable the custom network module";
     networkModule.hostName = lib.mkOption {
@@ -17,7 +18,10 @@
     networking.networkmanager.enable = true;
     # Allow for `http://👻` thx to @elmo@chaos.social
     networking.hosts = {
-      "127.0.0.1" = ["xn--9q8h" "localghost"];
+      "127.0.0.1" = [
+        "xn--9q8h"
+        "localghost"
+      ];
     };
   };
 }

@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     homeManagerModules.starship.enable = lib.mkEnableOption "Enable starship config";
   };
@@ -41,7 +42,10 @@
         };
         git_branch = {
           symbol = "󰘬 ";
-          ignore_branches = ["master" "main"];
+          ignore_branches = [
+            "master"
+            "main"
+          ];
           format = "[$symbol$branch(:$remote_branch)]($style)";
         };
         nix_shell = {

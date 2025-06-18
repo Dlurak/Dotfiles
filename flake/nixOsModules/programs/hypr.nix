@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   options = {
     program.hypr.enable = lib.mkEnableOption "Enable hyprland and wayland";
   };
@@ -20,6 +19,17 @@
       hyprpaper
       hyprsunset
       wlinhibit
+
+      (writeShellApplication {
+        name = "move-ws";
+        runtimeInputs = [
+          hyprland
+          libnotify
+          fzf
+		  rofi-wayland
+        ];
+        text = builtins.readFile ../customScripts/move-ws.sh;
+      })
     ];
     programs.hyprland.enable = true;
     services.gvfs.enable = true;

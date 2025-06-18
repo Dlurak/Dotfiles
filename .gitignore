@@ -1,6 +1,7 @@
 binaryTime
 timestamp
 colors
+result
 types
 nvim/spell/
 .direnv

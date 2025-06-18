@@ -25,12 +25,20 @@ export const QuickButtons = () => {
 		["bash", "-c", 'pgrep -x "wlinhibit" > /dev/null && echo "false" || echo "true"'],
 		(str) => str === "true"
 	)
+	const isIioActive = Variable(false).poll(
+		1_000,
+		["bash", "-c", 'pgrep -x "iio-hyprland" > /dev/null && echo "true" || echo "false"'],
+		(str) => str === "true"
+	)
 
 	return (
 		<box hexpand vexpand vertical spacing={spacing}>
 			<box hexpand vexpand spacing={spacing}>
 				<QuickButton content="󰔎 " command={["bash", "-c", "pkill hyprsunset || hyprsunset -t 5000"]} />
-				<QuickButton content=" " command={["bash", "-c", "hyprpicker | wl-copy"]} />
+				<QuickButton
+					content=" "
+					command={["bash", "-c", "pkill iio-hyprland || iio-hyprland"]}
+				/>
 			</box>
 			<box hexpand vexpand spacing={spacing}>
 				<QuickButton

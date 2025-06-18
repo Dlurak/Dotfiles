@@ -64,7 +64,7 @@ export const ControllCenter = () => {
 			margin-left={8}
 			setup={self => App.add_window(self)}
 			visible={false}
-			keymode={Astal.Keymode.EXCLUSIVE}
+			keymode={Astal.Keymode.ON_DEMAND}
 			onKeyPressEvent={(self, event: Gdk.Event) => {
 				if (event.get_keyval()[1] === Gdk.KEY_Escape) {
 					self.hide()

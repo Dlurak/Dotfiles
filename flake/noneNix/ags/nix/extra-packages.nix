@@ -16,7 +16,7 @@ let
     apps
   ];
   systemDeps = with pkgs; [
-    hyprpicker
+    iio-hyprland
     hyprsunset
     slurp
     grim

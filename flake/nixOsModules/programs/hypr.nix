@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     program.hypr.enable = lib.mkEnableOption "Enable hyprland and wayland";
   };
@@ -26,10 +27,11 @@
           hyprland
           libnotify
           fzf
-		  rofi-wayland
+          rofi-wayland
         ];
         text = builtins.readFile ../customScripts/move-ws.sh;
       })
+      (import ../derivations/screen-mirroring.nix { inherit pkgs; })
     ];
     programs.hyprland.enable = true;
     services.gvfs.enable = true;

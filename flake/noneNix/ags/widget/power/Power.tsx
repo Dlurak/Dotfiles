@@ -28,7 +28,7 @@ export const Power = () => {
 					["", "Reboot", "reboot"],
 				].map(([icon, label, cmd]) => (
 					<button
-						onClick={() => {
+						onClicked={() => {
 							App.toggle_window("power")
 							App.get_window("controll-center")?.hide()
 							exec(cmd)

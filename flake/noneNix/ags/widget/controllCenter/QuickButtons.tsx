@@ -10,7 +10,7 @@ const QuickButton = ({ content, command }: QuickButtonProps) => (
 			vexpand
 			hexpand
 			className="bordered"
-			onClick={() => {
+			onClicked={() => {
 				execAsync(command)
 			}}
 		>

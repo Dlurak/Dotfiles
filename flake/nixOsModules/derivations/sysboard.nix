@@ -19,8 +19,15 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
       --replace-fail /usr/share/sys64/board/style.css $out/share/sys64/board/style.css
   '';
 
-  nativeBuildInputs = with pkgs; [pkg-config wayland-scanner wrapGAppsHook4];
-  buildInputs = with pkgs; [gtkmm4 gtk4-layer-shell];
+  nativeBuildInputs = with pkgs; [
+    pkg-config
+    wayland-scanner
+    wrapGAppsHook4
+  ];
+  buildInputs = with pkgs; [
+    gtkmm4
+    gtk4-layer-shell
+  ];
 
   configurePhase = ''
     runHook preConfigure

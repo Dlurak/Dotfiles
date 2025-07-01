@@ -16,10 +16,10 @@ export const WiFi = ({ reset }: { reset: VoidFunction }) => {
 	return (
 		<>
 			<box className="subwindow-title-line" spacing={6}>
-				<button onClick={() => reset()}></button>
+				<button onClicked={() => reset()}></button>
 				<label className="subwindow-title">WiFi</label>
 				<box hexpand />
-				<button onClick={() => {
+				<button onClicked={() => {
                     activeConnection.set(getConnections(true)[0])
                     connections.set(getConnections())
                 }}>
@@ -34,7 +34,7 @@ export const WiFi = ({ reset }: { reset: VoidFunction }) => {
 							<box hexpand>
 								<button
 									hexpand
-									onClick={() => execAsync(`nmcli connection up ${connectionName}`)}
+									onClicked={() => execAsync(`nmcli connection up ${connectionName}`)}
 								>
 									<box>
 										{connectionName === activeConnection && <label label=" " />}

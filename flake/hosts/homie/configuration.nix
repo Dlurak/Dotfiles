@@ -80,6 +80,8 @@
 
   services.fprintd.enable = true;
 
+  services.printing.enable = true;
+
   documentation.doc.enable = false;
 
   mime = {

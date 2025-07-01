@@ -8,7 +8,7 @@ export const DoNotDisturb = () => {
 		<button
 			hexpand
 			className="bordered big-button"
-			onClick={() => {
+			onClicked={() => {
 				notifs.dontDisturb = !notifs.dontDisturb
 			}}
 		>

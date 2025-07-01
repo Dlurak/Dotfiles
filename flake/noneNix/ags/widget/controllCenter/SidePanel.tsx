@@ -16,13 +16,13 @@ export const SidePanel = ({ currentView }: { currentView: Variable<View> }) => (
 		{tabButtons.map(([icon, view]) => (
 			<button
 				className={currentView(v => v === view ? "focused" : "")}
-				onClick={() => currentView.set(view)}
+				onClicked={() => currentView.set(view)}
 			>
 				{` ${icon}`}
 			</button>
 		))}
 		<box vexpand />
-		<button onClick={() => App.toggle_window("power")}>
+		<button onClicked={() => App.toggle_window("power")}>
 			
 		</button>
 	</box>

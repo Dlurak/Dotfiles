@@ -51,7 +51,10 @@ in
               touch_gestures = import ./touchGestures.nix { inherit pkgs inputs; };
             };
 
-            monitor = [ "eDP-1,1920x1080,0x0,1" ];
+            monitor = [
+              "eDP-1,1920x1080,0x0,1"
+              # "HDMI-A-2,1920x1080,1920x0,1,mirror,eDP-1"
+            ];
             exec-once = [
               tokyoShellPath
               "${pkgs.hyprpaper}/bin/hyprpaper"
@@ -67,6 +70,8 @@ in
               resize_on_border = true;
               allow_tearing = false;
               layout = "dwindle";
+
+              snap.enabled = true;
             };
             decoration = {
               rounding = 3;

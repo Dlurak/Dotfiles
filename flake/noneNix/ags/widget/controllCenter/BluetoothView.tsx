@@ -7,10 +7,10 @@ export const Bluetooth = ({ reset }: { reset: VoidFunction }) => {
 	return (
 		<>
 			<box className="subwindow-title-line" spacing={6}>
-				<button onClick={() => reset()}></button>
+				<button onClicked={() => reset()}></button>
 				<label className="subwindow-title">Bluetooth</label>
 				<box hexpand />
-				<button onClick={() => execAsync("blueman-manager")}>
+				<button onClicked={() => execAsync("blueman-manager")}>
 					
 				</button>
 			</box>
@@ -21,7 +21,7 @@ export const Bluetooth = ({ reset }: { reset: VoidFunction }) => {
                         <box hexpand>
                             <button
                                 hexpand
-                                onClick={() => {
+                                onClicked={() => {
 									const connectedDevices = bluetooth
 										.devices
 										.filter(({ connected }) => connected)

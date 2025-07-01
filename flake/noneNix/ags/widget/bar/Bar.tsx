@@ -27,7 +27,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 				<box spacing={8}>
 					<button
 						className="bar-system-button"
-						onClick={() => {
+						onClicked={() => {
 							App.toggle_window("controll-center")
 						}}
 					>

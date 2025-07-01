@@ -15,7 +15,7 @@ export const PowerLine = () => (
 			<label>
 				{uptime()}
 			</label>
-			<button onClick={() => App.toggle_window("power")}>
+			<button onClicked={() => App.toggle_window("power")}>
 				
 			</button>
 		</box>

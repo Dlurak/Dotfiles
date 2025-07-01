@@ -8,13 +8,13 @@ const NEXT_ICON = "media-skip-forward-symbolic";
 function MediaInner(p: Mpris.Player) {
 	return (
 		<>
-			<button onClick={() => p.previous()}>
+			<button onClicked={() => p.previous()}>
 				<icon icon={PREV_ICON} />
 			</button>
-			<button onClick={() => p.play_pause()} className="media-title">
+			<button onClicked={() => p.play_pause()} className="media-title">
 				{bind(p, "title").as((title) => shorten(title, 20))}
 			</button>
-			<button onClick={() => p.next()}>
+			<button onClicked={() => p.next()}>
 				<icon icon={NEXT_ICON} />
 			</button>
 		</>

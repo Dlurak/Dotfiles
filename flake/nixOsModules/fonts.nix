@@ -19,6 +19,7 @@ in
         noto-fonts-cjk-sans
         noto-fonts-emoji
         liberation_ttf
+        fira-sans
         fira-code
         fira-code-symbols
         fira-math

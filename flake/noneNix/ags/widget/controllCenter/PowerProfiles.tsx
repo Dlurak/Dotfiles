@@ -32,7 +32,7 @@ export const PowerProfiles = () => {
 		<button
 			hexpand
 			className="bordered big-button"
-			onClick={() => {
+			onClicked={() => {
 				powerprofiles.activeProfile = nextProfile(powerprofiles.activeProfile)
 			}}
 		>

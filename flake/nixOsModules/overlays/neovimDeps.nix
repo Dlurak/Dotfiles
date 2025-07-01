@@ -12,5 +12,4 @@ with pkgs;
   vscode-langservers-extracted
   gopls
   emmet-ls
-  tailwindcss-language-server
 ]

@@ -30,3 +30,16 @@ autocmd("BufWritePre", {
 		fn.mkdir(fn.fnamemodify(file, ":p:h"), "p")
 	end,
 })
+
+-- LSP on-attach
+autocmd('LspAttach', {
+	callback = function()
+		local buf = vim.lsp.buf
+		local keymap = vim.keymap.set
+
+		keymap("n", "gd", buf.definition, {})
+		keymap("n", "gD", buf.type_definition, {})
+		keymap("n", "gi", buf.implementation, {})
+		keymap("n", "gr", require("telescope.builtin").lsp_references, {})
+	end,
+})

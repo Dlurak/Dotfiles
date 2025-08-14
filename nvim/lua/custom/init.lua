@@ -1,6 +1,0 @@
-require "custom.remappings"
-require "custom.set"
-require "custom.lazy"
-require "custom.lsp"
-require "custom.autocmd"
-require "custom.commands"

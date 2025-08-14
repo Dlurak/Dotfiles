@@ -4,10 +4,9 @@ local global_leader = "<leader>"
 
 module.namespaces = {
 	harpoon = global_leader .. "h",
-	neotest = global_leader .. "t",
 	trouble = global_leader .. "e",
 	telescope = global_leader .. "p",
-	tabs = global_leader .. "f"
+	tabs = global_leader .. "t"
 }
 
 --- Generates a function to create key mappings under a given namespace.

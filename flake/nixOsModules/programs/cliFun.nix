@@ -15,21 +15,21 @@
       asciiquarium
       cbonsai
       clolcat
-      lolcat
       cmatrix
       cowsay
       fastfetch
-      inputs.retch.defaultPackage.${pkgs.system}
-      inputs.jiman.packages.${pkgs.system}.jiman
       figlet
+      fortune
+      inputs.jiman.packages.${pkgs.system}.jiman
+      inputs.retch.defaultPackage.${pkgs.system}
+      krabby
+      lolcat
       neofetch
       nitch
+      peaclock
       pipes-rs
       sl
       toilet
-      fortune
-      peaclock
-      (import ../derivations/tracker.nix { inherit pkgs; })
     ];
   };
 }

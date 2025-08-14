@@ -13,6 +13,7 @@
     environment.systemPackages = with pkgs; [
       ani-cli
       vlc
+      mpv
     ];
   };
 }

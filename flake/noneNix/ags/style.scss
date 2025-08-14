@@ -195,6 +195,53 @@ window.controll-center {
       font-size: 30px;
     }
   }
+
+  .padding-button {
+    padding: 4px 8px;
+  }
+
+  .switch {
+    font-size: 1.3em;
+    background-color: $surface2;
+    border-radius: 5px;
+
+    &:checked {
+        background: $accent;
+    }
+
+    trough {
+        highlight,
+        progress {
+            background-color: $accent;
+            border-radius: 5px;
+        }
+    }
+
+    slider {
+        box-shadow: none;
+        background-color: $surface2;
+        min-height: 1em;
+        min-width: 1em;
+        border: 0em solid transparent;
+        border-radius: 5px;
+        margin: 0.1em 0.15em;
+    }
+
+    &:hover {
+        trough {
+            background: $surface2;
+        }
+
+        slider {
+            background: $surface2;
+            box-shadow: none;
+        }
+    }
+
+    &:active {
+        background-color: $accent;
+    }
+  }
 }
 
 window.notifications-popup {

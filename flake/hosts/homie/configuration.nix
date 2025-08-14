@@ -54,19 +54,13 @@
     zsh.enable = true;
     nu.enable = false;
   };
-  programs.manada.enable = true;
-  # programs.manada = let
-  # defaultConfig = options.programs.manada.config.default;
-  # in {
-  #   enable = true;
-  # };
 
   nixModule.enable = true;
 
   airplay.enable = false;
   firewall = {
     enable = true;
-    tcp = [ ];
+    tcp = [ 3000 ];
     udp = [ ];
   };
 
@@ -84,10 +78,12 @@
 
   documentation.doc.enable = false;
 
+  virtualisation.waydroid.enable = false;
+
   mime = {
     enable = true;
     apps = with pkgs; {
-      "application/pdf" = zathura;
+      "application/pdf" = "org.gnome.Evince.desktop";
       "image/svg+xml" = inkscape;
 
       "image/bmp" = eog;
@@ -120,6 +116,10 @@
 
       "application/gzip" = xournalpp;
     };
+  };
+  xdg.terminal-exec = {
+    enable = true;
+    settings.default = [ "kitty.desktop" ];
   };
 
   home-manager = {

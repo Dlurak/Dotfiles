@@ -11,7 +11,6 @@ let
   agsPath = "${ags.packages.${pkgs.system}.ags}/bin/ags";
 
   rules = import ./rules.nix;
-  ferrishot = inputs.ferrishot.packages.${pkgs.system}.default;
   bright = inputs.bright.packages.${pkgs.system}.default;
 in
 {
@@ -50,7 +49,7 @@ in
 
       # screenshot
       "${mainMod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/screenshot.png && cat ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy && ${screenshotNotify}/bin/screenshot-notify"
-      "${mainMod}, S, exec, ${ferrishot}/bin/ferrishot"
+      "${mainMod}, S, exec, ${pkgs.grim}/bin/grim - | tee ~/Pictures/screenshot.png | ${pkgs.wl-clipboard}/bin/wl-copy && ${screenshotNotify}/bin/screenshot-notify"
 
       "${mainMod} SHIFT, Space, togglefloating"
       "${mainMod}, Space, centerwindow"
@@ -146,6 +145,9 @@ in
   bindl = [
     ", XF86AudioMute, exec, ${pkgs.pamixer}/bin/pamixer -t"
     "${mainMod}, M, exec, ${pkgs.playerctl}/bin/playerctl --player=spotify play-pause"
+    ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+    ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+    ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
   ];
   windowrulev2 = rules.windowrulev2;
   windowrule = rules.windowrule;

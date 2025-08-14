@@ -18,7 +18,7 @@
       neovim
       ripgrep
       tmux
-      inputs.moxide.defaultPackage.${pkgs.system}
+      inputs.moxide.packages.${pkgs.system}.default
       (import ../derivations/mox.nix { inherit pkgs inputs; })
       (import ../derivations/habitctl.nix { inherit pkgs; })
       jq

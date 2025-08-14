@@ -54,6 +54,6 @@
 (deflayer symbols
   XX XX  XX  XX  XX XX        XX  XX  XX  XX XX   XX XX
   XX XX $lc $rc $lr XX        XX $rr $lb $rb $cln XX XX
-  XX  1   2   3   4  5         6   7   8   9  0   XX XX
+  S-Comma  1   2   3   4  5         6   7   8   9  0   S-Period XX
   XX XX  XX  XX  XX XX        $/  $\  XX  XX XX
 )

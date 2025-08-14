@@ -8,14 +8,15 @@ local servers = {
 		"ts_ls",
 		"jsonls",
 		"gopls",
+		"nixd",
 	},
 	default_config = {
 		lua_ls = "lua-language-server",
-		emmet_language_server = nil,
-		tailwindcss = nil,
-		bashls = nil,
-		marksman = nil,
-		nixd = nil,
+		emmet_ls = "emmet-ls",
+		tailwindcss = "tailwindcss",
+		bashls = "bashls",
+		marksman = "marksman",
+		tinymist = "tinymist",
 	}
 }
 
@@ -30,5 +31,7 @@ require("custom.lsp.collection.ts_ls")
 require("custom.lsp.collection.rust")
 require("custom.lsp.collection.json")
 require("custom.lsp.collection.go")
+require("custom.lsp.collection.nix")
 
 require("custom.lsp.cmp")
+

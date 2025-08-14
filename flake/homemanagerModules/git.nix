@@ -38,6 +38,11 @@
             "https://github.com" = credential;
             "https://gist.github.com" = credential;
           };
+        url = {
+          "git@github.com:" = {
+            insteadOf = "gh:";
+          };
+        };
       };
     };
   };

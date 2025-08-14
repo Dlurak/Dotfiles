@@ -18,14 +18,23 @@ return {
 				"typescript",
 				"html",
 				"markdown",
-				"latex"
+				"latex",
+				"typst",
 			},
 			modules = {},
 			ignore_install = {},
 			auto_install = false,
 			sync_install = false,
 			highlight = { enable = true },
-			textobjects = { enable = false }
+			textobjects = { enable = false },
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<CR>",
+					node_incremental = "<CR>",
+					node_decremental = "<BS>",
+				},
+			},
 		})
 	end
 }

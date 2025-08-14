@@ -7,12 +7,19 @@ export const Bluetooth = ({ reset }: { reset: VoidFunction }) => {
 	return (
 		<>
 			<box className="subwindow-title-line" spacing={6}>
-				<button onClicked={() => reset()}></button>
-				<label className="subwindow-title">Bluetooth</label>
+				<button className="padding-button" onClicked={() => reset()} label="" />
+				<label className="subwindow-title" label="Bluetooth" />
 				<box hexpand />
-				<button onClicked={() => execAsync("blueman-manager")}>
-					
-				</button>
+				<switch
+					className="switch"
+					active={bluetooth.adapter.powered}
+					setup={(self) => {
+						self.connect('notify::active', () => {
+							bluetooth.adapter.powered = self.active;
+						});
+					}}
+				/>
+				<button className="padding-button" onClicked={() => execAsync("blueman-manager")} label=" " />
 			</box>
 
 			<scrollable heightRequest={250}>

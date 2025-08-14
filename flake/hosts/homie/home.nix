@@ -52,12 +52,12 @@ in
       files = map (path: "file://${path}");
     in
     files [
-      "/home/dlurak/SoftwareDevelopment/"
-      "/home/dlurak/Dotfiles"
-      "/home/dlurak/Pictures/"
-      "/home/dlurak/Downloads"
-      "/home/dlurak/Schule/"
-      "/home/dlurak/Schule/E-1/Notizen-Typst/"
+      "/home/dlurak/SoftwareDevelopment SoftwareDevelopment"
+      "/home/dlurak/Dotfiles Dotfiles"
+      "/home/dlurak/Pictures Pictures"
+      "/home/dlurak/Downloads Downloads"
+      "/home/dlurak/Schule/Q Q-Phase"
+      "/home/dlurak/Schule/Q/Notizen/output Notizen"
     ];
 
   home.file.".peaclock/config".text = ''
@@ -76,8 +76,70 @@ in
     };
   };
 
-  programs.manada = {
-    enable = false;
-    config = { };
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = {
+        type = "command-raw";
+        source = "${pkgs.pokeget-rs}/bin/pokeget random --hide-name";
+      };
+      modules = [
+        "break"
+        {
+          type = "os";
+          key = "OS   ";
+          keyColor = "red";
+        }
+        {
+          type = "kernel";
+          key = " ├  ";
+          keyColor = "red";
+        }
+        {
+          type = "shell";
+          key = " └  ";
+          keyColor = "red";
+        }
+        "break"
+        {
+          type = "cpu";
+          format = "{name} ({cores-logical}) @ {freq-max}";
+          key = "CPU  ";
+          keyColor = "green";
+        }
+        {
+          type = "gpu";
+          format = "{vendor} {name} @ {frequency}";
+          key = " ├ 󰢮 ";
+          keyColor = "green";
+        }
+        {
+          type = "memory";
+          key = " ├  ";
+          keyColor = "green";
+        }
+        {
+          type = "battery";
+          format = "{capacity} {capacity-bar}";
+          key = " └ 󰁾 ";
+          keyColor = "green";
+          percent = {
+            type = 3;
+          };
+        }
+        "break"
+        {
+          type = "uptime";
+          key = "Uptime";
+          keyColor = "yellow";
+        }
+        {
+          type = "command";
+          key = " └   ";
+          keyColor = "yellow";
+          text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+        }
+      ];
+    };
   };
 }

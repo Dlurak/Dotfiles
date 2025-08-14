@@ -21,8 +21,11 @@ local function get_snippet()
 	local line_pre_cursor = cur_line[1]:sub(1, col)
 
 	for _, s in ipairs(module.get_buf_snips()) do
-		if vim.endswith(line_pre_cursor, s.trigger) then
-			return s.trigger, s.body, line, col
+		local content_matches = vim.endswith(line_pre_cursor, s.trigger)
+		local condition_matches = not (s.condition and not s.condition())
+
+		if content_matches and condition_matches then
+			return s, line, col
 		end
 	end
 
@@ -30,15 +33,23 @@ local function get_snippet()
 end
 
 function module.expand_under_cursor()
-	local trigger, body, line, col = get_snippet()
-	if not trigger or not body or not line or not col then
+	local snippet, line, col = get_snippet()
+
+	if not snippet or not snippet.trigger or not snippet.body then
 		return false
 	end
-	-- remove trigger
-	vim.api.nvim_buf_set_text(0, line - 1, col - #trigger, line - 1, col, {})
-	vim.api.nvim_win_set_cursor(0, { line, col - #trigger })
+	if not line or not col then
+		return false
+	end
+	if snippet.condition and not snippet.condition() then
+		return false
+	end
 
-	vim.snippet.expand(body)
+	-- remove trigger
+	vim.api.nvim_buf_set_text(0, line - 1, col - #snippet.trigger, line - 1, col, {})
+	vim.api.nvim_win_set_cursor(0, { line, col - #snippet.trigger })
+
+	vim.snippet.expand(snippet.body)
 	return true
 end
 

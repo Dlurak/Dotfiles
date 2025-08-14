@@ -6,7 +6,7 @@ local expand_under_cursor = require("snippets.utils").expand_under_cursor
 local module = {}
 
 ------------------------------------------------------------------------------------------------------
---                                            From Reddit                                           --
+--                                        Roughyl from Reddit                                       --
 -- See https://new.reddit.com/r/neovim/comments/1cxfhom/builtin_snippets_so_good_i_removed_luasnip/ --
 ------------------------------------------------------------------------------------------------------
 
@@ -22,19 +22,25 @@ function module.register_cmp_source()
 			local bufnr = vim.api.nvim_get_current_buf()
 
 			if not self.cache[bufnr] then
-				local completion_items = vim.tbl_map(function(s)
+				self.cache[bufnr] = get_buf_snips()
+			end
+
+			local filtered = vim.tbl_filter(
+				function (snippet)
+					return not snippet.condition or snippet.condition()
+				end,
+				self.cache[bufnr]
+			)
+			callback(vim.tbl_map(
+				function (s)
 					return {
 						word = s.trigger,
 						label = s.trigger,
-						kind = cmp.lsp.CompletionItemKind.Snippet,
+						kind = cmp.lsp.CompletionItemKind,
 					}
-				end, get_buf_snips())
-
-				self.cache[bufnr] = completion_items
-				callback(completion_items)
-			end
-
-			callback(self.cache[bufnr])
+				end,
+				filtered
+			))
 		end
 
 		function cmp_source:execute(completion_item, callback)

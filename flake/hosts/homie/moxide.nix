@@ -1,20 +1,13 @@
 let
-  dirs =
-    attr:
-    map (name: {
-      inherit name;
-      path = attr.${name};
-    }) (builtins.attrNames attr);
   nvimName = " Neovim";
 in
 {
   enable = true;
-  paths = dirs {
+  paths = {
     Home = "~/";
     Downloads = "~/Downloads";
     Documents = "~/Documents";
-    E-Phase = "~/Schule/E-1/";
-    Informatik = "~/Schule/E-1/Informatik/";
+    Q-Phase = "~/Schule/Q/";
     GitHub = "~/GitHub/";
     Wiki = "~/wiki";
     Nixpkgs = "~/GitHub/nixpkgs/";
@@ -55,23 +48,6 @@ in
         ];
       }
     ];
-    typst-school = {
-      hidden = true;
-      windows = [
-        {
-          name = nvimName;
-          panes = [ ''nvim +$ "+colorscheme tokyonight-day" "+set wrap" main.typ'' ];
-        }
-        {
-          name = "Typst";
-          layout = "even-horizontal";
-          panes = [
-            "zathura main.pdf"
-            "typst watch main.typ"
-          ];
-        }
-      ];
-    };
   };
   projects =
     let
@@ -136,6 +112,19 @@ in
           {
             name = "Simulator";
             panes = [ "cd ~/GitHub/voxelbox/simulator/ && python3 simulator.py" ];
+          }
+        ];
+      };
+      School = {
+        root_dir = "~/Schule/Q/Notizen/";
+        windows = [
+          {
+            name = nvimName;
+            panes = [ ''nvim +$ "+set wrap" "+set bg=light"'' ];
+          }
+          {
+            name = "Typst";
+            panes = [ ''subj'' ];
           }
         ];
       };

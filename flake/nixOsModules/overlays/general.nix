@@ -5,5 +5,5 @@ final: prev: {
     withMpv = true;
   };
   fortune = prev.fortune.override { withOffensive = true; };
-  moxide = inputs.moxide.defaultPackage.${final.system};
+  moxide = inputs.moxide.packages.${final.system}.default;
 }

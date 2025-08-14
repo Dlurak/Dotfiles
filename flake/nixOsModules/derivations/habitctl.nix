@@ -6,7 +6,6 @@ pkgs.rustPlatform.buildRustPackage rec {
   pname = "habitctl";
   version = "0.3.2";
 
-  useFetchCargoVendor = true;
   cargoHash = "sha256-sqAI2d7oHlGGIC2ddZJfj8RzfHR+57OgCVDRHayghJ4=";
   src = pkgs.fetchFromGitHub {
     owner = "blinry";

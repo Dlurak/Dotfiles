@@ -2,7 +2,7 @@ local M = {}
 
 --- @param widthPercentage number|nil
 --- @param heightPercentage number|nil
-local function winPos(widthPercentage,heightPercentage)
+local function winPos(widthPercentage, heightPercentage)
 	local width = vim.api.nvim_get_option "columns"
 	local height = vim.api.nvim_get_option "lines"
 
@@ -34,7 +34,6 @@ function M.scratch(content, widthPercentage, heightPercentage)
 	local buf = vim.api.nvim_create_buf(false, true)
 	vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
 	vim.api.nvim_buf_set_option(buf, "bufhidden", "wipe")
-	vim.api.nvim_buf_set_option(buf, "filetype", "sh") -- for syntax highlighting
 
 	vim.api.nvim_buf_set_lines(buf, 0, -1, false, { (content or "") })
 

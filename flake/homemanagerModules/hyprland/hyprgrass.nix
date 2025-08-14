@@ -7,7 +7,7 @@ hyprgrass.overrideAttrs (prev: {
   src = fetchFromGitHub {
     owner = "horriblename";
     repo = "hyprgrass";
-    rev = "f955664aca82dcd9f51d799faab32d8006656c3d";
-    hash = "sha256-SmYWv2WXgmaEa8dHfafEbaz5YpX0yxoRa17OC0rz/2U=";
+    rev = "7dafd92afedda246a9c1c4187784c3fc1d6261e5";
+    hash = "sha256-P4tM0eom+p3XE+nqM+uI/s+nH15HfCGCaWOjfdUO1iI=";
   };
 })

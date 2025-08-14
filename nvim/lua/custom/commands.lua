@@ -14,8 +14,6 @@ vim.api.nvim_create_user_command('WA', 'wa', {})
 
 vim.api.nvim_create_user_command('Q', 'q', {})
 
-vim.api.nvim_create_user_command("Fold", '%!fold -w 80 -s', {})
-
 vim.api.nvim_create_user_command("Silicon", function (opts)
 	local filtetype = vim.bo.filetype
 

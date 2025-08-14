@@ -122,7 +122,8 @@ in
             bindl = bind.bindl;
 
             windowrule = import ./rules.nix;
-          } // import ./input.nix;
+          }
+          // import ./input.nix;
         };
     };
 }

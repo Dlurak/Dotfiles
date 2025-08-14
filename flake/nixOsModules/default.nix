@@ -1,11 +1,7 @@
-{ inputs, pkgs, ... }:
-let
-  module = system: attr: attr.nixosModules.${system}.default;
-in
+{ inputs, ... }:
 {
   imports = [
     ./programs
-    (module "x86_64-linux" inputs.manada)
     inputs.bright.nixosModules.default
     ./airplay.nix
     ./bootloader.nix

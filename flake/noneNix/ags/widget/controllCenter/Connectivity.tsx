@@ -2,37 +2,25 @@ import Network from "gi://AstalNetwork"
 import Bluetooth from "gi://AstalBluetooth"
 import { bind } from "astal"
 import { shorten } from "../../utils/strings"
-import { isPrimaryClick, isSecondaryClick } from "../../utils/astal"
 
 type ButtonProps = {
 	onPrimary?: VoidFunction
-	onSecondary?: VoidFunction
 }
 
-const WiFiButton = ({ onPrimary, onSecondary }: ButtonProps) => {
+const WiFiButton = ({ onPrimary }: ButtonProps) => {
 	const network = Network.get_default()
 
 	return (
-		<button
-			onClicked={onPrimary}
-			onClick={(_, e) => {
-				if (isPrimaryClick(e) && onPrimary) {
-					onPrimary()
-				}
-				if (isSecondaryClick(e) && onSecondary) {
-					onSecondary()
-				}
-			}}
-		>
+		<button onClicked={onPrimary}>
 			<box spacing={4}>
 				<icon
 					css="font-size: 24px"
-					icon={bind(network, "wifi").as(({ icon_name }) => icon_name)}
+					icon={bind(network.wifi, "icon_name")}
 				/>
 				<box vertical spacing={2}>
 					<label className="title" xalign={0}>Wi-Fi</label>
 					<label className="value" xalign={0}>
-						{bind(network, "wifi").as(({ ssid }) => ssid)}
+						{bind(network.wifi, "ssid")}
 					</label>
 				</box>
 			</box>
@@ -40,21 +28,11 @@ const WiFiButton = ({ onPrimary, onSecondary }: ButtonProps) => {
 	);
 }
 
-const BluetoothButton = ({ onPrimary, onSecondary }: ButtonProps) => {
+const BluetoothButton = ({ onPrimary }: ButtonProps) => {
 	const bluetooth = Bluetooth.get_default()
 
 	return (
-		<button
-			onClick={onPrimary}
-			onClicked={(_, e) => {
-				if (isPrimaryClick(e) && onPrimary) {
-					onPrimary()
-				}
-				if (isSecondaryClick(e) && onSecondary) {
-					onSecondary()
-				}
-			}}
-		>
+		<button onClick={onPrimary}>
 			<box spacing={4}>
 				<icon
 					css="font-size: 24px"
@@ -83,17 +61,15 @@ const BluetoothButton = ({ onPrimary, onSecondary }: ButtonProps) => {
 }
 
 type ConnectivityProps = {
-	onWifiPrimary?: () => void
-	onWifiSecondary?: () => void
-	onBluetoothPrimary?: () => void
-	onBluetoothSecondary?: () => void
+	onWifi?: () => void
+	onBluetooth?: () => void
 }
 
-export const Connectivity = ({ onWifiPrimary, onWifiSecondary, onBluetoothPrimary, onBluetoothSecondary }: ConnectivityProps) => {
+export const Connectivity = ({ onWifi, onBluetooth }: ConnectivityProps) => {
 	return (
 		<box hexpand className="connectivity bordered" vertical>
-			<WiFiButton onPrimary={onWifiPrimary} onSecondary={onWifiSecondary} />
-			<BluetoothButton onPrimary={onBluetoothPrimary} onSecondary={onBluetoothSecondary} />
+			<WiFiButton onPrimary={onWifi} />
+			<BluetoothButton onPrimary={onBluetooth} />
 		</box>
 	)
 }

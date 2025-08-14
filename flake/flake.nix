@@ -24,16 +24,8 @@
       url = "github:dlurak/moxide";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    manada = {
-      url = "github:dlurak/manada";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     jiman = {
       url = "github:dlurak/jiman";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ferrishot = {
-      url = "github:nik-rev/ferrishot/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     bright = {

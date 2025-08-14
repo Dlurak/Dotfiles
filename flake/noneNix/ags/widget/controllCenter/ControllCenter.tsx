@@ -9,8 +9,6 @@ import { DoNotDisturb } from "./DoNotDisturb"
 import { Variable } from "astal"
 import { WiFi } from "./WifiView"
 import { Bluetooth } from "./BluetoothView"
-import AstalNetwork from "gi://AstalNetwork"
-import AstalBluetooth from "gi://AstalBluetooth"
 import { Apps } from "./Apps/Apps"
 import { Mixer } from "./Mixer/Mixer"
 import { SidePanel } from "./SidePanel"
@@ -19,17 +17,13 @@ import { View } from "../../types"
 type ControllProps = { setCurrentView: (view: View) => void }
 
 const Controlls = ({ setCurrentView }: ControllProps) => {
-	const network = AstalNetwork.get_default()
-	const bluetooth = AstalBluetooth.get_default()
-
     return (
         <>
             <box spacing={8} className="equal-wrapper">
                 <Connectivity
-                    onWifiPrimary={() => setCurrentView("wifi")}
-                    onWifiSecondary={() => network.wifi.enabled = !network.wifi.enabled}
-                    onBluetoothPrimary={() => setCurrentView("bluetooth")}
-                    onBluetoothSecondary={() => bluetooth.toggle()} />
+                    onWifi={() => setCurrentView("wifi")}
+                    onBluetooth={() => setCurrentView("bluetooth")}
+				/>
                 <QuickButtons />
             </box>
             <box spacing={8} className="equal-wrapper">
@@ -67,6 +61,7 @@ export const ControllCenter = () => {
 			keymode={Astal.Keymode.ON_DEMAND}
 			onKeyPressEvent={(self, event: Gdk.Event) => {
 				if (event.get_keyval()[1] === Gdk.KEY_Escape) {
+					reset()
 					self.hide()
 				}
 			}}

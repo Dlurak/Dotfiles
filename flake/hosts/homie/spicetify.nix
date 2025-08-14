@@ -28,11 +28,11 @@
       enabledExtensions = with spicePkgs.extensions; [
         adblock
         fullAppDisplay
-        keyboardShortcut
         hidePodcasts
+        keyboardShortcut
         songStats
       ];
-      enabledCustomApps = [ spicePkgs.apps.lyricsPlus ];
+      enabledCustomApps = [ ];
       theme = {
         name = "Tokyo";
         src = tokyonightTheme;

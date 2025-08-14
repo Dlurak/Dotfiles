@@ -1,10 +1,11 @@
 return {
 	snippets_by_filetype = {
 		typescript = require("snippets.collection.typescript").typescript,
-		typescript_react = require("snippets.collection.typescript").typescript_react,
+		typescriptreact = require("snippets.collection.typescript").typescriptreact,
 		svelte = require("snippets.collection.svelte"),
 		rust = require("snippets.collection.rust"),
+		markdown = require("snippets.collection.markdown"),
+		typst = require("snippets.collection.typst"),
 	},
-	-- global_snippets = require("snippets.collection.global"),
-	global_snippets = {}
+	global_snippets = require("snippets.collection.global"),
 }

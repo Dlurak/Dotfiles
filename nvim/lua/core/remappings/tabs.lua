@@ -1,7 +1,5 @@
-local keymap = require("utils.namespaces").keymap
 local namespace = require("utils.namespaces").namespaces.tabs
-
-local km = keymap(namespace)
+local km = require("utils.namespaces").keymap(namespace)
 
 --- @param key string
 --- @param command string

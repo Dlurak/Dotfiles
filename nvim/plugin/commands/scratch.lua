@@ -1,5 +1,3 @@
-local M = {}
-
 --- @param widthPercentage number|nil
 --- @param heightPercentage number|nil
 local function winPos(widthPercentage, heightPercentage)
@@ -27,7 +25,7 @@ end
 --- @param widthPercentage number|nil
 --- @param heightPercentage number|nil
 --- @return integer: The window ID.
-function M.scratch(content, widthPercentage, heightPercentage)
+function scratch(content, widthPercentage, heightPercentage)
 	local pos = winPos(widthPercentage, heightPercentage)
 
 	-- Create a buffer and set it as a scratch buffer
@@ -53,4 +51,10 @@ function M.scratch(content, widthPercentage, heightPercentage)
 	return win
 end
 
-return M
+vim.api.nvim_create_user_command(
+	'Scratch',
+	function()
+		scratch()
+	end,
+	{ desc = "Open a new scratchpad" }
+)

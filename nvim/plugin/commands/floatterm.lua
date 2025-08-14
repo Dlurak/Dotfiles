@@ -33,7 +33,7 @@ local function create_floating_window(opts)
   return { buf = buf, win = win }
 end
 
-local floaterm = function()
+local function floatterm()
   if not vim.api.nvim_win_is_valid(state.win) then
     state = create_floating_window { buf = state.buf }
     if vim.bo[state.buf].buftype ~= "terminal" then
@@ -44,4 +44,8 @@ local floaterm = function()
   end
 end
 
-return { floaterm = floaterm }
+vim.api.nvim_create_user_command(
+	'Floatterm',
+	floatterm,
+	{ desc = "Toggle a floating terminal" }
+)

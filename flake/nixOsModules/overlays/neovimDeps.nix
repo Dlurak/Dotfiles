@@ -1,17 +1,20 @@
 { pkgs }:
 with pkgs;
 [
-  cargo-nextest # For neotest
+  silicon # For :Silicon
   gcc # For treesitter
   fzf # Telescope
-  # Language Servers
-  nixd
+  # Formatting
   nixfmt
-  rust-analyzer
-  nodePackages.typescript-language-server
-  nodePackages_latest.svelte-language-server
-  vscode-langservers-extracted
-  gopls
+  # Language Servers
+  bash-language-server
   emmet-ls
-  tinymist # TODO: Configure it in nvim
+  gopls
+  vscode-langservers-extracted
+  lua-language-server
+  nixd
+  rust-analyzer
+  nodePackages_latest.svelte-language-server
+  tinymist
+  nodePackages.typescript-language-server
 ]

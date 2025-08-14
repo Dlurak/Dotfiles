@@ -125,10 +125,8 @@ For example all things that are related to telescope use `<Space>p` followed by 
 | Topic     | Namespace |
 | --------- | --------- |
 | Harpoon   | `h`       |
-| NeoTest   | `t`       |
 | Trouble   | `e`       |
 | Telescope | `p`       |
-| Spelling  | `l`       |
 | Tabs      | `f`       |
 
 Maybe I document more from my NeoVim setup when I find the motivation for it.

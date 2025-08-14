@@ -1,7 +1,7 @@
-local on_attach = require("custom.lsp.utils").on_attach
-
-require("lspconfig")["gopls"].setup {
-    on_attach = on_attach,
+return {
+	cmd = { 'gopls' },
+	filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+	root_markers = { "go.work", "go.mod", ".git" },
 	settings = {
 		gopls = {
 			hints = {

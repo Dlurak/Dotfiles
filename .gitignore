@@ -3,5 +3,5 @@ timestamp
 colors
 result
 types
-nvim/spell/
+nvim/spell/*
 .direnv

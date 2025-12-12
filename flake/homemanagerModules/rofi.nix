@@ -11,7 +11,7 @@
   config = lib.mkIf config.homeManagerModules.rofi.enable {
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
+      # package = pkgs.rofi-wayland;
       cycle = true;
       terminal = "${pkgs.kitty}/bin/kitty";
       theme = ../noneNix/rofi-theme.rasi;

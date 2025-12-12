@@ -1,13 +1,13 @@
-{ pkgs, ... }:
+{ rustPlatform, fetchFromGitHub }:
 let
   owner = "blinry";
 in
-pkgs.rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage rec {
   pname = "habitctl";
   version = "0.3.2";
 
   cargoHash = "sha256-sqAI2d7oHlGGIC2ddZJfj8RzfHR+57OgCVDRHayghJ4=";
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "blinry";
     repo = "habitctl";
     rev = "99ede345c1da717d936d0367f6dc9c8053d7e254";

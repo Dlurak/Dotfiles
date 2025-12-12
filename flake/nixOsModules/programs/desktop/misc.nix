@@ -11,11 +11,8 @@
 
   config = lib.mkIf config.program.desktop.misc.enable {
     environment.systemPackages = with pkgs; [
-      josm
       cavalier
-      paper-clip
       pdfarranger
-      paper-clip
       komikku
     ];
   };

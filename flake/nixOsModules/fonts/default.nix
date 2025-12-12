@@ -10,6 +10,7 @@ let
 in
 (mkFontDerivations {
   pilowlava = ../../assets/fonts/Pilowlava-Regular.otf;
+  modak = ../../assets/fonts/Modak-Regular.ttf;
   spaceGrotesk = ../../assets/fonts/space-grotesk;
   "SF-Pro" = import ./sfPro.nix { inherit pkgs stdenv lib; };
 })

@@ -20,8 +20,8 @@
       fastfetch
       figlet
       fortune
-      inputs.jiman.packages.${pkgs.system}.jiman
-      inputs.retch.defaultPackage.${pkgs.system}
+      inputs.jiman.packages.${pkgs.stdenv.hostPlatform.system}.jiman
+      inputs.retch.defaultPackage.${pkgs.stdenv.hostPlatform.system}
       krabby
       lolcat
       neofetch

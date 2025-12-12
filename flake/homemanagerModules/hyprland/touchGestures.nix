@@ -4,8 +4,8 @@
 }:
 let
   wvkbdCommand = import ./wvKbd.nix { inherit pkgs; };
-  bright = inputs.bright.packages.${pkgs.system}.default;
-  screenshotNotify = import ../../noneNix/ags/nix/screenshot-notify.nix { inherit pkgs; };
+  bright = inputs.bright.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  screenshotNotify = import ../../nixOsModules/derivations/screenshot-notify.nix { inherit pkgs; };
 in
 {
   sensitivity = 5.0;
@@ -25,9 +25,9 @@ in
     ", edge:r:d, exec, ${pkgs.pamixer}/bin/pamixer -d 3"
 
     ", edge:l:u, exec, ${bright}/bin/bright --easing 'x^3' set 4%+"
-    ", edge:l:d, exec, ${bright}/bin/bright --easing 'x^3' set 4%-"
+    ", edge:l:d, exec, ${bright}/bin/bright --easing 'x^3' set --min 1 4%-"
 
-    ", edge:u:d, exec, pkill nwg-drawer || ${pkgs.nwg-drawer}/bin/nwg-drawer"
+    ", edge:u:d, exec, ${pkgs.nwg-drawer}/bin/nwg-drawer"
 
     ", swipe:4:d, killactive"
     ", swipe:5:d, togglefloating"

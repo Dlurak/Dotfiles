@@ -7,6 +7,8 @@ local function self(x)
 	return x
 end
 
+local is_school_notes = vim.fn.getcwd() == "/home/dlurak/Schule/Q/Notizen"
+
 return {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		dependencies = {
@@ -24,7 +26,18 @@ return {
 			{ '<C-p>', self(require 'telescope.builtin'.git_files) },
 			{ km('r'), self(require 'telescope.builtin'.resume) },
 			{ km('s'), function () require 'telescope.builtin'.grep_string({ search = vim.fn.input("Grep > ") }) end },
-			{ km('f'), self(require 'telescope.builtin'.find_files) },
+			{
+				km('f'),
+				function()
+					if is_school_notes then
+						require 'telescope.builtin'.find_files({
+							find_command = { "bash", "-c", 'rg --files | grep "\\/.*\\.typ"' }
+						})
+					else
+						require 'telescope.builtin'.find_files()
+					end
+				end
+			},
 			{ km('m'), self(require 'telescope.builtin'.marks) },
 			{ km('k'), self(require 'telescope.builtin'.keymaps) },
 			{ km('c'), self(require 'telescope.builtin'.git_commits) },

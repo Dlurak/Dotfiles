@@ -14,12 +14,14 @@
       wshowkeys
       glib
       wl-clipboard
-      rofi-wayland
+      # rofi-wayland
+      rofi
       hyprlock
       hyprpicker
       hyprpaper
       hyprsunset
       wlinhibit
+	  hyprmon
 
       (writeShellApplication {
         name = "move-ws";
@@ -27,7 +29,8 @@
           hyprland
           libnotify
           fzf
-          rofi-wayland
+          # rofi-wayland
+          rofi
         ];
         text = builtins.readFile ../customScripts/move-ws.sh;
       })

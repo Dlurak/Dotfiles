@@ -3,7 +3,6 @@
   ags,
   spicetify-nix,
   inputs,
-  options,
   ...
 }:
 {
@@ -45,7 +44,6 @@
       terms.enable = true;
       utils.enable = true;
     };
-    dev.enable = true;
     hypr.enable = true;
     utils.enable = true;
     uwu.enable = true;
@@ -70,11 +68,13 @@
   };
   services.blueman.enable = true;
 
-  services.power-profiles-daemon.enable = true;
 
-  services.fprintd.enable = true;
-
-  services.printing.enable = true;
+  services = {
+    power-profiles-daemon.enable = true;
+    fprintd.enable = true;
+    printing.enable = true;
+	pipewire.wireplumber.enable = true;
+  };
 
   documentation.doc.enable = false;
 
@@ -120,6 +120,13 @@
   xdg.terminal-exec = {
     enable = true;
     settings.default = [ "kitty.desktop" ];
+  };
+
+  services.cron = {
+	  enable = true;
+	  systemCronJobs = [
+		"*/10 * * * * ${pkgs.curl}/bin/curl -s https://dlool.onrender.com > /dev/null"
+	  ];
   };
 
   home-manager = {

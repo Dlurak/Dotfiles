@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -97,7 +98,11 @@ in
               shadow_boost = 0.3;
             }
             {
-              text = "cmd[update:5000] echo \"<span>󰁹 $(cat /sys/class/power_supply/BAT0/capacity)%</span>\"";
+              text = let
+				  rust-src = builtins.readFile ../nixOsModules/customScripts/battery.rs;
+				  bat = pkgs.writers.writeRustBin "bat" { } rust-src;
+			  in
+			  "cmd[update:5000] echo \"<span>$(${bat}/bin/bat)</span>\"";
               color = colors.pink;
               font_size = 13;
               font_family = "SF Pro Text";

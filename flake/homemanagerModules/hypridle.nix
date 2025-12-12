@@ -11,7 +11,7 @@ let
   lockDarkening = 15;
   lockTimeout = 60 * 5;
   suspendTimeout = 60 * 10;
-  bright = inputs.bright.packages.${pkgs.system}.bright;
+  bright = inputs.bright.packages.${pkgs.stdenv.hostPlatform.system}.bright;
 in
 {
   options = {

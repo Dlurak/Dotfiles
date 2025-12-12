@@ -13,6 +13,7 @@
     environment.systemPackages = with pkgs; [
       eog
       shotwell
+	  cheese
       inkscape
       gimp3
       sly

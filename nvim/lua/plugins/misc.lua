@@ -2,7 +2,6 @@ return {
 	{
 		'kaarmu/typst.vim',
 		ft = 'typst',
-		lazy=false
+		lazy = false
 	},
-	{ 'wakatime/vim-wakatime', lazy = false },
 }

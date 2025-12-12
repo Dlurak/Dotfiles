@@ -120,7 +120,7 @@ in
         windows = [
           {
             name = nvimName;
-            panes = [ ''nvim +$ "+set wrap" "+set bg=light"'' ];
+            panes = [ ''nvim +$ "+set bg=light"'' ];
           }
           {
             name = "Typst";

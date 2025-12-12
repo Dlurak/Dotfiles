@@ -9,8 +9,8 @@ in
     src = final.fetchFromGitHub {
       owner = "neovim";
       repo = "neovim";
-      rev = "38986188ba0f57c48065ad430706435d622911a1";
-      hash = "sha256-SeIkPx9OItyZvydY17RNb0R/r/eSMuHZnBvH8fqVKo0=";
+      rev = "054eaf8493cbcf35ad386675fcaa0cc38d6b63e7";
+      hash = "sha256-EI1iD5XmxwOkJSXc7Q1xCUIMWT84/1saYZ9ITPsDrzg=";
     };
   });
   neovim = prev.neovim.overrideAttrs (old: {

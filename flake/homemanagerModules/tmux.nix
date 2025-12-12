@@ -24,7 +24,7 @@
       extraConfig =
         let
           mox = import ../nixOsModules/derivations/mox.nix { inherit pkgs inputs; };
-          muxbar = inputs.muxbar.defaultPackage.${pkgs.system};
+          muxbar = inputs.muxbar.defaultPackage.${pkgs.stdenv.hostPlatform.system};
           change-session = pkgs.writeShellScriptBin "change-session" ''
             session=$(${pkgs.tmux}/bin/tmux ls -F '#S' | ${pkgs.fzf}/bin/fzf \
             	--layout reverse \

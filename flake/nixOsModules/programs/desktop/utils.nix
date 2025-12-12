@@ -11,14 +11,15 @@
 
   config = lib.mkIf config.program.desktop.utils.enable {
     environment.systemPackages = with pkgs; [
-      alpaca
-      galculator
+      gnome-calculator
       nautilus
       networkmanagerapplet
       pavucontrol
       pika-backup
       resources
       zathura
+
+	  smile
     ];
   };
 }

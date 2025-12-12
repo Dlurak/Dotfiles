@@ -1,5 +1,3 @@
-require "core.remappings"
 require "core.set"
 require "core.lazy"
 require "core.lsp"
-require "core.autocmd"

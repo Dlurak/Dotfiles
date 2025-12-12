@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.g.mapleader = " "
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -24,6 +26,8 @@ opt.sidescrolloff = 12
 -- Hightlight the current line number
 opt.cursorlineopt = "number"
 
+opt.fillchars:append({ eob = " " })
+
 -- Fold using treesitter
 vim.o.foldenable = true
 vim.o.foldlevel = 99
@@ -41,7 +45,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
  })
-
-vim.opt.fillchars:append({fold = " "})
-
-opt.fillchars:append({ eob = " " })

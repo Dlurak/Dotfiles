@@ -1,8 +1,8 @@
 {
 	config,
-		lib,
-		pkgs,
-		...
+	lib,
+	pkgs,
+	...
 }:
 {
 	options = {
@@ -19,6 +19,7 @@
 				window-class = "${pkgs.hyprland}/bin/hyprctl clients -j | jq \".[].class\" -r";
 				rename-session = "${pkgs.tmux}/bin/tmux rename-session";
 				rename-window = "${pkgs.tmux}/bin/tmux rename-window";
+				rm = "rm -I";
 				trackpad = "hyprctl keyword 'device[synps/2-synaptics-touchpad]:enabled'";
 			};
 			completionInit = "compinit && autoload -Uz compinit";
@@ -26,7 +27,7 @@
 				##########
 				## EVAL ##
 				##########
-				eval "$(${pkgs.fzf}/bin/fzf --zsh)"
+				source <(fzf --zsh)
 
 				##############
 				## SETTINGS ##

@@ -16,7 +16,7 @@
         zulip
         element-desktop
         signal-desktop-bin
-        whatsapp-for-linux
+        wasistlos
       ]
       ++ (if pkgs.stdenv.isx86_64 then [ discord ] else [ ]);
   };

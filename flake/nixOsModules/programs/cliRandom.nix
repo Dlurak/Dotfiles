@@ -17,6 +17,7 @@
       yazi
       duf
       glances
+	  htop
     ];
   };
 }

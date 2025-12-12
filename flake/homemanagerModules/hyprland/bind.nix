@@ -8,15 +8,15 @@ let
   mainMod = "SUPER";
   secondMod = "SUPER ALT";
 
-  agsPath = "${ags.packages.${pkgs.system}.ags}/bin/ags";
+  agsPath = "${ags.packages.${pkgs.stdenv.hostPlatform.system}.ags}/bin/ags";
 
   rules = import ./rules.nix;
-  bright = inputs.bright.packages.${pkgs.system}.default;
+  bright = inputs.bright.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   bind =
     let
-      screenshotNotify = import ../../noneNix/ags/nix/screenshot-notify.nix { inherit pkgs; };
+      screenshotNotify = import ../../nixOsModules/derivations/screenshot-notify.nix { inherit pkgs; };
       wvkbdCommand = import ./wvKbd.nix { inherit pkgs; };
       screenMirroring = "${
         import ../../nixOsModules/derivations/screen-mirroring.nix { inherit pkgs; }
@@ -30,7 +30,8 @@ in
 
       "${mainMod}, Return, exec, ${pkgs.kitty}/bin/kitty"
       "${mainMod} SHIFT, Return, exec, ${pkgs.ghostty}/bin/ghostty"
-      "${mainMod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
+      # "${mainMod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
+      "${mainMod}, D, exec, ${pkgs.rofi}/bin/rofi -show drun"
       "${mainMod}, W, exec, ${pkgs.firefox}/bin/firefox"
       "${mainMod} SHIFT, W, exec, ${pkgs.chromium}/bin/chromium"
       "${mainMod}, N, exec, ${pkgs.nautilus}/bin/nautilus"
@@ -112,8 +113,10 @@ in
 
       "${mainMod}, Y, exec, ${agsPath} toggle controll-center"
       "${mainMod} SHIFT, Y, exec, ${agsPath} toggle bar"
-      "${mainMod}, F8, exec, ${pkgs.rofi-wayland}/bin/rofi -show run"
-      "${mainMod}, F9, exec, ${pkgs.rofi-wayland}/bin/rofi -show window"
+      # "${mainMod}, F8, exec, ${pkgs.rofi-wayland}/bin/rofi -show run"
+      "${mainMod}, F8, exec, ${pkgs.rofi}/bin/rofi -show run"
+      # "${mainMod}, F9, exec, ${pkgs.rofi-wayland}/bin/rofi -show window"
+      "${mainMod}, F9, exec, ${pkgs.rofi}/bin/rofi -show window"
       "${mainMod}, F10, exec, ${
         import ../../nixOsModules/derivations/random-wall.nix {
           inherit pkgs lib;

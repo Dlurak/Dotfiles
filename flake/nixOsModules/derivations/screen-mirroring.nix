@@ -4,7 +4,8 @@
   runtimeInputs = with pkgs; [
     hyprland
     fzf
-    rofi-wayland
+    # rofi-wayland
+    rofi
   ];
   text = builtins.readFile ../customScripts/screen-mirroring.sh;
 })

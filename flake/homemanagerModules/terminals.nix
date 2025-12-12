@@ -46,9 +46,7 @@
         #############
         ## Theming ##
         #############
-        theme = "tokyonight_night";
-
-        custom-shader = "~/.config/ghostty/glow.glsl";
+        theme = "TokyoNight Night";
       };
     };
   };

@@ -11,6 +11,6 @@
 
   "suppressevent maximize, class:.*" # You'll probably like this.
 
-  "float,class:^(galculator)$"
+  "float,class:^(org.gnome.Calculator)$"
   "float,class:^(qemu)$"
 ]

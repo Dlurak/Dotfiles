@@ -15,13 +15,7 @@
 
   programs.spicetify =
     let
-      tokyonightTheme = pkgs.fetchFromGitHub {
-        owner = "Gspr-bit";
-        repo = "Spotify-Tokyo-Night-Theme";
-        rev = "d88ca06eaeeb424d19e0d6f7f8e614e4bce962be";
-        hash = "sha256-cLj9v8qtHsdV9FfzV2Qf4pWO8AOBXu51U/lUMvdEXAk=";
-      };
-      spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+      spicePkgs = spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
     in
     {
       enable = true;
@@ -33,15 +27,5 @@
         songStats
       ];
       enabledCustomApps = [ ];
-      theme = {
-        name = "Tokyo";
-        src = tokyonightTheme;
-        injectCss = true;
-        replaceColors = true;
-        overwriteAssets = true;
-        sidebarConfig = true;
-        homeConfig = true;
-      };
-      colorScheme = "Night";
     };
 }

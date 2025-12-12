@@ -16,6 +16,9 @@ return {
 	{ trigger = "center-body", body = "#align(center)[$1]" },
 	{ trigger = "center-code", body = "#align(center, $1)" },
 	{ trigger = "text", body = '#text(${1:blue}, ${2:""})' },
+	{ trigger = "text", body = '#text(${1:blue}, ${2:""})' },
+	{ trigger = "integral", body = 'integral_(${1:a})^(${2:b}) ${3} upright(d)x' },
+	{ trigger = "dx", body = 'dif x' },
 	{
 		trigger = "plot",
 		body = plot,

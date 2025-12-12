@@ -23,10 +23,11 @@
     programs.git = {
       enable = true;
 
-      userName = config.homeManagerModules.git.userName;
-      userEmail = config.homeManagerModules.git.email;
-
-      extraConfig = {
+      settings = {
+		  user = {
+			  name = config.homeManagerModules.git.userName;
+			  email = config.homeManagerModules.git.email;
+		  };
         credential =
           let
             credential.helper = [

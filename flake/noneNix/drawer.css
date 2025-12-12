@@ -1,0 +1,33 @@
+window {
+    background-color: rgba(26, 27, 38, 0.95);
+}
+
+entry {
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+button, image {
+    background: none;
+    border: none
+}
+
+button:hover {
+    background-color: rgba(187, 154, 247, 0.25);
+}
+
+#pinned-box {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px dotted rgba(187, 154, 247, 1);
+}
+
+#files-box {
+    padding: 5px;
+    border: 1px dotted gray;
+    border-radius: 15px
+}
+
+#math-label {
+    font-weight: bold;
+    font-size: 16px
+}

@@ -9,8 +9,6 @@
 let
   allColors = import ../../colors.nix;
   colors = allColors.hypr;
-  tokyoShell = import ./../../noneNix/ags/nix/build.nix { inherit ags pkgs; };
-  tokyoShellPath = "${tokyoShell}/bin/tokyo-shell";
 in
 {
   options = {
@@ -55,12 +53,7 @@ in
               "eDP-1,1920x1080,0x0,1"
               # "HDMI-A-2,1920x1080,1920x0,1,mirror,eDP-1"
             ];
-            exec-once = [
-              tokyoShellPath
-              "${pkgs.hyprpaper}/bin/hyprpaper"
-              "${pkgs.iio-hyprland}/bin/iio-hyprland"
-              (import ./wvKbd.nix { inherit pkgs; })
-            ];
+            exec-once = import ./exec-once.nix {inherit pkgs ags;};
             general = {
               gaps_in = 5;
               gaps_out = 8;
@@ -86,7 +79,7 @@ in
               };
             };
             animations = {
-              enabled = false;
+              enabled = true;
               bezier = "shot, 0.2, 1.0, 0.2, 1.0";
               animation = [
                 "windows, 1, 4, shot, slide"
@@ -122,8 +115,10 @@ in
             bindl = bind.bindl;
 
             windowrule = import ./rules.nix;
+			
+			env = [ "TERM,${pkgs.kitty}/bin/kitty" ];
           }
-          // import ./input.nix;
+          // (import ./input.nix { inherit pkgs; });
         };
     };
 }

@@ -6,4 +6,5 @@ final: prev: {
   };
   fortune = prev.fortune.override { withOffensive = true; };
   moxide = inputs.moxide.packages.${final.system}.default;
+  rofi-unwrapped = prev.rofi-unwrapped.override { x11Support = true; };
 }

@@ -3,7 +3,6 @@ with pkgs;
 [
   silicon # For :Silicon
   gcc # For treesitter
-  fzf # Telescope
   # Formatting
   nixfmt
   # Language Servers

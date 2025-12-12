@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.moxide.homeManagerModules.moxide
+
     ./git.nix
     ./gtk.nix
     ./homeManager.nix

@@ -1,10 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   colors = import ../../colors.nix;
   hex = colors.hex;
 in
 {
   imports = [ ../../homemanagerModules/default.nix ];
+
+  nixpkgs.overlays = import ../../nixOsModules/overlays { inherit inputs; };
 
   homeManagerModules.git.enable = true;
   homeManagerModules.gtk.enable = true;
@@ -57,13 +59,21 @@ in
       "/home/dlurak/Pictures Pictures"
       "/home/dlurak/Downloads Downloads"
       "/home/dlurak/Schule/Q Q-Phase"
-      "/home/dlurak/Schule/Q/Notizen/output Notizen"
+      "/home/dlurak/Schule/Q/Orga Q-Orga"
+      "/home/dlurak/Schule/Q/Notizen"
+      "/home/dlurak/Schule/Q/Stundenplan"
     ];
 
   home.file.".peaclock/config".text = ''
     set seconds on
     style active-bg ${hex.pink}
     style date ${hex.pink}
+  '';
+
+  home.file."-i".text = ''
+        When doing `rm ~/*` this expands to `rm -i ...` which asks for confirmation for every file
+
+    	Just another level of protection from stupid errors
   '';
 
   xdg.desktopEntries = {
@@ -81,7 +91,8 @@ in
     settings = {
       logo = {
         type = "command-raw";
-        source = "${pkgs.pokeget-rs}/bin/pokeget random --hide-name";
+        # source = "${pkgs.pokeget-rs}/bin/pokeget random --hide-name";
+        source = "${pkgs.pokeget-rs}/bin/pokeget random";
       };
       modules = [
         "break"

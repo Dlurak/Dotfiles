@@ -24,8 +24,8 @@ in
     ", edge:r:u, exec, ${pkgs.pamixer}/bin/pamixer -i 3"
     ", edge:r:d, exec, ${pkgs.pamixer}/bin/pamixer -d 3"
 
-    ", edge:l:u, exec, ${bright}/bin/bright --easing 'x^3' set 4%+"
-    ", edge:l:d, exec, ${bright}/bin/bright --easing 'x^3' set --min 1 4%-"
+    ", edge:l:u, exec, ${bright}/bin/bright set 4%+"
+    ", edge:l:d, exec, ${bright}/bin/bright set 'max(1, 4%-)'"
 
     ", edge:u:d, exec, ${pkgs.nwg-drawer}/bin/nwg-drawer"
 

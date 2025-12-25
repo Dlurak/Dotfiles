@@ -1,4 +1,5 @@
-{pkgs}: {
+{ pkgs }:
+{
   input = {
     kb_layout = "de";
     kb_options = "caps:escape";
@@ -11,10 +12,10 @@
     touchpad.natural_scroll = false;
   };
   gesture = [
-	"3, horizontal, workspace"
-	"3, up, scale: 1.5, fullscreen"
-	"3, down, scale: 1.5, dispatcher, exec, ${pkgs.nwg-drawer}/bin/nwg-drawer"
-	"4, down, close"
+    "3, horizontal, workspace"
+    "3, up, scale: 1.5, fullscreen"
+    "3, down, scale: 1.5, dispatcher, exec, ${pkgs.nwg-drawer}/bin/nwg-drawer"
+    "4, down, close"
   ];
   gestures = {
     workspace_swipe_cancel_ratio = 0.25;

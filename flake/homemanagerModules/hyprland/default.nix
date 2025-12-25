@@ -53,7 +53,7 @@ in
               "eDP-1,1920x1080,0x0,1"
               # "HDMI-A-2,1920x1080,1920x0,1,mirror,eDP-1"
             ];
-            exec-once = import ./exec-once.nix {inherit pkgs ags;};
+            exec-once = import ./exec-once.nix { inherit pkgs ags; };
             general = {
               gaps_in = 5;
               gaps_out = 8;
@@ -115,8 +115,8 @@ in
             bindl = bind.bindl;
 
             windowrule = import ./rules.nix;
-			
-			env = [ "TERM,${pkgs.kitty}/bin/kitty" ];
+
+            env = [ "TERM,${pkgs.kitty}/bin/kitty" ];
           }
           // (import ./input.nix { inherit pkgs; });
         };

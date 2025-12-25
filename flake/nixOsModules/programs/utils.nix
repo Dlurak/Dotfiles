@@ -13,13 +13,13 @@
     environment.systemPackages = with pkgs; [
       nh
       unzip
-	  zip
+      zip
       tokei
       pamixer
       pavucontrol
       wf-recorder
 
-	  kalker
+      kalker
 
       (writers.writeRustBin "colors" { } (builtins.readFile ../customScripts/colors.rs))
       (writers.writeRustBin "timestamp" { } (builtins.readFile ../customScripts/timestamp.rs))

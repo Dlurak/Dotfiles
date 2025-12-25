@@ -68,12 +68,11 @@
   };
   services.blueman.enable = true;
 
-
   services = {
     power-profiles-daemon.enable = true;
     fprintd.enable = true;
     printing.enable = true;
-	pipewire.wireplumber.enable = true;
+    pipewire.wireplumber.enable = true;
   };
 
   documentation.doc.enable = false;
@@ -123,10 +122,10 @@
   };
 
   services.cron = {
-	  enable = true;
-	  systemCronJobs = [
-		"*/10 * * * * ${pkgs.curl}/bin/curl -s https://dlool.onrender.com > /dev/null"
-	  ];
+    enable = true;
+    systemCronJobs = [
+      "*/10 * * * * ${pkgs.curl}/bin/curl -s https://dlool.onrender.com > /dev/null"
+    ];
   };
 
   home-manager = {

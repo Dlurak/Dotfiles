@@ -142,8 +142,8 @@ in
   bindel = [
     ", XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer -d 2"
     ", XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer -i 2"
-    ", XF86MonBrightnessUp, exec, ${bright}/bin/bright --easing 'x^3' set 5%+"
-    ", XF86MonBrightnessDown, exec, ${bright}/bin/bright --easing 'x^3' set 5%-"
+    ", XF86MonBrightnessUp, exec, ${bright}/bin/bright set 4%+"
+    ", XF86MonBrightnessDown, exec, ${bright}/bin/bright set 'max(1, 4%-)'"
   ];
   bindl = [
     ", XF86AudioMute, exec, ${pkgs.pamixer}/bin/pamixer -t"

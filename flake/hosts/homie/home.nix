@@ -75,13 +75,15 @@ in
 
     	Just another level of protection from stupid errors
   '';
+  home.file.".config/bright/easings".text = "intel_backlight = x^3";
 
   xdg.desktopEntries = {
     peaclock = {
       name = "Peaclock";
-      genericName = "Clock";
-      exec = "${pkgs.kitty}/bin/kitty \"${pkgs.peaclock}/bin/peaclock\"";
-      terminal = false;
+      genericName = "Peaclock";
+      # exec = "${pkgs.kitty}/bin/kitty \"${pkgs.peaclock}/bin/peaclock\"";
+      exec = "${pkgs.peaclock}/bin/peaclock";
+      terminal = true;
       categories = [ "Applications" ];
     };
   };
@@ -89,10 +91,16 @@ in
   programs.fastfetch = {
     enable = true;
     settings = {
-      logo = {
+      logo = let
+	  poke = pkgs.writeShellApplication {
+	  name="poke";
+	  runtimeInputs = [ pkgs.krabby ];
+	  text = builtins.readFile ../../nixOsModules/customScripts/random-pokemon.sh;
+	  };
+	  in {
         type = "command-raw";
         # source = "${pkgs.pokeget-rs}/bin/pokeget random --hide-name";
-        source = "${pkgs.pokeget-rs}/bin/pokeget random";
+        source = "${poke}/bin/poke";
       };
       modules = [
         "break"

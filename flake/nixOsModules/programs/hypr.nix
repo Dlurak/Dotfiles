@@ -21,7 +21,7 @@
       hyprpaper
       hyprsunset
       wlinhibit
-	  hyprmon
+      hyprmon
 
       (writeShellApplication {
         name = "move-ws";

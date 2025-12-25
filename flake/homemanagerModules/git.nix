@@ -24,10 +24,10 @@
       enable = true;
 
       settings = {
-		  user = {
-			  name = config.homeManagerModules.git.userName;
-			  email = config.homeManagerModules.git.email;
-		  };
+        user = {
+          name = config.homeManagerModules.git.userName;
+          email = config.homeManagerModules.git.email;
+        };
         credential =
           let
             credential.helper = [

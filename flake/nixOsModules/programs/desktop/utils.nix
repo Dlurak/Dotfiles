@@ -19,7 +19,7 @@
       resources
       zathura
 
-	  smile
+      smile
     ];
   };
 }

@@ -34,7 +34,7 @@ in
       ])
       ++ (with customFonts; [
         pilowlava
-		modak
+        modak
         spaceGrotesk
         SF-Pro
       ]);

@@ -7,10 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-	ags = {
+    ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
-	};
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,7 +43,7 @@
       ags,
       spicetify-nix,
       ...
-    } @ inputs:
+    }@inputs:
     let
       forAllSystems =
         function:

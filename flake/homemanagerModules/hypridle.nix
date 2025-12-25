@@ -34,8 +34,8 @@ in
           }
           {
             timeout = lockTimeout - lockDarkening;
-            on-timeout = "${bright}/bin/bright --easing 'x^3' set 25% --save --duration 600ms";
-            on-resume = "${bright}/bin/bright --easing 'x^3' set restore --duration 600ms";
+            on-timeout = "${bright}/bin/bright set 'clamp(1, 60%-, 25%)' --save --duration 600ms";
+            on-resume = "${bright}/bin/bright set restore --duration 600ms";
           }
           {
             timeout = lockTimeout;

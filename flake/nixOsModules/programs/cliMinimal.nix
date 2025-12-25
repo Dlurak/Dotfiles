@@ -21,7 +21,7 @@
       tmux
       inputs.moxide.packages.${pkgs.stdenv.hostPlatform.system}.default
       (import ../derivations/mox.nix { inherit pkgs inputs; })
-      (pkgs.callPackage ../derivations/habitctl.nix {})
+      (pkgs.callPackage ../derivations/habitctl.nix { })
       jq
     ];
     programs.nano.enable = false;
